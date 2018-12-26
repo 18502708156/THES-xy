@@ -1,0 +1,35 @@
+{
+  "15fe3d9c86c": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_创建角色\\C_创建角色（登录）.jpg"
+  },
+  "global": {
+    "globalAutoLayerMarkEnable": false
+  },
+  "162b9562f34": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1
+  },
+  "162b9562f35": {
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundAlpha": 100,
+    "backgroundType": "user",
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_创建角色\\C_创建角色（服务器选择）.jpg"
+  },
+  "162b96970f5": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_创建角色\\C_创建角色（加载）.jpg"
+  }
+}

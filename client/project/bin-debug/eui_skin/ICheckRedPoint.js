@@ -1,0 +1,1 @@
+//# sourceMappingURL=ICheckRedPoint.js.map

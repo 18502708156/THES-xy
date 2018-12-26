@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>大闹天宫</title>
+	<!--防止index.html被浏览器缓存--begin-->
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="0">
+	<!--防止index.html被浏览器缓存--over-->
+	<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="full-screen" content="true" />
+	<meta name="screen-orientation" content="portrait" />
+	<meta name="x5-fullscreen" content="true" />
+	<meta name="360-fullscreen" content="true" />
+	<style>
+        html, body {
+            -ms-touch-action: none;
+            background: #000000;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+			overflow: hidden;
+        }
+    </style>
+
+</head>
+<body onload="ready()" onunload="closeSocket()" ondragstart="return false" >
+<div style="margin: auto;width: 100%;height: 100%;" class="egret-player" data-entry-class="Main" data-orientation="auto" data-scale-mode="showAll" data-frame-rate="30" data-show-paint-rect="false"
+data-content-width="720" data-content-height="1280" data-multi-fingered="2" data-show-fps="false" data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.2">
+
+<div id="bgimgbg">
+<div id="bgimg">
+<div id="loader">
+        <div class="loader-inner ball-spin-fade-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+		<div id="load_text">正在加载...</div>	
+   </div>
+</div>
+</div>
+</div>
+
+</div>
+
+<style>
+	#bgimgbg{
+		height: 100%;
+		width: 100%;
+	}
+	
+	#bgimg{
+		overflow: hidden;
+		background-image: url(https://res.zzbyres01.lianyu.com/gres/g6/res/start_res/7/resource/assets/game_start/ui_xzfwq_p_show.jpg);
+		background-position:top center;
+		background-size:100% 100%;  
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		display: flex;
+		display: -webkit-flex;
+		-webkit-justify-content:center;
+		justify-content:center;
+		-webkit-align-items:center;
+		align-items:center;
+	}
+
+    .loader-inner{
+		left: 50%;
+		height: 5rem;
+	}
+	#load_text{
+        width: 100%;
+		text-align: center;
+		color: #ffffff;
+		font-size:1rem;
+		text-shadow:#000000 1px 1px;
+	}
+	@-webkit-keyframes ball-spin-fade-loader {
+	50% {
+		opacity: 0.3;
+		-webkit-transform: scale(0.4);
+				transform: scale(0.4); }
+
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+				transform: scale(1); } }
+
+	@keyframes ball-spin-fade-loader {
+	50% {
+		opacity: 0.3;
+		-webkit-transform: scale(0.4);
+				transform: scale(0.4); }
+
+	100% {
+		opacity: 1;
+		-webkit-transform: scale(1);
+				transform: scale(1); } }
+
+	.ball-spin-fade-loader {
+	position: relative; }
+	.ball-spin-fade-loader > div:nth-child(1) {
+		top: 25px;
+		left: 0;
+		-webkit-animation: ball-spin-fade-loader 1s 0s infinite linear;
+				animation: ball-spin-fade-loader 1s 0s infinite linear; }
+	.ball-spin-fade-loader > div:nth-child(2) {
+		top: 17.04545px;
+		left: 17.04545px;
+		-webkit-animation: ball-spin-fade-loader 1s 0.12s infinite linear;
+				animation: ball-spin-fade-loader 1s 0.12s infinite linear; }
+	.ball-spin-fade-loader > div:nth-child(3) {
+		top: 0;
+		left: 25px;
+		-webkit-animation: ball-spin-fade-loader 1s 0.24s infinite linear;
+				animation: ball-spin-fade-loader 1s 0.24s infinite linear; }
+	.ball-spin-fade-loader > div:nth-child(4) {
+		top: -17.04545px;
+		left: 17.04545px;
+		-webkit-animation: ball-spin-fade-loader 1s 0.36s infinite linear;
+				animation: ball-spin-fade-loader 1s 0.36s infinite linear; }
+	.ball-spin-fade-loader > div:nth-child(5) {
+		top: -25px;
+		left: 0;
+		-webkit-animation: ball-spin-fade-loader 1s 0.48s infinite linear;
+				animation: ball-spin-fade-loader 1s 0.48s infinite linear; }
+	.ball-spin-fade-loader > div:nth-child(6) {
+		top: -17.04545px;
+		left: -17.04545px;
+		-webkit-animation: ball-spin-fade-loader 1s 0.6s infinite linear;
+				animation: ball-spin-fade-loader 1s 0.6s infinite linear; }
+	.ball-spin-fade-loader > div:nth-child(7) {
+		top: 0;
+		left: -25px;
+		-webkit-animation: ball-spin-fade-loader 1s 0.72s infinite linear;
+				animation: ball-spin-fade-loader 1s 0.72s infinite linear; }
+	.ball-spin-fade-loader > div:nth-child(8) {
+		top: 17.04545px;
+		left: -17.04545px;
+		-webkit-animation: ball-spin-fade-loader 1s 0.84s infinite linear;
+				animation: ball-spin-fade-loader 1s 0.84s infinite linear; }
+	.ball-spin-fade-loader > div {
+		background-color: #fff;
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		margin: 2px;
+		-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+		position: absolute; }
+
+</style>
+<script type="text/javascript">
+	function __CalcScreen() {
+		var bgimgbg = document.getElementById("bgimgbg")
+		if (!bgimgbg) {
+			return
+		}
+		var myimg = document.getElementById("bgimg");
+		if (!myimg || !bgimgbg) {
+			return
+		}
+
+		var rect = bgimgbg.getBoundingClientRect()
+		var screenWidth = rect.width
+		var screenHeight = rect.height
+		
+		var ratio = screenWidth / screenHeight
+		if (ratio < 0.5) {
+			var scaleX = (screenWidth / 720) || 0;
+			displayHeight = Math.round(1440 * scaleX);
+		} else {
+			displayHeight = screenHeight
+		}
+		var displayWidth = Math.floor(displayHeight / 4 * 3)
+
+		myimg.style.width = displayWidth + "px";
+		myimg.style.height = displayHeight + "px";
+		myimg.style.top = ((screenHeight - displayHeight) >> 1) + "px";
+		myimg.style.left = ((screenWidth - displayWidth) >> 1) + "px";
+	}
+
+	window.addEventListener("resize", __CalcScreen);
+	__CalcScreen()
+</script>
+
+<script type="text/javascript" src="https://gameplay.49you.com/js/gameyou49.js"></script>
+
+<script type="text/javascript">
+	var getRequest = GetRequest();
+	function GetRequest() {
+		var url = location.search;      //获取url中"?"符后的字串   
+		var theRequest = new Object();
+		if (url.indexOf("?") != -1) {
+			var str = url.substr(1);
+			strs = str.split("&");
+			for (var i = 0; i < strs.length; i++) {
+				theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			}
+		}
+		return theRequest;
+	}
+
+	var __GAME_VER__ = 4;
+
+	var _URL_ROOT_ = "https://res.zzbyres01.lianyu.com/gres/g6/";                   //根目录
+	var verData = {}
+	var __CONFIG__ = {
+		"__SER_URL__":"dntg-p49you.f5yx.com",
+		"__PLATFORM_ID__": 1,             	//平台ID
+		"__GAME_ID__": 6,                  	//游戏ID
+		"__RES_URL__": _URL_ROOT_ + "rel/",
+		"__START_RES__": _URL_ROOT_ + "res/start_res/7/",
+	}
+
+	function ready() {
+		var list = [
+			__CONFIG__.__START_RES__ + "merged1.js",
+		];
+
+		window.loadScript(list, function () {
+			egret.runEgret({ renderMode: "webgl", audioType: 0 });
+		});
+	}
+
+	var loadScript = function (list, callback) {
+		if (list.length < 1) {
+			callback()
+			return
+		}
+		var loaded = 0;
+		var startLen = 0
+		var loadNext = function () {
+			for (var i = 0; i < 10; ++i) {
+				var url = list[loaded++]
+				if (url) {
+					loadSingleScript(url, function () {
+						startLen++;
+						if (startLen >= list.length) {
+							callback();
+						}
+						else {
+							loadNext();
+						}
+						if (window.Main && window.Main.Instance) {
+							var _p = startLen / list.length
+							Main.Instance.UpdateLoadingUI(true, "正在加载基础库", _p * 0.2, _p, 1)
+						}
+					})
+				}
+			}
+		};
+		loadNext();
+	};
+
+	var loadSingleScript = function (src, callback) {
+		var s = document.createElement('script');
+		s.type = "text/javascript";
+		s.setAttribute('crossorigin', '');
+		s.async = false;
+		s.src = src;
+		s.addEventListener('load', function () {
+			s.parentNode.removeChild(s);
+			s.removeEventListener('load', arguments.callee, false);
+			callback();
+		}, false);
+		document.body.appendChild(s);
+	};
+
+	function __StartLoading() {
+		var xhr = new XMLHttpRequest();
+		var gameVer = Math.max(Main.Instance.mConnectServerData.version, window.__GAME_VER__)
+		xhr.open('GET', _URL_ROOT_ + "ver/ver" + gameVer + "_" + __CONFIG__.__GAME_ID__ + ".json", true);
+		xhr.addEventListener("load", function () {
+			var manifest = JSON.parse(xhr.response);
+			window.verData = manifest;
+			var mainjsVer = manifest["main.min.js"] || manifest["__base_ver__"]
+			var list = [
+				__CONFIG__.__START_RES__ + "merged2.js",
+				__CONFIG__.__RES_URL__ + mainjsVer + "/main_" + __CONFIG__.__GAME_ID__ + "_" + mainjsVer+ ".min.js",
+			]
+			window.loadScript(list, function () {
+				StartMain.RunGame()
+			});
+		});
+		xhr.send(null);
+	}
+
+	function __RemoveBg() {
+		var myimg = document.getElementById("bgimgbg");
+		if (!myimg) {
+			return
+		}
+		myimg.parentElement.removeChild(myimg)
+		window.removeEventListener("resize", __CalcScreen);
+	}
+
+	function _startLoading(str) {
+		var myloading = document.getElementById("loader");
+		var load_text = document.getElementById("load_text");
+		if (!myloading || !load_text) {
+			return
+		}
+		load_text.innerText = str
+		myloading.style.display = "block"
+	}
+
+	function __RemoveLoading() {
+		var myloading = document.getElementById("loader");
+		if (!myloading) {
+			return
+		}
+		myloading.parentElement.removeChild(myloading)
+	}
+
+
+	function closeSocket() {
+		if (Main.closesocket) {
+			Main.closesocket();
+		} else {
+			console.error("not Main.closesocket")
+		}
+	}
+
+	function showGame() {
+
+	}
+	function _LoginToken(callback) {
+		if (!getRequest.reurl) {
+			return
+		}
+		var str = getRequest.appid + "," + getRequest.extinfo + "," + getRequest.openid + "," + Base64.encode(getRequest.reurl) + "," + getRequest.sid + "," + getRequest.source + "," + getRequest.time + "," + getRequest.userId + "," + getRequest.sign;
+		console.log(str)
+		callback(str)
+		_startLoading("验证帐号...")
+
+		gameyou49.init({
+			appid: getRequest.appid,        //登录时appid
+			openid: getRequest.openid,      //登录时openid
+			source: getRequest.source,     //登录时source
+			extinfo: getRequest.extinfo,   //登录时extinfo
+		});
+	}
+
+	function __REC__(orderInfo) {
+		var order_k = {
+			"amount": orderInfo.amount,
+			"itemname": orderInfo.subject,
+			"item_id": orderInfo.goodsId,
+			"playername": orderInfo.username,
+			"sid": orderInfo.userServer,
+			"appid": getRequest.appid,
+			"cp_orderId": orderInfo.cpNo,
+			"userId": orderInfo.userRoleId,
+			"extinfo": orderInfo.extrasParams,
+			"sign": getRequest.sign
+		};
+		gameyou49.pay(order_k);
+	}
+</script>
+
+</body>
+
+</html>

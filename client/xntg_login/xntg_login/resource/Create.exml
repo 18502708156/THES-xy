@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Create" width="720" height="1280" xmlns:e="http://ns.egret.com/eui">
+	<e:Group width="0" height="0" y="0" horizontalCenter="0">
+		<e:Image source="_ui_cjjs_p_show_jpg" x="-480" y="0" scaleX="1" scaleY="1"/>
+		<e:Group x="-118.33" y="259.99" scaleX="1" scaleY="1">
+			<e:Image source="_ui_cjjs_p@22_22_22_22_png" x="0" y="0" scale9Grid="13,13,31,26" anchorOffsetX="0" width="237" anchorOffsetY="0" height="624"/>
+			<e:Image source="_ui_cjjs_p@20_22_20_22_png" x="11" y="10" scale9Grid="7,6,43,40" anchorOffsetX="0" width="215" anchorOffsetY="0" height="606"/>
+		</e:Group>
+		<e:Group width="85" height="67" x="152" y="945" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"/>
+		<e:Group width="374" height="103" x="-187" y="1092" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1"/>
+		<e:EditableText width="319" height="52" text="Label" x="-169" y="952" anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" verticalAlign="middle" textAlign="center" size="24"/>
+	</e:Group>
+	<e:TextInput width="353" height="54" x="170" y="191" anchorOffsetX="0" anchorOffsetY="0"/>
+</e:Skin>

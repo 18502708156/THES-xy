@@ -1,0 +1,28 @@
+{
+	"initial": [
+		"libs/modules/egret/egret.js",
+		"libs/modules/egret/egret.web.js",
+		"libs/modules/game/game.js",
+		"libs/modules/res/res.js",
+		"libs/modules/eui/eui.js",
+		"libs/modules/socket/socket.js",
+		"promise/bin/promise.js"
+	],
+	"game": [
+		"bin-debug/NoticeUI.js",
+		"bin-debug/Base64.js",
+		"bin-debug/GameServerData.js",
+		"bin-debug/HttpHelper.js",
+		"bin-debug/LoadingUI.js",
+		"bin-debug/LoginUI.js",
+		"bin-debug/Main.js",
+		"bin-debug/CreateRoleUI.js",
+		"bin-debug/ServerUI.js",
+		"bin-debug/Socket.js",
+		"bin-debug/WindowData.js",
+		"bin-debug/eff/RainLine.js",
+		"bin-debug/eff/WeatherBase.js",
+		"bin-debug/eff/WeatherFactory.js",
+		"bin-debug/eff/WeatherFlower.js"
+	]
+}

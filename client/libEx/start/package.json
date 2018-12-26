@@ -1,0 +1,15 @@
+{
+	"name": "egret",
+	"version": "1.0.0",
+	"modules": [
+		{
+			"name": "start",
+			"description": "libEx/start",
+			"files": [
+				"start.min.js",
+				"start.min.d.ts"
+			],
+			"root": "src"
+		}
+	]
+}

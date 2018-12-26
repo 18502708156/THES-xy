@@ -1,0 +1,57 @@
+
+--require("lfs")
+--curPath = lfs.currentdir()
+
+require"lfs"
+function findindir(path, wefind, r_table, intofolder)
+    for file in lfs.dir(path) do
+        if file ~= "." and file ~= ".." then
+            local f = path..'\\'..file
+            --print ("\t "..f)
+            if string.find(f, wefind) ~= nil then
+                --print("\t "..f)
+                table.insert(r_table, f)
+            end
+            local attr = lfs.attributes(f)
+            assert(type(attr) == "table")
+            if attr.mode == "directory" and intofolder then
+                findindir(f, wefind, r_table, intofolder)
+            else
+                --for name, value in pairs(attr) do
+                --    print (name, value)
+                --end
+            end
+        end
+    end
+end
+
+-- 自定义解析类
+customClassName = {"MonstersConfig", "ChaptersConfig", "SkillsConfig", "InstanceConfig", "EffectsConfig", 
+
+"HeroAttrsConfig", "HeroStarConfig", "SkillGroupConfig", "SkillBaseConfig", "SkillBuffConfig", "SkillsExeConfig"}
+
+local cfgPath = "..\\..\\..\\config\\data\\client"
+local oldPath = lfs.currentdir()
+lfs.chdir(cfgPath)
+luaPath = lfs.currentdir()
+lfs.chdir(oldPath)
+outputPath = "%cd%"
+langFile = "\\language\\lang.config"
+--print(langFile)
+
+local currentFolder = luaPath
+
+-- local input_table = {"E:/lycq/config/data/client/hero/heroattrs.config"}
+local input_table = {}
+findindir(currentFolder, "%.config", input_table, true)--查找txt文件
+
+luaFiles = {}
+for _, v in pairs(input_table) do
+    if not string.find(v, "language") then
+        local file = io.open(v)
+        local readret = file:read("*l")
+        file:close()
+        readret = string.sub(string.match(readret, "^.+={"), 1, -3)
+        table.insert(luaFiles, { v, readret })
+    end
+end

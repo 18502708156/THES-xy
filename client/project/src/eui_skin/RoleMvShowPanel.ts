@@ -1,0 +1,1 @@
+class RoleMvShowPanel extends RoleShowPanel{}

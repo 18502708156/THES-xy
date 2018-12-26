@@ -1,0 +1,4 @@
+class VitalityData {
+	id
+	state
+}

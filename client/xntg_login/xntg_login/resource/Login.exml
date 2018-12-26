@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Login" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<w:Config id="15fe3d9c86c"/>
+	<e:Image y="0" horizontalCenter="0" source="ui_bm_denglubg" x="-360.00000000000006" scaleX="1" scaleY="1"/>
+	<e:Group width="0" height="0" y="0" x="360">
+		<e:Image y="814" anchorOffsetX="0" source="ui_bm_fuwuqimingchengbg" x="-219" scaleX="1" scaleY="1"/>
+		<e:Image source="ui_bm_fuwuqimingchengbg" y="905.0000000000001" anchorOffsetX="0" horizontalCenter="0" x="-219.00000000000006" scaleX="1" scaleY="1"/>
+		<e:Image y="929" anchorOffsetX="0" source="ui_bt_dianjixuanfu" x="96.99999999999994" scaleX="1" scaleY="1"/>
+		<e:Image y="928" anchorOffsetX="0" x="-201.00000000000003" source="ui_icon_yonji" scaleX="1" scaleY="1"/>
+		<e:Image y="1015" source="ui_bt_kaishiyouxi" x="-176" scaleX="1" scaleY="1"/>
+		<e:Label text="最新服" x="-104.00000000000006" y="840" size="24" textColor="0x00f708" scaleX="1" scaleY="1"/>
+		<e:Label text="最新服" x="-11.000000000000057" y="840" size="24" textColor="0xfefefe" scaleX="1" scaleY="1"/>
+		<e:Label text="最新服" x="-162.00000000000006" y="931" size="24" textColor="0xfefefe" scaleX="1" scaleY="1"/>
+	</e:Group>
+</e:Skin>

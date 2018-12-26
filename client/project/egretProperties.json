@@ -1,0 +1,56 @@
+{
+	"egret_version": "5.0.13",
+	"modules": [
+		{
+			"name": "egret"
+		},
+		{
+			"name": "game"
+		},
+		{
+			"name": "res"
+		},
+		{
+			"name": "tween"
+		},
+		{
+			"name": "socket"
+		},
+		{
+			"name": "eui"
+		},
+		{
+			"path": "../libEx/jszip",
+			"name": "jszip"
+		},
+		{
+			"path": "../libEx/start",
+			"name": "start"
+		},
+		{
+			"path": "../libEx/ceui",
+			"name": "ceui"
+		},
+		{
+			"name": "promise",
+			"path": "./promise"
+		}
+	],
+	"publish": {
+		"web": 0,
+		"path": "bin-release",
+		"native": 1
+	},
+	"native": {
+		"path_ignore": []
+	},
+	"eui": {
+		"exmlRoot": [
+			"resource/skins"
+		],
+		"themes": [
+			"resource/default.thm.json"
+		],
+		"exmlPublishPolicy": "gjs"
+	}
+}

@@ -1,0 +1,11 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# Sprite sheet: {{texture.fullName}} ({{texture.size.width}} x {{texture.size.height}})
+# {{smartUpdateKey}}
+#
+{% load TransformCoords %}{{texture.size.height|setTextureHeight}}{% for sprite in allSprites %}
+{{sprite.trimmedName}};{{sprite.frameRect.x}};{{sprite|MirroredFrameRectY}};{{sprite.frameRect.width}};{{sprite.frameRect.height}};{{sprite|TrimmedPivotX}};{{sprite|TrimmedMirroredPivotY}}{% endfor %}

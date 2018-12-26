@@ -1,0 +1,3 @@
+interface ICheckRedPoint {
+	CheckRedPoint(): boolean
+}

@@ -1,0 +1,760 @@
+{
+  "global": {
+    "globalAutoLayerMarkEnable": false,
+    "globalAdsorbEnable": false,
+    "globalRulerEnable": true,
+    "globalBindingDataTestObj": [],
+    "gridColor": 8421504,
+    "gridEnabled": false,
+    "gridSize": 20,
+    "globalBackgroundAlpha": 100,
+    "globalBackgroundX": 0,
+    "globalBackgroundY": 0,
+    "globalBackgroundWidth": -1,
+    "globalBackgroundHeight": -1,
+    "globalBackgroundColor": "",
+    "globalBackgroundImage": ""
+  },
+  "15b6cf3fae9": {
+    "path": "eui_skin\\CommonWindowBg.ts",
+    "class": "CommonWindowBg",
+    "parentPath": "",
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_主角2.jpg"
+  },
+  "15b6cf3fa10": {
+    "path": "eui_skin\\PowerLabel.ts",
+    "class": "PowerLabel",
+    "parentPath": "",
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\vip\\VIP.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100,
+    "guideLinesEnabled": false,
+    "guideLines": [
+      {
+        "type": "h",
+        "pos": -30
+      }
+    ],
+    "bindingDataTestObj": [
+      {
+        "key": "bindingTestKey0",
+        "value": "xxe"
+      }
+    ]
+  },
+  "15b6faf67aa": {
+    "path": "eui_skin\\CommonWindowBgTitle.ts",
+    "class": "CommonWindowBgTitle",
+    "parentPath": ""
+  },
+  "158bdbea381": {
+    "path": "game\\module\\forge\\view\\CircleRunView.ts",
+    "class": "CircleRunView",
+    "parentPath": ""
+  },
+  "1586b1383e3": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundAlpha": 100,
+    "guideLines": [
+      {
+        "type": "h",
+        "pos": 510
+      }
+    ],
+    "backgroundType": "user",
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_主角2.jpg"
+  },
+  "15b9f08a72b": {
+    "guideLines": [
+      {
+        "type": "v",
+        "pos": 23
+      }
+    ]
+  },
+  "15bb4d0c9c4": {
+    "path": "eui_skin\\CommonDialog.ts",
+    "class": "CommonDialog",
+    "parentPath": ""
+  },
+  "15bb9208c8a": {
+    "path": "eui_skin\\ConsumeLabel.ts",
+    "class": "ConsumeLabel",
+    "parentPath": ""
+  },
+  "15bd808720e": {
+    "path": "eui_skin\\RoleShowPanel.ts",
+    "class": "RoleShowPanel",
+    "parentPath": ""
+  },
+  "15d216a44aa": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\Administrator\\Desktop\\全民boss.psd"
+  },
+  "15d4fa7af51": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundAlpha": 100,
+    "backgroundType": "user",
+    "backgroundImage": "C:\\Users\\Administrator\\Desktop\\沙城争霸获胜红包_.png"
+  },
+  "15d4fd803b8": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\Administrator\\Desktop\\沙城争霸获胜红包_.png"
+  },
+  "15d4fe3cb27": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\Administrator\\Desktop\\沙城争霸获胜红包-恭喜获得_.png"
+  },
+  "15d5030d256": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\Administrator\\Desktop\\沙城争霸-奖励分配_看.png"
+  },
+  "15f94526f62": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundAlpha": 100,
+    "backgroundType": "user",
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_主城（新排版）1.jpg"
+  },
+  "15f9fce845b": {
+    "guideLines": [
+      {
+        "type": "v",
+        "pos": 461
+      }
+    ]
+  },
+  "15fcde43157": {
+    "bindingDataTestObj": [],
+    "guideLinesEnabled": false,
+    "backgroundType": "null",
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\vip\\VIP.jpg",
+    "backgroundAlpha": "100",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": false,
+    "useBgColor": true
+  },
+  "15fcde8093a": {
+    "backgroundType": "user",
+    "useBgImage": false,
+    "useBgColor": false,
+    "backgroundAlpha": 100,
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1
+  },
+  "15fe6d4e29f": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\vip\\VIP.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "15fe6e5b657": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
+  },
+  "1600d3834b6": {
+    "backgroundType": "user"
+  },
+  "1600d3834b7": {
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\战斗结算\\战斗结算4.jpg",
+    "backgroundType": "user"
+  },
+  "1600d425210": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\战斗结算\\战斗结算5.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "16010b4d49e": {
+    "backgroundType": "null",
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\战斗结算\\战斗结算8.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
+  },
+  "16010e93ddf": {
+    "backgroundType": "user",
+    "backgroundImage": "D:\\develop\\lyb\\assets\\__out__\\art\\ui\\王者争霸\\王者争霸.jpg"
+  },
+  "1603f30857a": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\战斗结算\\战斗结算2.jpg"
+  },
+  "16044871604": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\心法\\心法2.jpg"
+  },
+  "16048aa7f35": {
+    "backgroundType": "null",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
+  },
+  "160ee877334": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\红颜\\红颜.jpg"
+  },
+  "160eea56085": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\红颜\\激活红颜.jpg"
+  },
+  "160eec1dba2": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\lyb\\assets\\art\\ui\\红颜\\侍女询问2.jpg"
+  },
+  "161130e04f7": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_创建角色\\C_创建角色.jpg"
+  },
+  "1616c222348": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": true,
+    "backgroundAlpha": 100
+  },
+  "16175948853": {
+    "backgroundType": "user",
+    "useBgImage": false,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180208212158.png"
+  },
+  "162615bd395": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_主城（新排版）1.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "162615fe13c": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_战斗界面（角色技能选择）.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "1626177cbbc": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180326164059.png"
+  },
+  "16262790504": {
+    "backgroundType": "user",
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_战斗界面(自动模式3).jpg",
+    "useBgImage": true,
+    "useBgColor": false
+  },
+  "160b67b7861": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_主界面2（2级弹窗）.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "162678cb66d": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\G_关卡BOSS.jpg"
+  },
+  "16267e1eb2c": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\J_结算（挑战成功）.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "16267fb128c": {
+    "backgroundType": "null",
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\J_结算（挑战失败）.jpg",
+    "useBgImage": true,
+    "useBgColor": false
+  },
+  "162681508cb": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\B_背包.jpg"
+  },
+  "162681bec84": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\B_背包（道具）.jpg"
+  },
+  "1586b38ac83": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\B_背包开启.jpg"
+  },
+  "1586b3b34b9": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\B_背包熔炼.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "16271c33c42": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\D_锻造（锻炼）.jpg"
+  },
+  "16271c48fd2": {
+    "backgroundType": "user",
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\D_锻造（锻炼）.jpg",
+    "useBgImage": true,
+    "useBgColor": false
+  },
+  "16271c914a9": {
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundAlpha": 100,
+    "backgroundType": "user",
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\D_锻造（锻炼）.jpg"
+  },
+  "16271f67ffa": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\D_锻造（宝石）.jpg"
+  },
+  "1627603db56": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\Z_坐骑（技能升级1）.jpg"
+  },
+  "162760c9e8e": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\B_帮会\\B_帮会（帮会副本01）.jpg"
+  },
+  "1628677c2fa": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_翅膀\\C_翅膀（属性丹）.jpg"
+  },
+  "1628ab41336": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_翅膀\\C_翅膀.jpg"
+  },
+  "1628afab306": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物.jpg"
+  },
+  "1628b0a96f5": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物.jpg"
+  },
+  "1628b2b543e": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物（洗练）.jpg"
+  },
+  "1628b357c05": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物（技能洗练）.jpg"
+  },
+  "162905526a9": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物（未激活1）.jpg"
+  },
+  "16293b4f687": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物（资质）.jpg"
+  },
+  "16293d9f42f": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物（出战设置）.jpg"
+  },
+  "16294781b53": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物（技能说明）.jpg"
+  },
+  "16294836fbc": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\C_宠物\\C_宠物（详细属性）.jpg"
+  },
+  "162950eee5e": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙侣\\X_仙侣.jpg"
+  },
+  "1629529c48b": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙侣\\X_仙侣（升星）.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "162952cb17a": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙侣\\X_仙侣（未激活）.jpg"
+  },
+  "162a53d894c": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙侣\\X_仙侣（奇缘说明）.jpg"
+  },
+  "162a9e5f3e8": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180409181328.png",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "162a9fdc966": {
+    "backgroundType": "user"
+  },
+  "162a9fdc967": {
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\B_BOSS\\B_BOSS（野外BOSS）.jpg",
+    "backgroundType": "user"
+  },
+  "162aaf6644c": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\B_BOSS\\B_BOSS（野外BOSS挑战）.jpg"
+  },
+  "162ae464630": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\F_副本\\F_副本（勇闯天庭）.jpg"
+  },
+  "162ae48e599": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180410144015.png"
+  },
+  "162ae571ad0": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180410145602.png"
+  },
+  "1634a5a6a73": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180510220024.png",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "163671b7abd": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_战斗界面\\Z_战斗界面（伤害排行）.jpg"
+  },
+  "16368f00848": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（有冠军）.jpg"
+  },
+  "16369412bb8": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（活动提示）.jpg"
+  },
+  "1636cebf862": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（结束）.jpg"
+  },
+  "1636d7ba8be": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（进行中）.jpg"
+  },
+  "1636e81203e": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（押注）.jpg",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "1637280cb36": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（对战信息）.jpg"
+  },
+  "1637286cb9e": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180518171342.png"
+  },
+  "163729ebb8d": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（胜利）.jpg"
+  },
+  "16382e3a1bd": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_仙道会\\X_仙道会（奖励说明）.jpg"
+  },
+  "163a579161b": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\K_跨服BOSS\\K_跨服BOSS（场景）.jpg"
+  },
+  "163b5362f48": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\J_进阶奖励\\J_进阶奖励.png"
+  },
+  "163b540be31": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "C:\\Users\\yiz\\Desktop\\TIM截图20180531161142.png"
+  },
+  "163b61d448b": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\Z_主界面\\Z_主界面（聊天好友）.jpg"
+  },
+  "163b68061a4": {
+    "guideLines": [
+      {
+        "type": "v",
+        "pos": 156.8
+      }
+    ]
+  },
+  "163c9b90924": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\workProjects\\xiYou\\assets\\art\\ui\\Q_七天尊享\\Q_七天尊享（低价贩售）.png",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "163dd68bb83": {
+    "backgroundType": "null",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\L_灵童\\L_灵童（升阶）.png"
+  },
+  "163de0456fc": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\L_灵童\\L_灵童（技能）.png"
+  },
+  "163de20c1f9": {
+    "guideLinesEnabled": false,
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\L_灵童\\L_灵童（激活）.png"
+  },
+  "163de7f7d6d": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\L_灵童\\L_灵童（天赋）.png"
+  },
+  "163f38be4a8": {
+    "backgroundType": "user"
+  },
+  "163f38be4a9": {
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\workProjects\\xiYou\\assets\\art\\ui\\Q_七天尊享\\Q_七天尊享（低价贩售）.png",
+    "backgroundType": "null",
+    "backgroundX": 0,
+    "backgroundY": 0,
+    "backgroundWidth": -1,
+    "backgroundHeight": -1,
+    "backgroundAlpha": 100
+  },
+  "163ef6f166b": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\workProjects\\xiYou\\assets\\art\\ui\\K_开服目标\\K_开服目标（齐天大圣）.png"
+  },
+  "163fd306858": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_寻宝\\X_寻宝.png"
+  },
+  "163fd575bc1": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_寻宝\\X_寻宝（获得奖励）.png"
+  },
+  "16446aa3487": {
+    "backgroundType": "null",
+    "backgroundImage": "C:\\Users\\user\\Desktop\\J_精彩活动（消费转盘）.png"
+  },
+  "1646eaf75b8": {
+    "backgroundType": "user",
+    "useBgImage": true,
+    "useBgColor": false,
+    "backgroundImage": "D:\\develop\\xntg\\assets\\art\\ui\\X_寻宝\\X_寻宝.png"
+  }
+}

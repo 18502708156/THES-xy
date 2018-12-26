@@ -1,0 +1,2 @@
+adb forward tcp:54999 localabstract:Unity-com.tencent.tmgp.cswm
+dumpsys meminfo com.tencent.tmgp.cswm

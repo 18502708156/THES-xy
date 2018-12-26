@@ -1,0 +1,16 @@
+{
+	"name": "egret",
+	"version": "3.1.6",
+	"modules": [
+		{
+			"name": "jszip",
+			"description": "libEx/jszip",
+			"files": [
+    			"jszip.min.js",
+    			"FileSaver.js",
+    			"jszip.d.ts"
+   			 ],
+			"root": "src"
+		}
+	]
+}

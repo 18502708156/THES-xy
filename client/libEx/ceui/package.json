@@ -1,0 +1,14 @@
+{
+	"name": "egret",
+	"version": "1.0.0",
+	"modules": [
+		{
+			"name": "eui",
+			"description": "libEx/eui",
+			"files": [
+				"eui.js"
+			],
+			"root": "src"
+		}
+	]
+}

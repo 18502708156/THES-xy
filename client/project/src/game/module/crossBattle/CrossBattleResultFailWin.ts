@@ -1,0 +1,2 @@
+class CrossBattleResultFailWin  extends ResultFailPanel {
+}

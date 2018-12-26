@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Loading" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<w:Config id="162b96970f5"/>
+	<e:Group width="0" height="0" y="0" horizontalCenter="0">
+		<e:Image scaleX="1" scaleY="1" source="_ui_loding_show_jpg" x="-480"/>
+		<e:Image scaleX="1" scaleY="1" y="925" width="685" source="ui_bm_cjjindutiao01@70_0_70_0" scale9Grid="75,0,45,49" x="-342"/>
+		<e:Image scaleX="1" scaleY="1" y="1073" source="ui_bm_cjjindutiao01@70_0_70_0" scale9Grid="75,0,45,49" width="685" horizontalCenter="0"/>
+		<e:Image scaleX="1" scaleY="1" y="936" width="593" source="ui_bm_cjjindutiao02@20_0_20_0" scale9Grid="34,1,26,10" x="-296"/>
+		<e:Image scaleX="1" scaleY="1" y="1083" scale9Grid="12,1,26,10" width="593" source="ui_bm_cjjindutiao02@20_0_20_0" x="-296"/>
+		<e:Label text="主程序加载中" y="975" x="-302" scaleX="1" scaleY="1" size="22" width="604" textAlign="center" verticalAlign="middle" stroke="1" strokeColor="0x0B0C03"/>
+		<e:Label text="主程序加载中" y="1126" x="-302" scaleX="1" scaleY="1" size="22" width="604" textAlign="center" verticalAlign="middle" stroke="1" strokeColor="0x0B0C03" textColor="0x25d921"/>
+		<e:Label text="主程序加载中" y="1156" x="-302" scaleX="1" scaleY="1" size="22" width="604" textAlign="center" verticalAlign="middle" stroke="1" strokeColor="0x0b0c03"/>
+	</e:Group>
+</e:Skin>

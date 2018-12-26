@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Egret</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player" data-entry-class="Main" data-orientation="auto" data-scale-mode="showAll" data-frame-rate="30" data-content-width="720"
+data-content-height="1280" data-show-paint-rect="false" data-multi-fingered="2" data-show-fps="false" data-show-log="false"
+data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+</div>
+
+<Script language="javascript">   
+    
+
+</script>
+
+<script>
+     
+
+
+    var loadScript = function (list, callback) {
+        var loaded = 0;
+        var loadNext = function () {
+            loadSingleScript(list[loaded], function () {
+                loaded++;
+                if (loaded >= list.length) {
+                    callback();
+                }
+                else {
+                    loadNext();
+                }
+            })
+        };
+        loadNext();
+    };
+
+    var loadSingleScript = function (src, callback) {
+        var s = document.createElement('script');
+        s.async = false;
+        s.src = src;
+        s.addEventListener('load', function () {
+            s.parentNode.removeChild(s);
+            s.removeEventListener('load', arguments.callee, false);
+            callback();
+        }, false);
+        document.body.appendChild(s);
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', './manifest.json?v=' + Math.random(), true);
+    xhr.addEventListener("load", function () {
+        var manifest = JSON.parse(xhr.response);
+        var list = manifest.initial.concat(manifest.game);
+        loadScript(list, function () {
+            /**
+             * {
+             * "renderMode":, //Engine rendering mode, "canvas" or "webgl"
+             * "audioType": 0 //Use the audio type, 0: default, 2: web audio, 3: audio
+             * "antialias": //Whether the anti-aliasing is enabled in WebGL mode, true: on, false: off, defaults to false
+             * "calculateCanvasScaleFactor": //a function return canvas scale factor
+             * }
+             **/
+            egret.runEgret({
+                renderMode: "webgl", audioType: 0, calculateCanvasScaleFactor: function (context) {
+                    var backingStore = context.backingStorePixelRatio ||
+                        context.webkitBackingStorePixelRatio ||
+                        context.mozBackingStorePixelRatio ||
+                        context.msBackingStorePixelRatio ||
+                        context.oBackingStorePixelRatio ||
+                        context.backingStorePixelRatio || 1;
+                    return (window.devicePixelRatio || 1) / backingStore;
+                }
+            });
+        });
+    });
+    xhr.send(null);
+
+    // var __CONFIG__ = {
+    //     "__SER_URL__": "http://192.168.1.196:8501",
+    //     "__PLATFORM_ID__": 1,
+    // }
+
+    // function _LoginToken(callback) {
+    //     callback("test01")
+    // }
+
+    // var __CONFIG__ = {
+    //     "__SER_URL__": "http://zzby.mjh5.com:8501",
+    //     "__PLATFORM_ID__": 111111111,
+    // }
+    var __CONFIG__ = {
+        "__SER_URL__": "http://192.168.1.228:8501",
+        "__PLATFORM_ID__": 1,
+    }
+
+    function _LoginToken(callback) {
+        // callback("@172@84@167@222@216@137@164@152@108@105@104@103@166@155@174@163@83@94@90@172@165@156@224@214@197@230@157@84@106@89@105@101@100@99@105@167@173@156@140@162@89@170@164@161@212@215@151@168@83@104@109@106@152@110@208@156@156@175@111@147@149@103@102@102@103@104@149@166@213@153@203@173@107@107@109@111@211@203@172@158@103@84@100@89@155@170@186@215@203@226@166@84@106@171@166@167@150@94@84@226@213@217@213@219@171@138@150@157@145@163@151@202@166@104@156@107@148@147@227@160@198@221@109@98@96@104@86@94@83@149@154@214@226@213@207@226@128@154@87@112@145@156@165@159@83@94@90@171@155@164@211@138@158@170@109@99@97@108@100@104@103@99@102@242")
+        // ({"userId":"103030","appid":"317","time":"1000","reurl":"http%3A%2F%2Fh5.49you.com%2F","extinfo":"1207398","sid":"1","source":"49","openid":"test12345","sign":"123"})
+        // "userId=103030&appid=317&time=1000&reurl=http%3A%2F%2Fh5.49you.com%2F&extinfo=1207398&sid=1&source=49&openid=test12345&sign=123"
+        let theRequest = GetRequest()
+        (theRequest.userId, theRequest.appid, theRequest.time, theRequest.reurl, theRequest.extinfo, theRequest.sid, theRequest.source, theRequest.openid, theRequest.sign)
+    }
+
+    // function _LoginToken(callback) {
+    //     callback("@172@84@167@222@216@137@164@152@109@102@107@104@160@161@165@160@83@94@90@172@165@156@224@214@197@230@157@84@106@89@106@98@103@100@99@173@164@153@140@162@89@170@164@161@212@215@151@168@83@105@108@105@102@103@161@155@201@222@109@99@96@112@104@103@98@148@99@173@173@160@161@219@153@104@105@108@167@159@170@164@97@84@100@89@155@170@186@215@203@226@166@84@106@157@149@158@164@151@94@151@225@200@220@225@156@170@137@151@214@139@175@144@141@167@110@155@102@153@202@221@156@219@156@103@96@103@101@84@93@84@149@221@213@213@216@219@163@127@153@88@169@139@168@158@98@84@100@89@166@160@219@205@134@179@105@103@97@104@105@99@100@104@99@167@241")
+    // }
+</script>
+</body>
+
+</html>

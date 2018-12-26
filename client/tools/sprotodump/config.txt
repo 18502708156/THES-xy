@@ -1,0 +1,4 @@
+{
+	"out_dir": "../../project/src/game/proto",
+	"in_dir": "../../../config/sproto"
+}

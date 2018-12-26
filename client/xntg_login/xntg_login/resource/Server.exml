@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Server" width="720" height="1280" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<w:Config id="162b9562f35"/>
+	<e:Group width="0" height="0" y="0" horizontalCenter="0">
+		<e:Image height="1066" width="700" scaleX="1" scaleY="1" source="ui_sbm_001@120_120_120_120_png" scale9Grid="123,121,25,21" y="101" horizontalCenter="0" visible="false"/>
+		<e:Image x="-323.42" scale9Grid="9,8,28,4" anchorOffsetX="0" width="217" anchorOffsetY="0" height="842" scaleX="1" scaleY="1" y="189" source="ui_sbm_002@20_9_20_9_png"/>
+		<e:Image x="-100.42" anchorOffsetX="0" width="423" anchorOffsetY="0" height="842" scaleX="1" scaleY="1" y="189" source="ui_sbm_002@20_9_20_9_png" scale9Grid="9,8,28,4"/>
+		<e:Image source="ui_sbm_003_png" x="-317" y="95" scaleX="1" scaleY="1"/>
+		<e:Image x="282" y="91" scaleX="1" scaleY="1" source="ui_bt_008_up_png"/>
+		<e:Image x="247" y="1052" scaleX="1" scaleY="1" source="ui_bt_007_up_png"/>
+		<e:Label text="服务器选择" y="125" scaleX="1" scaleY="1" width="463" textAlign="center" size="22" strokeColor="0x3380ce" textColor="0xbfedfc" x="-246"/>
+	</e:Group>
+	<e:Image source="ui_bm_fuwuqibg@60_0_60_0" x="141" y="925" scale9Grid="68,56,24,7"/>
+</e:Skin>

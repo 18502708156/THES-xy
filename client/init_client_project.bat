@@ -21,5 +21,4 @@ if exist %CLIENT_ASSETS% (
 
 rem mklink /J "client\project\resource\assets" "resource\assets"
 
-
 pause

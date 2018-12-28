@@ -52,10 +52,7 @@ var S2cProtocol = (function (_super) {
         prof.Set(2801, "sc_auction_select_request", null);
         prof.Set(2804, "sc_auction_update_request", null);
         prof.Set(2806, null, null);
-        prof.Set(6411, "sc_baby_explore_info_request", null);
-        prof.Set(6414, "sc_baby_explore_task_result_request", null);
         prof.Set(8201, "sc_baby_init_request", null);
-        prof.Set(8203, "sc_baby_list_request", null);
         prof.Set(8202, "sc_baby_star_init_request", null);
         prof.Set(404, "sc_bag_deal_add_item_request", null);
         prof.Set(403, "sc_bag_deal_delete_item_request", null);
@@ -256,7 +253,6 @@ var S2cProtocol = (function (_super) {
         prof.Set(3701, "sc_money_tree_info_request", null);
         prof.Set(3702, "sc_money_tree_play_info_request", null);
         prof.Set(3703, "sc_money_tree_reward_info_request", null);
-        prof.Set(141, "sc_other_baby_request", null);
         prof.Set(139, "sc_other_equip_request", null);
         prof.Set(138, "sc_other_item_request", null);
         prof.Set(140, "sc_other_xianlv_request", null);
@@ -315,7 +311,6 @@ var S2cProtocol = (function (_super) {
         prof.Set(125, "sc_record_datas_request", null);
         prof.Set(135, "sc_rename_count_request", null);
         prof.Set(122, "sc_rename_result_request", null);
-        prof.Set(2301, "sc_secret_info_request", null);
         prof.Set(1701, "sc_shop_buy_request", null);
         prof.Set(1716, "sc_shop_buy_unlockdata_request", null);
         prof.Set(1710, "sc_shop_buy_update_request", null);
@@ -399,7 +394,6 @@ var S2cProtocol = (function (_super) {
     S2cProtocol.sc_other_item = 138;
     S2cProtocol.sc_other_equip = 139;
     S2cProtocol.sc_other_xianlv = 140;
-    S2cProtocol.sc_other_baby = 141;
     S2cProtocol.sc_raid_chapter_init_info = 201;
     S2cProtocol.sc_raid_chapter_wave_data = 202;
     S2cProtocol.sc_raid_chapter_boss_result = 203;
@@ -465,7 +459,6 @@ var S2cProtocol = (function (_super) {
     S2cProtocol.sc_kfboss_collect_all = 2110;
     S2cProtocol.sc_kfboss_report = 2111;
     S2cProtocol.sc_cashCow_info = 2201;
-    S2cProtocol.sc_secret_info = 2301;
     S2cProtocol.sc_activity_init_info = 2601;
     S2cProtocol.sc_activity_reward_result = 2602;
     S2cProtocol.sc_activity_dabiao_info = 2603;
@@ -569,8 +562,6 @@ var S2cProtocol = (function (_super) {
     S2cProtocol.sc_rechargew_shitindex = 6403;
     S2cProtocol.sc_rechargew_shitclose = 6404;
     S2cProtocol.sc_rechargew_shitinit = 6405;
-    S2cProtocol.sc_baby_explore_info = 6411;
-    S2cProtocol.sc_baby_explore_task_result = 6414;
     S2cProtocol.sc_position_info = 6501;
     S2cProtocol.sc_battle_action = 7000;
     S2cProtocol.sc_battle_entitys = 7001;
@@ -594,7 +585,6 @@ var S2cProtocol = (function (_super) {
     S2cProtocol.sc_marry_new = 8114;
     S2cProtocol.sc_baby_init = 8201;
     S2cProtocol.sc_baby_star_init = 8202;
-    S2cProtocol.sc_baby_list = 8203;
     S2cProtocol.sc_field_boss_base_list = 11002;
     S2cProtocol.sc_field_boss_update_one = 11003;
     S2cProtocol.sc_public_boss_challenge_fail = 12010;

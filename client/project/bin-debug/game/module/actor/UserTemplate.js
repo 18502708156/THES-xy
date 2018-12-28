@@ -135,15 +135,9 @@ var UserTemplate = (function (_super) {
                 }
             }
         }
-        if (this.LvproConfig) {
-            for (var key in this.LvproConfig) {
-                var cost = this.LvproConfig[key].cost;
-                if (!cost || !cost[1]) {
-                    continue;
-                }
-                GameGlobal.UserBag.AddListenerItem(cost[1].id, this.GetItemRankItemUpdateMsg());
-                break;
-            }
+        for (var key in this.LvproConfig) {
+            GameGlobal.UserBag.AddListenerItem(this.LvproConfig[key].cost[1].id, this.GetItemRankItemUpdateMsg());
+            break;
         }
         GameGlobal.UserBag.AddListenerItem(this.BaseConfig.attreitemid, this.GetItemAttrItemUpdateMsg());
         this.mMaxLevel = CommonUtils.getObjectLength(this.AttrsConfig);

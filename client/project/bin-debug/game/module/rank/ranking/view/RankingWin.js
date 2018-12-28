@@ -224,13 +224,10 @@ var RankingWin = (function (_super) {
                 var sourcePath3 = AppearanceConfig.GetUIPath(GameGlobal.Config.NimbusSkinConfig[datas.outnimbus].pid);
                 pPHBShowPanel.setXianWeiSource(sourcePath3.substring(sourcePath3.lastIndexOf("/") + 1));
                 break;
-            case 20: //灵童
-            case 21: //灵童
-            case 22: //灵童
-            case 23://灵童
+            case 20://灵童
                 if (!datas.outbaby)
                     return;
-                pPHBShowPanel.setPetPanel(datas.outbaby);
+                pPHBShowPanel.setRole(GameGlobal.RankingModel.getShowById(datas, nRankType), 1, RoleShowDressType.ROLE);
                 break;
         }
     };
@@ -356,13 +353,13 @@ var PHBShowPanel = (function (_super) {
         this.zhengFaPanel.scaleY = scale;
         this.zhengFaPanel.visible = true;
     };
-    PHBShowPanel.prototype.setRole = function (subRole, scale) {
+    PHBShowPanel.prototype.setRole = function (subRole, scale, type) {
         if (scale === void 0) { scale = 0.8; }
         this.roleShowPanel.ClearCache();
-        // if (type)
-        // 	LingtongViewHelper.SetRole(this.roleShowPanel,subRole.sex,subRole.clothID)
-        // else
-        this.roleShowPanel.SetAll(subRole);
+        if (type)
+            LingtongViewHelper.SetRole(this.roleShowPanel, subRole.sex, subRole.clothID);
+        else
+            this.roleShowPanel.SetAll(subRole);
         this.roleShowPanel.scaleX = scale;
         this.roleShowPanel.scaleY = scale;
         this.roleShowPanel.x = this.roleShowPanelX * (2 - scale);

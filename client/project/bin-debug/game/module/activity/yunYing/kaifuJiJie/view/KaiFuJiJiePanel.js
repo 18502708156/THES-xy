@@ -27,10 +27,6 @@ var KaiFuJiJiePanel = (function (_super) {
         this.AddTimer(1000, 0, this.updateTime);
         this.UpdateContent();
         this.updateTime();
-        if (this.jijieType != 13 && this.jijieType != 14)
-            this.getwayLabel.text = "前往升阶";
-        else
-            this.getwayLabel.text = "前往" + ActivityConst.JiJieTypeName2(this.jijieType);
     };
     KaiFuJiJiePanel.prototype.updateTime = function () {
         var time = KaiFuJiJieRankPanel.GetUpdateTime(this.jijieType);
@@ -48,7 +44,7 @@ var KaiFuJiJiePanel = (function (_super) {
                 o.type = type;
                 o.cfg = cfgObj;
                 o.weight = cfgObj.index;
-                var canGet = KaiFuJiJieAwardItem.CheckValue(type, cfgObj.value);
+                var canGet = GameGlobal.ActivityKaiFuModel.GetMyAdvancedLevel(type) >= cfgObj.value;
                 if (canGet) {
                     var getted = GameGlobal.ActivityKaiFuModel.advancedInfo.GetAdvancedReward(type, cfgObj.index);
                     if (getted)
@@ -71,13 +67,8 @@ var KaiFuJiJiePanel = (function (_super) {
         var arrlist = this.getReward();
         SortTools.sortMap(arrlist, "weight");
         this.list.dataProvider = new eui.ArrayCollection(arrlist);
-        if (type == ActivityKaiFuJiJieType.lingtong_yuling || type == ActivityKaiFuJiJieType.lingtong_fate) {
-            this.lv_txt.text = "";
-        }
-        else {
-            var stageStr = "|C:0x2dff42&T:" + GameGlobal.ActivityKaiFuModel.GetMyAdvancedLevel(type) + " \u9636|";
-            this.lv_txt.textFlow = TextFlowMaker.generateTextFlow("当前" + ActivityConst.JiJieTypeName(type) + "阶数：" + stageStr);
-        }
+        var stageStr = "|C:0x2dff42&T:" + GameGlobal.ActivityKaiFuModel.GetMyAdvancedLevel(type) + " \u9636|";
+        this.lv_txt.textFlow = TextFlowMaker.generateTextFlow("当前" + ActivityConst.JiJieTypeName(type) + "阶数：" + stageStr);
     };
     KaiFuJiJiePanel.prototype._OnClick = function (e) {
         if (e.currentTarget == this.getwayLabel) {
@@ -111,56 +102,7 @@ var KaiFuJiJieAwardItem = (function (_super) {
         UIHelper.ShowRedPoint(this.btn, weight < 0);
         this.getted_img.visible = !this.btn.visible;
         this.list.dataProvider = new eui.ArrayCollection(cfgObj.reward);
-        if (cfgObj.value != undefined) {
-            if (type == ActivityKaiFuJiJieType.lingtong_yuling) {
-                if (cfgObj.value[0] != undefined && cfgObj.value[1] != undefined)
-                    this.tipsTxt.text = "拥有" + cfgObj.value[0] + "个" + ItemBase.QUALITY_NAME_STR[cfgObj.value[1]] + ActivityConst.JiJieTypeName(type);
-            }
-            else if (type == ActivityKaiFuJiJieType.lingtong_fate) {
-                if (cfgObj.value[0] != undefined && cfgObj.value[1] != undefined)
-                    this.tipsTxt.text = "佩戴" + cfgObj.value[0] + "个" + ItemBase.QUALITY_NAME_STR[cfgObj.value[1]] + ActivityConst.JiJieTypeName(type);
-            }
-            else {
-                this.tipsTxt.text = ActivityConst.JiJieTypeName(type) + "达到" + cfgObj.value + "阶";
-            }
-        }
-    };
-    KaiFuJiJieAwardItem.CheckValue = function (type, value) {
-        if (!value) {
-            return false;
-        }
-        if (type == ActivityKaiFuJiJieType.lingtong_yuling) {
-            var infos = GameGlobal.LingtongPetModel.mInfo;
-            var needLevel = value[1];
-            var count = 0;
-            for (var key in infos) {
-                var info = infos[key];
-                if (info && info.mLevel) {
-                    for (var _i = 0, _a = info.mLing || []; _i < _a.length; _i++) {
-                        var level = _a[_i];
-                        if (level >= needLevel) {
-                            ++count;
-                        }
-                    }
-                }
-            }
-            return count >= value[0];
-        }
-        else if (type == ActivityKaiFuJiJieType.lingtong_fate) {
-            var datas = GameGlobal.DestinyController.getUseDestinyData() || [];
-            var needLevel = value[1];
-            var count = 0;
-            for (var key in datas) {
-                var data = datas[key];
-                if (data.type >= needLevel) {
-                    ++count;
-                }
-            }
-            return count >= value[0];
-        }
-        else {
-            return GameGlobal.ActivityKaiFuModel.GetMyAdvancedLevel(type) >= value;
-        }
+        this.tipsTxt.text = ActivityConst.JiJieTypeName(type) + "达到" + cfgObj.value + "阶";
     };
     return KaiFuJiJieAwardItem;
 }(eui.ItemRenderer));

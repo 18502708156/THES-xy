@@ -27,7 +27,6 @@ var TsumKoPanel = (function (_super) {
         this.list.itemRenderer = TsumKoListItem;
         this.list.dataProvider = new eui.ArrayCollection(list);
         this.observe(MessageDef.TSUMKO_UPDATE_LIST, this.UpdateList);
-        this.observe(MessageDef.TSUMKOBASE_REDPOINT_NOTICE, this.UpdateList);
         this.list.addEventListener(eui.ItemTapEvent.ITEM_TAP, function (e) {
             GameGlobal.TsumKoBaseModel.chapterid = e.itemIndex + 1;
         }, this);
@@ -44,9 +43,6 @@ var TsumKoPanel = (function (_super) {
                 ViewManager.ins().open(ShopLayer, [ShopController.EN_SHOP_BASHI]);
                 break;
         }
-    };
-    TsumKoPanel.RedPointCheck = function () {
-        return GameGlobal.TsumKoBaseModel.mRedPoint.showRedPoint();
     };
     TsumKoPanel.NAME = "八十一难";
     return TsumKoPanel;

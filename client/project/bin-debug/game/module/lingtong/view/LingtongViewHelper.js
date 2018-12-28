@@ -4,10 +4,23 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var LingtongViewHelper = (function () {
     function LingtongViewHelper() {
     }
-    LingtongViewHelper.SetRole = function (roleShowPanel, id, dressId) {
-        if (id === void 0) { id = null; }
+    LingtongViewHelper.SetRole = function (roleShowPanel, sex, dressId) {
+        if (sex === void 0) { sex = null; }
         if (dressId === void 0) { dressId = null; }
-        roleShowPanel.SetBodyId(id);
+        var role = new RoleShowData;
+        role.job = 1;
+        if (sex == null) {
+            sex = GameGlobal.LingtongAttrModel.mSex;
+        }
+        role.sex = sex - 1;
+        if (dressId == null) {
+            dressId = GameGlobal.LingtongModel.mDressId;
+        }
+        if (!dressId) {
+            dressId = 1;
+        }
+        role.clothID = GameGlobal.LingtongModel.SkinConfig[dressId].pid;
+        roleShowPanel.Set(RoleShowDressType.ROLE, role);
     };
     return LingtongViewHelper;
 }());

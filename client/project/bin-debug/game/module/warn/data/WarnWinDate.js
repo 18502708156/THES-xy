@@ -14,45 +14,45 @@ var __extends = (this && this.__extends) || (function () {
 /**
  * 记录通过WarnWin.showCheckBox()函数，提示框的提示状态
 */
-var WarnWinData = (function (_super) {
-    __extends(WarnWinData, _super);
-    function WarnWinData() {
+var WarnWinDate = (function (_super) {
+    __extends(WarnWinDate, _super);
+    function WarnWinDate() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.m_record = {};
         return _this;
     }
-    WarnWinData.ins = function () {
+    WarnWinDate.ins = function () {
         return _super.ins.call(this);
     };
     ;
-    WarnWinData.prototype.setRecord = function (name, hint) {
+    WarnWinDate.prototype.setRecord = function (name, hint, callFun) {
         for (var key in this.m_record) {
             if (key == name) {
                 return;
             }
         }
-        this.m_record[name] = { notPopUp: hint };
+        this.m_record[name] = { hint: hint, callFun: callFun };
     };
-    WarnWinData.prototype.changeHint = function (name, hint) {
+    WarnWinDate.prototype.changeHint = function (name, hint) {
         for (var key in this.m_record) {
             if (key == name)
-                this.m_record[key].notPopUp = hint;
+                this.m_record[key].hint = hint;
         }
     };
-    WarnWinData.prototype.checkerHintByName = function (name, callFun) {
+    WarnWinDate.prototype.checkerHintByName = function (name) {
         for (var key in this.m_record) {
             if (key == name) {
-                if (!this.m_record[name].notPopUp) {
-                    var tempCb1 = callFun;
+                if (!this.m_record[key].hint) {
+                    var tempCb1 = this.m_record[key].callFun;
                     if (tempCb1 && tempCb1.func != null)
                         tempCb1.func.call(tempCb1.thisObj);
                 }
-                return this.m_record[key].notPopUp;
+                return this.m_record[key].hint;
             }
         }
         return true;
     };
-    return WarnWinData;
+    return WarnWinDate;
 }(BaseSystem));
-__reflect(WarnWinData.prototype, "WarnWinData");
-//# sourceMappingURL=WarnWinData.js.map
+__reflect(WarnWinDate.prototype, "WarnWinDate");
+//# sourceMappingURL=WarnWinDate.js.map

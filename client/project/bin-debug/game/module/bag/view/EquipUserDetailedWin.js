@@ -198,7 +198,7 @@ var EquipUserDetailedWin = (function (_super) {
                         if (i < 5)
                             str += "\n|C:0x909090&T:";
                         str += attrName + "宝石 未激活|";
-                        gem.source = "";
+                        gem.source = "bs_00";
                     }
                 }
                 attrTxt.lineSpacing = 8;

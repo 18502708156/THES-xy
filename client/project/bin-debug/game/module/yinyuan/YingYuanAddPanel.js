@@ -13,7 +13,6 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var YingYuanAddPanel = (function (_super) {
     __extends(YingYuanAddPanel, _super);
-    /////////////////////////////////////////////////////////////////////////////
     function YingYuanAddPanel() {
         var _this = _super.call(this) || this;
         _this.skinName = "YingYuanAddSkin";
@@ -28,7 +27,6 @@ var YingYuanAddPanel = (function (_super) {
         this.commonDialog.OnAdded(this);
         this.commonDialog.title = "求婚对象";
         this.updateContent();
-        this._AddClick(this.gotoAddFriendTxt, this._OnClick);
     };
     YingYuanAddPanel.prototype.updateContent = function () {
         var arr = GameGlobal.FriendModel.FriendData.friendsDate;
@@ -54,13 +52,8 @@ var YingYuanAddPanel = (function (_super) {
                 this.list.$children[m]["bg"].source = "i_sbm_002";
             }
         }
-        UIHelper.SetLinkStyleLabel(this.gotoAddFriendTxt);
-        this.titleGroup.visible = GameGlobal.FriendModel.friendsNum != 0;
-        this.addFriendTipsGroup.visible = GameGlobal.FriendModel.friendsNum == 0;
     };
     YingYuanAddPanel.prototype._OnClick = function (e) {
-        ViewManager.ins().open(FriendMainPanel, 3);
-        this.CloseSelf();
     };
     YingYuanAddPanel.prototype.OnClose = function () {
         this.commonDialog.OnRemoved();

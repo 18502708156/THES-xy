@@ -64,7 +64,6 @@ var DestinyResolveHandleItem = (function (_super) {
                 this.lbInfo1.text = arrCon.desc || "";
             }
             this.countTxt.text = this.data.count || 0;
-            this.checkBox1.selected = this.data.bSelect ? true : false;
         }
     };
     DestinyResolveHandleItem.prototype.onTxtChange = function (e) {

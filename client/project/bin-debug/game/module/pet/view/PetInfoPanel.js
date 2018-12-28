@@ -64,10 +64,9 @@ var PetInfoPanel = (function (_super) {
         PetConst.SetName(this.lbName, petInfo);
         this.powerLabel.text = ItemConfig.CalcAttrScoreValue(selectConfig.attrs);
         this.petShowPanel.SetBody(PetConst.GetSkin(this.mPetId));
-        // this.skillDesc.text = PetConst.GetSkillDesc(selectConfig.skill[0])
+        this.skillDesc.text = PetConst.GetSkillDesc(selectConfig.skill[0]);
         PetSkillIconItem.SetContent(this.skillIcon, selectConfig.skill[0], 0); //主动技能
-        this.SetAttr(selectConfig.attrs, this.attr1);
-        // this.attr0Txt.text = AttributeData.getAttStr(selectConfig.attrs, 0, 0, ":", false, "#ffffff", "            ");
+        this.attr0Txt.text = AttributeData.getAttStr(selectConfig.attrs, 0, 0, ":", false, "#ffffff", "            ");
         this.godImg.visible = GameGlobal.Config.petBiographyConfig[this.mPetId].picshow;
     };
     PetInfoPanel.prototype._OnItemClick = function (e) {
@@ -98,15 +97,6 @@ var PetInfoPanel = (function (_super) {
                     }
                 }
                 break;
-        }
-    };
-    PetInfoPanel.prototype.SetAttr = function (vals, group) {
-        for (var i = 0; i < 3; i++) {
-            var label = group.getChildAt(i);
-            var att = vals[i];
-            if (att) {
-                label.text = AttributeData.getAttStrByType(att, 0, "+", false, "#ffffff");
-            }
         }
     };
     PetInfoPanel.LAYER_LEVEL = LayerManager.UI_Popup;

@@ -24,6 +24,7 @@ var CatchPetResultWin = (function (_super) {
             param[_i] = arguments[_i];
         }
         this.SetBtnLabel("确定");
+        this.SetTitleLabel("捕捉成功");
         this.SetCloseFunc(param[1]);
         _super.prototype.OnOpen.call(this);
         var star = param[2];

@@ -19,7 +19,7 @@ var RmbGiftIconRule = (function (_super) {
         _this.firstTap = true;
         _this.effX = RuleIconBase.POS1_X;
         _this.effY = RuleIconBase.POS1_Y;
-        _this.updateMessage = [MessageDef.LEVEL_CHANGE, MessageDef.ACTIVITY_UPDATE, MessageDef.ACTIVITY_INFO];
+        _this.updateMessage = [MessageDef.LEVEL_CHANGE, MessageDef.ACTIVITY_UPDATE];
         return _this;
     }
     RmbGiftIconRule.prototype.checkShowIcon = function () {

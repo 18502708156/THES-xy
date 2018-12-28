@@ -19,7 +19,6 @@ var UpLvWayMainPanel2 = (function (_super) {
         //盒子数量
         _this.boxCount = 4;
         _this.TabID = 0;
-        _this.effArr = [];
         _this.skinName = "UpLvWayViewSkin";
         _this.MethodConfig = GameGlobal.Config.BianQiangMethodConfig;
         _this.BaseConfig = GameGlobal.Config.BianQiangBaseConfig;
@@ -35,7 +34,6 @@ var UpLvWayMainPanel2 = (function (_super) {
     UpLvWayMainPanel2.prototype.childrenCreated = function () {
         this.list.itemRenderer = UpLvWayItem;
         this.list.dataProvider = new eui.ArrayCollection([]);
-        this.itemEffShow();
     };
     UpLvWayMainPanel2.prototype.OnOpen = function () {
         this.rewardBar.slideDuration = 0;
@@ -53,17 +51,16 @@ var UpLvWayMainPanel2 = (function (_super) {
         }
         this.changeBar();
         //this.updateScore();
-        this.isShowEff();
+        this.itemEffShow();
     };
     UpLvWayMainPanel2.prototype._onclick = function (e) {
         switch (e.currentTarget) {
             case this.item0:
                 this.TabID = 1;
                 if (GameGlobal.UpLvWayModel.score >= this.RewardConfig[this.TabID].points) {
-                    if (this.effArr[0] != undefined) {
-                        this.effArr[0].visible = false;
-                        this["group" + 0].removeChild(this.effArr[0]);
-                        this.effArr[0] = null;
+                    // UIHelper.SetBtnEffe(this.item0,"ui_zhy001",false,1,1,55,55);
+                    if (this.eff) {
+                        this.eff.visible = false;
                     }
                     GameGlobal.UpLvWayModel._Reward(this.TabID);
                 }
@@ -71,10 +68,8 @@ var UpLvWayMainPanel2 = (function (_super) {
             case this.item1:
                 this.TabID = 2;
                 if (GameGlobal.UpLvWayModel.score >= this.RewardConfig[this.TabID].points) {
-                    if (this.effArr[1] != undefined) {
-                        this.effArr[1].visible = false;
-                        this["group" + 1].removeChild(this.effArr[1]);
-                        this.effArr[1] = null;
+                    if (this.eff) {
+                        this.eff.visible = false;
                     }
                     GameGlobal.UpLvWayModel._Reward(this.TabID);
                 }
@@ -82,10 +77,8 @@ var UpLvWayMainPanel2 = (function (_super) {
             case this.item2:
                 this.TabID = 3;
                 if (GameGlobal.UpLvWayModel.score >= this.RewardConfig[this.TabID].points) {
-                    if (this.effArr[2] != undefined) {
-                        this.effArr[2].visible = false;
-                        this["group" + 2].removeChild(this.effArr[2]);
-                        this.effArr[2] = null;
+                    if (this.eff) {
+                        this.eff.visible = false;
                     }
                     GameGlobal.UpLvWayModel._Reward(this.TabID);
                 }
@@ -93,10 +86,8 @@ var UpLvWayMainPanel2 = (function (_super) {
             case this.item3:
                 this.TabID = 4;
                 if (GameGlobal.UpLvWayModel.score >= this.RewardConfig[this.TabID].points) {
-                    if (this.effArr[3] != undefined) {
-                        this.effArr[3].visible = false;
-                        this["group" + 3].removeChild(this.effArr[3]);
-                        this.effArr[3] = null;
+                    if (this.eff) {
+                        this.eff.visible = false;
                     }
                     GameGlobal.UpLvWayModel._Reward(this.TabID);
                 }
@@ -116,15 +107,10 @@ var UpLvWayMainPanel2 = (function (_super) {
         }
         for (var i = 0; i < this.boxCount; i++) {
             this["receiveImg" + i].visible = false;
-            // if(GameGlobal.UpLvWayModel.rewards[i]!=undefined)
-            // {
-            // 	if(GameGlobal.UpLvWayModel.rewards[i]==i+1)
-            // 	{
-            // 		this["receiveImg"+i].visible=true;
-            // 	}
-            // }
-            if (GameGlobal.UpLvWayModel.rewards.indexOf(i + 1) != -1) {
-                this["receiveImg" + i].visible = true;
+            if (GameGlobal.UpLvWayModel.rewards[i] != undefined) {
+                if (GameGlobal.UpLvWayModel.rewards[i] == i + 1) {
+                    this["receiveImg" + i].visible = true;
+                }
             }
         }
         this.updateScore();
@@ -148,55 +134,25 @@ var UpLvWayMainPanel2 = (function (_super) {
     };
     //展示道具特效
     UpLvWayMainPanel2.prototype.itemEffShow = function () {
-        // let score=GameGlobal.UpLvWayModel.score;
+        var score = GameGlobal.UpLvWayModel.score;
         for (var i = this.boxCount; i > 0; i--) {
-            // if(score>=this.RewardConfig[i].points && GameGlobal.UpLvWayModel.rewards.indexOf(i)==-1)
-            // {
-            var itemNum = i - 1;
-            var eff = this.showEff(this["item" + itemNum], itemNum);
-            // this.effArr.push(eff);
-            //break;
-            // }
+            if (score >= this.RewardConfig[i].points && GameGlobal.UpLvWayModel.rewards.indexOf(i) == -1) {
+                var itemNum = i - 1;
+                this.showEff(this["item" + itemNum], itemNum);
+                break;
+            }
         }
     };
-    // private eff:MovieClip;
     UpLvWayMainPanel2.prototype.showEff = function (item, itemNum) {
-        // if(!this.eff)
-        var eff = new MovieClip;
-        eff.loadUrl(ResDataPath.GetUIEffePath2("eff_ui_jlui_005"), true, 0);
+        this.eff = new MovieClip;
+        this.eff.loadUrl(ResDataPath.GetUIEffePath2("eff_ui_jlui_005"), true, 0);
         // this.eff.x = item.x-27;
         // this.eff.y = item.y+113;
-        eff.x = item.x + 40;
-        eff.y = item.y + 38;
-        eff.scaleX = 1.2;
-        eff.scaleY = 1.2;
-        //this["group"+itemNum].addChild(eff);
-        eff.visible = false;
-        this.effArr.push(eff);
-        return eff;
-    };
-    UpLvWayMainPanel2.prototype.isShowEff = function () {
-        for (var i = this.boxCount; i > 0; i--) {
-            // if(GameGlobal.UpLvWayModel.rewards.indexOf(i)!=-1)
-            // {
-            // if(this.effArr[i-1]!=undefined)
-            // {
-            // 	this.effArr[i-1].visible=false;
-            // }
-            // }
-            var score = GameGlobal.UpLvWayModel.score;
-            if (score >= this.RewardConfig[i].points && GameGlobal.UpLvWayModel.rewards.indexOf(i) == -1) {
-                if (this.effArr[i - 1] != undefined) {
-                    var num = i - 1;
-                    this.effArr[num].visible = true;
-                    this["group" + num].addChild(this.effArr[num]);
-                }
-            }
-            else {
-                if (this.effArr[i - 1] != undefined)
-                    this.effArr[i - 1].visible = false;
-            }
-        }
+        this.eff.x = item.x + 40;
+        this.eff.y = item.y + 38;
+        this.eff.scaleX = 1.2;
+        this.eff.scaleY = 1.2;
+        this["group" + itemNum].addChild(this.eff);
     };
     UpLvWayMainPanel2.prototype.UpdateList = function () {
         UIHelper.ListRefresh(this.list);

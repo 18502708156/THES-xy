@@ -148,9 +148,6 @@ var Sproto;
                 case 3:
                     o.selfPower = d.ri();
                     break;
-                case 4:
-                    o.baby = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -159,7 +156,7 @@ var Sproto;
         return o;
     }
     function _encode_sc_advanced_rank_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 5);
+        var se = Sproto.SprotoCore.GetSerialize(st, 4);
         if (self.typ != undefined) {
             se.wi(self.typ, 0);
         }
@@ -171,9 +168,6 @@ var Sproto;
         }
         if (self.selfPower != undefined) {
             se.wi(self.selfPower, 3);
-        }
-        if (self.baby != undefined) {
-            se.wi(self.baby, 4);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }

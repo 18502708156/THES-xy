@@ -43,7 +43,7 @@ var TreasureHuntModel = (function (_super) {
         GameGlobal.MessageCenter.dispatch(MessageDef.LUCK_RECORD);
     };
     TreasureHuntModel.prototype._DoRet = function (rsp) {
-        if (rsp.type == 1 || rsp.type == 2 || rsp.type == 3 || rsp.type == 4) {
+        if (rsp.type == 1 || rsp.type == 2 || rsp.type == 3) {
             if (ViewManager.ins().isShow(TreasureResultPanel)) {
                 ViewManager.ins().open(TreasureResultPanel, rsp);
             }

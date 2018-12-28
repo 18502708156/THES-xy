@@ -109,8 +109,6 @@ var TianshilianPanel = (function (_super) {
         this.nSpLv = -1;
         this.tNowLyData = []; //当前层级显示数据
         var nMinLy = Math.floor((this.tServer.todayLayer) / 3) * 3; //今天当前关卡
-        var page = Math.floor(this.tServer.rewardNo.length / 3);
-        this.nRewardPage = page;
         if (nMinLy < 1)
             nMinLy = 0;
         // firstAward 宝箱内容

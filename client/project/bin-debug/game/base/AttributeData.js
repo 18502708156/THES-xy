@@ -40,19 +40,6 @@ var AttributeData = (function () {
         }
         return attr;
     };
-    AttributeData.AttrAddToByArray = function (attr1, attr2) {
-        var set = false;
-        for (var _i = 0, attr1_1 = attr1; _i < attr1_1.length; _i++) {
-            var attr = attr1_1[_i];
-            if (attr.type == attr2.type) {
-                attr.value += attr2.value;
-                set = true;
-            }
-        }
-        if (!set) {
-            attr1.push(attr2);
-        }
-    };
     AttributeData.AttrAddTo = function (attr1, attr2) {
         for (var i in attr2) {
             attr1[attr2[i].type] = (attr1[attr2[i].type] || 0) + attr2[i].value;
@@ -86,11 +73,8 @@ var AttributeData = (function () {
     AttributeData.GetAttrTabString = function (atts, splitSign) {
         if (splitSign === void 0) { splitSign = "    "; }
         var str = "";
-        for (var i = 0, len = atts.length; i < len; i++) {
+        for (var i = 0; i < atts.length; i++) {
             str += this.getAttStrByType(atts[i], 0, "+", false, "#682f00&#38983d") + "|";
-            if (i == 2 && len > 3) {
-                str += "\n";
-            }
             if (i < atts.length - 1) {
                 str += splitSign;
             }
@@ -159,9 +143,6 @@ var AttributeData = (function () {
         if (isInserte === void 0) { isInserte = false; }
         if (s === void 0) { s = null; }
         if (omit === void 0) { omit = false; }
-        if (!att) {
-            return "";
-        }
         var str = "";
         var c;
         var split = -1;
@@ -193,7 +174,7 @@ var AttributeData = (function () {
         //     else
         //         str += sign + (att.value / 100) + "%";
         // else
-        if (att.type >= AttributeType.atDamageEnhancePerc) {
+        if (att.type >= AttributeType.atDamageEnhance) {
             str += sign + Math.floor(att.value / 100) + "%";
         }
         else {
@@ -435,9 +416,6 @@ var AttributeData = (function () {
         _a[AttributeType.atPVPReduction] = "PVP伤减",
         _a[AttributeType.atPVEEnhance] = "PVE伤加",
         _a[AttributeType.atPVEReduction] = "PVE伤减",
-        _a[101] = "挂机银两",
-        _a[102] = "挂机经验",
-        _a[103] = "刷新任务品质",
         _a);
     AttributeData.translate = {
         'hp': AttributeType.atMaxHp,

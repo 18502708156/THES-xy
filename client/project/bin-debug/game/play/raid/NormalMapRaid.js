@@ -303,18 +303,6 @@ var NormalMapRaid = (function (_super) {
         });
         return petModel;
     };
-    // private CreateLingtong(petId: number, masterHandle: number): EntityLingtong {
-    // 	let petModel = new EntityLingtong
-    // 	petModel.parserBase({
-    // 		type: EntityType.Lingtong,
-    // 		handler: MonstersConfig.GetHandle(),
-    // 		ownerid: masterHandle,
-    // 		shows: {
-    // 			id: petId
-    // 		}
-    // 	} as Sproto.entity_data)
-    // 	return petModel
-    // }
     NormalMapRaid.prototype.CreateXianlv = function (xianlvId, masterHandle) {
         var entity = new EntityXianlv;
         entity.parserBase({
@@ -379,25 +367,6 @@ var NormalMapRaid = (function (_super) {
             }
         }
     };
-    // public UpdateRoleLingtong(ligntongid: number) {
-    // 	if (!this.IsCreateMy()) {
-    // 		return
-    // 	}
-    // 	let handle = SubRoles.ins().GetRoleData().handle
-    // 	let petData: MapEntity = this.GetOwnEntity(EntityType.Pet)
-    // 	if (petData) {
-    // 		if (ligntongid) {
-    // 			petData.GetInfo().configID = ligntongid
-    // 			petData.UpdateInfo()
-    // 		} else {
-    // 			this.RemoveEntity(petData.GetHandle())
-    // 		}
-    // 	} else {
-    // 		if (ligntongid) {
-    // 			this.AddEntityToTeamByHandle(GameGlobal.actorModel.actorID, this.CreateLingtong(ligntongid, handle))
-    // 		}
-    // 	}
-    // }
     NormalMapRaid.prototype.UpdateRolePetTongl = function (id) {
         var petData = this.GetOwnEntity(EntityType.Pet);
         if (petData) {

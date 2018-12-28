@@ -262,8 +262,6 @@ declare class CommonDialog2Skin extends eui.Skin{
 }
 declare class CommonDialog3Skin extends eui.Skin{
 }
-declare class CommonDialog4Skin extends eui.Skin{
-}
 declare class CommonMidSkin extends eui.Skin{
 }
 declare class CommonWindowBg2Skin extends eui.Skin{
@@ -342,10 +340,6 @@ declare class bar3Skin extends eui.Skin{
 }
 declare class bar4Skin extends eui.Skin{
 }
-declare class bar5Skin extends eui.Skin{
-}
-declare class bar6Skin extends eui.Skin{
-}
 declare class BtnTab0Skin extends eui.Skin{
 }
 declare class BtnTab1Skin extends eui.Skin{
@@ -359,8 +353,6 @@ declare class BtnTab3Skin extends eui.Skin{
 declare class BtnTab4Skin extends eui.Skin{
 }
 declare class BtnTab5Skin extends eui.Skin{
-}
-declare class BtnTab6Skin extends eui.Skin{
 }
 declare class BossHurtRankSkin extends eui.Skin{
 }
@@ -482,8 +474,6 @@ declare class CmLabel2Skin extends eui.Skin{
 }
 declare class CmLabel3Skin extends eui.Skin{
 }
-declare class CmLabel4Skin extends eui.Skin{
-}
 declare class ConsumeLabelSkin extends eui.Skin{
 }
 declare class ConsumeTwoLabelSkin extends eui.Skin{
@@ -513,8 +503,6 @@ declare class PageButtonSkin extends eui.Skin{
 declare class PowerLabel2Skin extends eui.Skin{
 }
 declare class PowerLabel3Skin extends eui.Skin{
-}
-declare class PowerLabel4Skin extends eui.Skin{
 }
 declare class PowerLabelSkin extends eui.Skin{
 }
@@ -562,41 +550,7 @@ declare class TipByboxSkin extends eui.Skin{
 }
 declare class BossComeToAttackSkin extends eui.Skin{
 }
-declare class ElfCallSkin extends eui.Skin{
-}
-declare class ElfDetailsSkin extends eui.Skin{
-}
-declare class ElfResultSkin extends eui.Skin{
-}
-declare class ElfTuJianItemSkin extends eui.Skin{
-}
-declare class ElfTuJianSkin extends eui.Skin{
-}
 declare class exchangeMoneySkin extends eui.Skin{
-}
-declare class ExpeditionTabBtn extends eui.Skin{
-}
-declare class PetExpeditionDetailsItemSkin extends eui.Skin{
-}
-declare class PetExpeditionDetailsSkin extends eui.Skin{
-}
-declare class PetExpeditionIconSkin extends eui.Skin{
-}
-declare class PetExpeditionResultSkin extends eui.Skin{
-}
-declare class PetExpeditionSelectPetSkin extends eui.Skin{
-}
-declare class PetExpeditionSelectPetitemSkin extends eui.Skin{
-}
-declare class PetExpeditionSuitDetailsItemSkin extends eui.Skin{
-}
-declare class PetExpeditionSuitDetailsSkin extends eui.Skin{
-}
-declare class PetExpeditionViewSkin extends eui.Skin{
-}
-declare class PetExpeditionitem2Skin extends eui.Skin{
-}
-declare class PetExpeditionitemSkin extends eui.Skin{
 }
 declare class FateFadeViewSkin extends eui.Skin{
 }
@@ -972,41 +926,15 @@ declare class LastWeekRankItemSkin extends eui.Skin{
 }
 declare class TiantiRankItem extends eui.Skin{
 }
-declare class LingtongCompositionItemSkin extends eui.Skin{
-}
-declare class LingtongCompositionSkin extends eui.Skin{
-}
-declare class LingtongHeadSkin extends eui.Skin{
-}
-declare class LingtongHunUpgradeSkin extends eui.Skin{
-}
 declare class LingtongInactiveSkin extends eui.Skin{
-}
-declare class LingtongMainSkin extends eui.Skin{
 }
 declare class LingtongRankSkin extends eui.Skin{
 }
 declare class LingtongSkillDecsSkin extends eui.Skin{
 }
-declare class LingtongUpLevelItemSkin extends eui.Skin{
+declare class LingtongSkillSkin extends eui.Skin{
 }
 declare class LingtongUpLevelSkin extends eui.Skin{
-}
-declare class LingtongUpSkillItemSkin extends eui.Skin{
-}
-declare class LingtongYuHItemSkin extends eui.Skin{
-}
-declare class LingtongYuHSkin extends eui.Skin{
-}
-declare class LingtongYuMainSkin extends eui.Skin{
-}
-declare class LingtongYulItemSkin extends eui.Skin{
-}
-declare class LingtongYulSkillItemSkin extends eui.Skin{
-}
-declare class LingtongYulSkin extends eui.Skin{
-}
-declare class PetYuHunAttrItemSkin extends eui.Skin{
 }
 declare class OpenDayGifItemSkin extends eui.Skin{
 }
@@ -1055,20 +983,6 @@ declare class MainTopPanelItemSkin extends eui.Skin{
 declare class MainTopPanelSkin extends eui.Skin{
 }
 declare class TopActivitySkin extends eui.Skin{
-}
-declare class MJGeziItemSkin extends eui.Skin{
-}
-declare class MJAwardItem2Skin extends eui.Skin{
-}
-declare class MJAwardItemSkin extends eui.Skin{
-}
-declare class MJFloorAwardWinSkin extends eui.Skin{
-}
-declare class MJPaceAwardItemSkin extends eui.Skin{
-}
-declare class MJPaceAwardWinSkin extends eui.Skin{
-}
-declare class MiJingMainWinSkin extends eui.Skin{
 }
 declare class PetAllAttrSkin extends eui.Skin{
 }

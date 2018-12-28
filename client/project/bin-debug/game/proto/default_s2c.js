@@ -736,42 +736,6 @@ var Sproto;
         return Sproto.SprotoCore.CloseSerialize(se);
     }
     Sproto.ALL_DICT["sc_cross_team_reward_count_request"] = { en: _encode_sc_cross_team_reward_count_request, de: _decode_sc_cross_team_reward_count_request };
-    var sc_other_baby_request = (function () {
-        function sc_other_baby_request() {
-        }
-        return sc_other_baby_request;
-    }());
-    Sproto.sc_other_baby_request = sc_other_baby_request;
-    __reflect(sc_other_baby_request.prototype, "Sproto.sc_other_baby_request");
-    function _decode_sc_other_baby_request(d) {
-        var o = new sc_other_baby_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.baby = d.ro("baby_data");
-                    break;
-                case 1:
-                    o.babyid = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_sc_other_baby_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.baby != undefined) {
-            se.wo("baby_data", self.baby, 0);
-        }
-        if (self.babyid != undefined) {
-            se.wi(self.babyid, 1);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["sc_other_baby_request"] = { en: _encode_sc_other_baby_request, de: _decode_sc_other_baby_request };
     var sc_other_equip_request = (function () {
         function sc_other_equip_request() {
         }

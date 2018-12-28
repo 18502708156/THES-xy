@@ -16,7 +16,7 @@ class GameSceneView extends BaseEuiView {
 		if (!this._input) {
 			this._input = new eui.TextInput;
 			this._input.width = 250
-			this._input.visible = false;
+			this._input.visible = ActorModel.IsGM();
 			this._input.prompt = "点我输入命令";
 			this._input.y = 300;
 			LayerManager.UI_Tips.addChild(this._input);
@@ -41,6 +41,12 @@ class GameSceneView extends BaseEuiView {
 		this.touchChildren = true;
 
         KeyboardUtils.ins().addKeyDown(this.TestKeyDown, this);
+		this.addEventListener(egret.Event.ENTER_FRAME, this.OnFrameUpdate, this);
+	}
+
+	public OnFrameUpdate()
+	{
+		this.input.visible = ActorModel.IsGM();
 	}
 	
 	public TestKeyDown(keyCode: number) {

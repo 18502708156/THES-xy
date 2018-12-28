@@ -54,7 +54,7 @@ var DailyPeacePanel = (function (_super) {
                 break;
         }
     };
-    DailyPeacePanel.NAME = "平定安邦"; //"每日300"
+    DailyPeacePanel.NAME = "每日300"; //"平定安邦"
     return DailyPeacePanel;
 }(BaseView));
 __reflect(DailyPeacePanel.prototype, "DailyPeacePanel", ["ICommonWindowTitle"]);
@@ -70,8 +70,7 @@ var DailyPeaceItem = (function (_super) {
     DailyPeaceItem.prototype.dataChanged = function () {
         var config = this.data;
         this.btnGain.name = config.reward;
-        //this.labText.text = `消灭${config.target}波奖励`
-        this.labText.text = "\u91CE\u5916\u9047\u602A" + config.target + "\u6CE2\u5956\u52B1";
+        this.labText.text = "\u6D88\u706D" + config.target + "\u6CE2\u5956\u52B1";
         this.imgGained.visible = GameGlobal.DailyModel.HasGainedPeaceReward(config.reward);
         this.btnGain.visible = !GameGlobal.DailyModel.HasGainedPeaceReward(config.reward);
         var redPointFlag = GameGlobal.DailyModel.IsPeaceTargetDone(config.target) && !GameGlobal.DailyModel.HasGainedPeaceReward(config.reward);

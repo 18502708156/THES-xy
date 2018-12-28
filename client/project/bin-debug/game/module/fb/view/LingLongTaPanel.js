@@ -15,8 +15,6 @@ var LingLongTaPanel = (function (_super) {
     __extends(LingLongTaPanel, _super);
     function LingLongTaPanel() {
         var _this = _super.call(this) || this;
-        _this.mCount = 0;
-        _this.DOWNTIME = 5;
         _this.skinName = "LingLongTaSkin";
         return _this;
     }
@@ -41,10 +39,6 @@ var LingLongTaPanel = (function (_super) {
         this.AddClick(this.cailiaoShop, this.onTap);
         this.AddClick(this.tiaozhanBtn, this.onTap);
         UIHelper.ShowRedPoint(this.tiaozhanBtn, true); //红点常驻
-        this.checkBox.addEventListener(egret.Event.CHANGE, this.chage, this);
-        this.checkBox.selected = GameGlobal.UserFb.bLingLongTaAuto;
-        this.checkBox.labelDisplay.textColor = Color.Green;
-        this.SetCheckInfo();
         this.UpdateContent();
     };
     LingLongTaPanel.prototype.OnClose = function () {
@@ -61,27 +55,6 @@ var LingLongTaPanel = (function (_super) {
                     GameGlobal.UserFb.sendfbJoin(3, 0);
                 }
                 break;
-        }
-    };
-    LingLongTaPanel.prototype.chage = function () {
-        GameGlobal.UserFb.bLingLongTaAuto = this.checkBox.selected;
-        this.SetCheckInfo();
-    };
-    LingLongTaPanel.prototype.SetCheckInfo = function () {
-        this.checkBox.labelDisplay.text = GameGlobal.UserFb.bLingLongTaAuto ? this.DOWNTIME + "s\u540E\u81EA\u52A8\u6311\u6218" : "\u81EA\u52A8\u6311\u6218";
-        this.RemoveTimer(this.UpdateTime);
-        if (GameGlobal.UserFb.bLingLongTaAuto) {
-            this.AddTimer(1000, this.DOWNTIME, this.UpdateTime);
-        }
-    };
-    LingLongTaPanel.prototype.UpdateTime = function () {
-        this.mCount++;
-        this.checkBox.labelDisplay.text = this.DOWNTIME - this.mCount + "s\u540E\u81EA\u52A8\u6311\u6218";
-        if (this.mCount >= this.DOWNTIME) {
-            if (!UserFb.FinishAndCheckFighting2()) {
-                return;
-            }
-            GameGlobal.UserFb.sendfbJoin(3, 0);
         }
     };
     LingLongTaPanel.NAME = "玲珑宝塔";

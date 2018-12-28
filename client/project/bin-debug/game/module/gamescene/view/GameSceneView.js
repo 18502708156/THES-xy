@@ -19,6 +19,7 @@ var GameSceneView = (function (_super) {
         _this.touchEnabled = false;
         _this.touchChildren = true;
         KeyboardUtils.ins().addKeyDown(_this.TestKeyDown, _this);
+        _this.addEventListener(egret.Event.ENTER_FRAME, _this.OnFrameUpdate, _this);
         return _this;
     }
     Object.defineProperty(GameSceneView.prototype, "input", {
@@ -26,7 +27,7 @@ var GameSceneView = (function (_super) {
             if (!this._input) {
                 this._input = new eui.TextInput;
                 this._input.width = 250;
-                this._input.visible = false;
+                this._input.visible = ActorModel.IsGM();
                 this._input.prompt = "点我输入命令";
                 this._input.y = 300;
                 LayerManager.UI_Tips.addChild(this._input);
@@ -44,6 +45,9 @@ var GameSceneView = (function (_super) {
         var _a;
     };
     GameSceneView.Show = function () {
+    };
+    GameSceneView.prototype.OnFrameUpdate = function () {
+        this.input.visible = ActorModel.IsGM();
     };
     GameSceneView.prototype.TestKeyDown = function (keyCode) {
         if (ActorModel.IsGM()) {

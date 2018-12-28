@@ -42,7 +42,7 @@ var GameCityPanel = (function (_super) {
         _this._AddIconRule(_this.sevenDayBtn, SevenDayIconRule);
         _this._AddIconRule(_this.shootUpBtn, ShootUpIconRule);
         _this._AddIconRule(_this.treasureBtn, TreasureIconRule);
-        _this._AddIconRule(_this.totemsDrawBtn, TotemsDrawIconRule);
+        // this._AddIconRule(this.totemsDrawBtn, TotemsDrawIconRule)
         _this._AddIconRule(_this.totemsDraw2Btn, TotemsDrawIconRule2);
         _this._AddIconRule(_this.totemsBtn, TotemsIconRule);
         _this._AddIconRule(_this.rebateBtn, RebateIconRule);
@@ -59,8 +59,6 @@ var GameCityPanel = (function (_super) {
         _this._AddIconRule(_this.dailyChargeGiftBtn, DailyChargeGiftIconRule);
         _this._AddIconRule(_this.rechargeFeedbackBtn, RechargeFeedbackIconRule);
         _this._AddIconRule(_this.destinyBtn, DestinyIconRule);
-        _this._AddIconRule(_this.miJingIconBtn, MiJingIconRule);
-        _this._AddIconRule(_this.lingTongCallBtn, LingTongCallRule);
         //左侧按钮
         _this._AddIconRule(_this.auctionBtn, AuctionIconRule);
         _this._AddIconRule(_this.btnShop, ShopIconRule); //元宝商店

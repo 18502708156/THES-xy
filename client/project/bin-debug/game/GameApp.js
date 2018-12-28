@@ -25,7 +25,6 @@ var GameApp = (function () {
      * 资源组加载完成
      */
     GameApp.prototype.onResourceLoadComplete = function () {
-        GameApp.mInit = true;
         this.init();
         //预加载某些东西。
         // RES.getResByUrl(ResDataPath.GetMapThumbnailPath("map001"),()=>{},this);
@@ -54,6 +53,12 @@ var GameApp = (function () {
         GameGlobal.ViewManagerImpl.Init();
         var t = egret.getTimer();
         GameGlobal.InitConfig();
+        // 特殊处理的代码
+        var serId = Main.Instance.mConnectServerData.id;
+        if (serId == 17 || serId == 18) {
+            GameGlobal.Config.FuncOpenConfig[DeblockingType.TYPE_32].conditionnum2 = 3;
+            GameGlobal.Config.FuncOpenConfig[DeblockingType.TYPE_137].conditionnum2 = 3;
+        }
         console.log("模块初始化完成 耗时:" + (egret.getTimer() - t));
     };
     /**
@@ -63,7 +68,6 @@ var GameApp = (function () {
         Main.Instance.UpdateLoadingUI(true, "资源加载", 0.8, itemsLoaded / itemsTotal, 200);
     };
     ;
-    GameApp.mInit = false;
     return GameApp;
 }());
 __reflect(GameApp.prototype, "GameApp");

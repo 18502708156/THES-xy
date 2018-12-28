@@ -42,16 +42,6 @@ var DestinyController = (function (_super) {
     DestinyController.prototype.getUseDestinyData = function () {
         return this.tUseDestinyData;
     };
-    DestinyController.prototype.GetCount = function () {
-        var count = 0;
-        for (var key in this.tUseDestinyData) {
-            var data = this.tUseDestinyData[key];
-            if (data && data.level) {
-                ++count;
-            }
-        }
-        return count;
-    };
     //命格物品列表
     DestinyController.prototype.getDestBagList = function () {
         return this.tDestinyBagData;

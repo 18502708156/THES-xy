@@ -58,7 +58,7 @@ var ForgeGemPanel = (function (_super) {
                 var item = this.m_GemLabel[i - 1];
                 var len = ForgeGemPanel.GetLen(config.attr);
                 if (len < i) {
-                    this.SetGemLabel(item, "", attrName, null);
+                    this.SetGemLabel(item, "bs_00", attrName, null);
                 }
                 else {
                     var showLv = lv;
@@ -75,12 +75,12 @@ var ForgeGemPanel = (function (_super) {
             attrName = AttributeData.getAttrStrByType(nextConfig.attr[0].type);
             for (var i = 0; i < this.m_GemLabel.length; ++i) {
                 var item = this.m_GemLabel[i];
-                this.SetGemLabel(item, "", attrName, null);
+                this.SetGemLabel(item, "bs_00", attrName, null);
             }
         }
     };
     ForgeGemPanel.prototype.SetGemLabel = function (label, icon, attr, value) {
-        label.img.source = icon || "";
+        label.img.source = icon || "bs_00";
         if (value) {
             label.attName.text = attr;
             label.attName.textColor = Color.l_brown_2;

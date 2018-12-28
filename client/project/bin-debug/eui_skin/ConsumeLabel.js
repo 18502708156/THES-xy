@@ -159,12 +159,7 @@ var ConsumeLabel = (function (_super) {
         else {
             UIHelper.SetVisible(this.imgGroup, false);
             if (this.m_ConsumeType) {
-                if (this.mConsumeColor) {
-                    str += StringUtils.addColor(this.m_ConsumeType, this.mConsumeColor);
-                }
-                else {
-                    str += this.m_ConsumeType;
-                }
+                str += this.m_ConsumeType;
             }
             str += "：";
         }

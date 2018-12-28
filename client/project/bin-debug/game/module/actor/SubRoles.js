@@ -99,7 +99,7 @@ var SubRoles = (function (_super) {
         // 	power += this.getSubRoleByIndex(i).power;
         // }
         // power += HeroModel.ins().mPower
-        // power += GameGlobal.PetModel.mPower;
+        // power += PetModel.ins().mPower;
         // GameLogic.ins().actorModel.SetPower(power, notTip)
     };
     SubRoles.MAX_COUNT = 1;

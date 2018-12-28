@@ -106,9 +106,6 @@ var BattleDefaultFinishData = (function (_super) {
                 if (GameGlobal.UserFb.bTianTingAutoFight) {
                     GameGlobal.UserFb.bTianTingAutoFight = false; //勇闯天庭自动战斗中断
                 }
-                if (GameGlobal.UserFb.bLingLongTaAuto) {
-                    GameGlobal.UserFb.bLingLongTaAuto = false;
-                }
                 if ((BattleMap.mFbType == UserFb.FB_TYPE_GUILD_WAR || BattleMap.mFbType == UserFb.FB_TYPE_GUILD_WAR_PK)
                     && GameGlobal.GangBattleModel.NeedJumpToOutsider()) {
                     if (GameGlobal.GangBattleModel.IsInOutsideScience()) {

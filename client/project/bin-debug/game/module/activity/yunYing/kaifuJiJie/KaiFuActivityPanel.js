@@ -47,12 +47,6 @@ var KaiFuActivityPanel = (function (_super) {
             var type = ProgressCrazyBaseConfig.initialorder[serverDay - 1];
             list.push({ jijieType: type, activityType: ActivityKaiFuFuncType.ACT_99990_JiJie, cls: KaiFuJiJiePanel, icon: ProgressCrazyBaseConfig.probtn[type - 1], title: "进阶狂欢" });
             list.push({ jijieType: type, activityType: ActivityKaiFuFuncType.ACT_99991_JiJieRank, cls: KaiFuJiJieRankPanel, icon: ProgressCrazyBaseConfig.rankbtn[type - 1], title: "进阶排行" });
-            var tab_startime = ProgressCrazyBaseConfig.ltopentime.startime;
-            var tab_endtime = ProgressCrazyBaseConfig.ltopentime.endtime;
-            var tab_type = ProgressCrazyBaseConfig.ltopentime.type;
-            if ((tab_startime <= serverDay && tab_endtime >= serverDay) && ProgressCrazyBaseConfig.initialorder[serverDay - 1] != tab_type) {
-                list.push({ jijieType: ActivityKaiFuJiJieType.lingtong, activityType: ActivityKaiFuFuncType.ACT_99991_JiJieRank, cls: KaiFuJiJieRankPanel, icon: ProgressCrazyBaseConfig.rankbtn[12 - 1], title: "进阶排行" });
-            }
             list.push({ jijieType: type, activityType: ActivityKaiFuFuncType.ACT_99992_JiJieShop, cls: KaiFuJiJieShopPanel, icon: "ui_bm_zhekoushangdian", title: "折扣商店" });
             list.push({ jijieType: type, activityType: ActivityKaiFuFuncType.ACT_99993_LeiJiReCharge, cls: KaiFuLeiJiReChargePanel, icon: "ui_bm_leijichongzhi", title: "累计充值" });
         }

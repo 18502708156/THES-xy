@@ -244,42 +244,6 @@ var Sproto;
         return Sproto.SprotoCore.CloseSerialize(se);
     }
     Sproto.ALL_DICT["cs_get_kefu_qq_response"] = { en: _encode_cs_get_kefu_qq_response, de: _decode_cs_get_kefu_qq_response };
-    var cs_get_other_actor_baby_request = (function () {
-        function cs_get_other_actor_baby_request() {
-        }
-        return cs_get_other_actor_baby_request;
-    }());
-    Sproto.cs_get_other_actor_baby_request = cs_get_other_actor_baby_request;
-    __reflect(cs_get_other_actor_baby_request.prototype, "Sproto.cs_get_other_actor_baby_request");
-    function _decode_cs_get_other_actor_baby_request(d) {
-        var o = new cs_get_other_actor_baby_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.otherid = d.ri();
-                    break;
-                case 1:
-                    o.id = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_get_other_actor_baby_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.otherid != undefined) {
-            se.wi(self.otherid, 0);
-        }
-        if (self.id != undefined) {
-            se.wi(self.id, 1);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_get_other_actor_baby_request"] = { en: _encode_cs_get_other_actor_baby_request, de: _decode_cs_get_other_actor_baby_request };
     var cs_get_other_actor_equip_request = (function () {
         function cs_get_other_actor_equip_request() {
         }

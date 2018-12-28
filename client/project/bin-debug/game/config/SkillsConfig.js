@@ -24,18 +24,18 @@ var SkillsConfig = (function () {
     };
     //技能效果表-獲取Skill品质
     SkillsConfig.GetSkillQuality = function (skillId) {
-        var quality;
-        var config = GameGlobal.Config.SkillsConfig[skillId];
+        var config = GameGlobal.Config.EffectsConfig[skillId];
+        var skinName = "";
         if (config) {
-            quality = config[GameGlobal.Config.SkillsConfig_keys.quality];
+            skinName = config[GameGlobal.Config.EffectsConfig_keys.quality];
         }
-        if (!quality) {
-            config = GameGlobal.Config.EffectsConfig[skillId];
+        if (!skinName) {
+            config = GameGlobal.Config.SkillsConfig[skillId];
             if (config) {
-                quality = config[GameGlobal.Config.EffectsConfig_keys.quality];
+                skinName = config[GameGlobal.Config.SkillsConfig_keys.quality];
             }
         }
-        return quality;
+        return skinName;
     };
     SkillsConfig.GetSkillIcon = function (skillId) {
         var config = GameGlobal.Config.SkillsConfig[skillId];

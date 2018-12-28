@@ -18,20 +18,29 @@ var EntityLingtong = (function (_super) {
     }
     EntityLingtong.prototype.parserBase = function (baseData) {
         _super.prototype.parserBase.call(this, baseData);
-        this.configID = baseData.shows.id;
+        this.configID = this.mSex = baseData.shows.id;
     };
     EntityLingtong.prototype.GetSkillIDs = function () {
         return this.skillsData;
     };
     EntityLingtong.prototype.GetBodyId = function () {
-        return this.configID;
+        if (this.mSex) {
+            var config = GameGlobal.Config.BabySkinConfig[1];
+            if (config) {
+                return config.pid;
+            }
+        }
+        return 0;
     };
     EntityLingtong.prototype.GetName = function () {
-        // let config = GameGlobal.Config.BabyActivationConfig[this.mSex]
-        // if (config) {
-        // 	return config.name
-        // }
+        var config = GameGlobal.Config.BabyActivationConfig[this.mSex];
+        if (config) {
+            return config.name;
+        }
         return "";
+    };
+    EntityLingtong.prototype.GetBodyResPath = function () {
+        return AppearanceConfig.GetAppe(this.GetBodyId(), 1, this.mSex - 1);
     };
     return EntityLingtong;
 }(EntityData));

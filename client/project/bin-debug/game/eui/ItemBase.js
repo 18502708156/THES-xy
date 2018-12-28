@@ -60,12 +60,6 @@ var ItemBase = (function (_super) {
     ItemBase.prototype.setItemBg = function (value) {
         this.itemIcon.setItemBg(value);
     };
-    ItemBase.prototype.SetQuality = function (quality) {
-        if (!this.itemIcon) {
-            return;
-        }
-        this.itemIcon.SetQuality(quality);
-    };
     ItemBase.prototype.setDataByConfig = function (config) {
         this.itemIcon.setData(config);
         var nameStr = "";

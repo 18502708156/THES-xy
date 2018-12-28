@@ -365,10 +365,7 @@ var LadderInfoPanel = (function (_super) {
     //开始挑战
     LadderInfoPanel.prototype.sendStarPlay = function () {
         var info = this.mActorInfo;
-        if (info) {
-            this.GetLadderModel().sendStarPlay(info.id, info.type);
-        }
-        this.mActorInfo = null;
+        this.GetLadderModel().sendStarPlay(info.id, info.type);
     };
     LadderInfoPanel.NAME = "王者争霸";
     LadderInfoPanel.DUR_TIME = 286;

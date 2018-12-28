@@ -17,20 +17,21 @@ var LingTongRoleTemplateAttrPanel = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     LingTongRoleTemplateAttrPanel.prototype.ShowModel = function (pid) {
-        this.ridePanel.SetBodyId(this.mPid);
+        LingtongViewHelper.SetRole(this.roleShowPanel);
     };
     LingTongRoleTemplateAttrPanel.prototype.UpdateSkinLabel = function () {
         this.skinLabel.text = "天赋属性加成";
-        var info = GameGlobal.LingtongPetModel.GetInfo(this.mPid);
-        if (!info) {
+        var model = GameGlobal.LingtongAttrModel;
+        if (!model.mSex) {
+            UIHelper.SetVisible(this.skinAttr.parent, false);
             return;
         }
-        var config = GameGlobal.Config.BabyTalentConfig[info.mId][info.mGiftLevel - 1];
+        var config = GameGlobal.Config.BabyTalentConfig[model.mSex][model.giftlv - 1];
         if (!config) {
             UIHelper.SetVisible(this.skinAttr.parent, false);
             return;
         }
-        var attr3 = GameGlobal.LingtongAttrModel.getTianFuAllAttr(info.mId, info.mGiftLevel, info.mGiftExp);
+        var attr3 = model.getTianFuAllAttr();
         if (attr3 && attr3.length) {
             this.skinAttr.textFlow = AttributeData.GetAttrTabString(attr3);
         }
@@ -38,62 +39,6 @@ var LingTongRoleTemplateAttrPanel = (function (_super) {
             UIHelper.SetVisible(this.skinAttr.parent, false);
         }
         return attr3;
-    };
-    LingTongRoleTemplateAttrPanel.prototype.UpdateDrugLabel = function () {
-        this.drugLabel.text = "御灵属性加成";
-        var info = GameGlobal.LingtongPetModel.GetInfo(this.mPid);
-        if (!info) {
-            var list_1 = [];
-            for (var i = 1; i <= 5; i++) {
-                var attrData = LingtongConst.GetLingAttr(this.mPid, i, 1);
-                list_1.push({ type: attrData.type, value: 0 });
-            }
-            return list_1;
-        }
-        var list = [];
-        for (var i = 1; i <= 5; i++) {
-            var lv = info.getLingByIndex(i);
-            var attrData = void 0;
-            if (!lv) {
-                attrData = CommonUtils.copyDataHandler(LingtongConst.GetLingAttr(this.mPid, i, 1));
-                attrData.value = 0;
-            }
-            else {
-                attrData = LingtongConst.GetLingAttr(this.mPid, i, lv);
-            }
-            list.push(attrData);
-        }
-        return list;
-    };
-    LingTongRoleTemplateAttrPanel.prototype.UpdateSkillLabel = function () {
-        this.skillLabel.text = "御魂属性加成";
-        var info = GameGlobal.LingtongPetModel.GetInfo(this.mPid);
-        if (!info) {
-            var list_2 = [];
-            return list_2;
-        }
-        var list = [];
-        for (var i = 1; i <= 6; i++) {
-            var lv = info.getHunByIndex(i);
-            var attrData = void 0;
-            if (!lv) {
-                attrData = CommonUtils.copyDataHandler(LingtongConst.GetHunAttr(info.suitConfigId, i, 1));
-                attrData.value = 0;
-            }
-            else {
-                attrData = LingtongConst.GetHunAttr(info.suitConfigId, i, lv);
-            }
-            AttributeData.AttrAddToByArray(list, attrData);
-        }
-        this.skillAttr.textFlow = AttributeData.GetAttrTabString(list);
-        return list;
-    };
-    LingTongRoleTemplateAttrPanel.prototype.GetAttr = function () {
-        var info = GameGlobal.LingtongPetModel.GetInfo(this.mPid);
-        if (!info) {
-            return [];
-        }
-        return info.GetAttr();
     };
     return LingTongRoleTemplateAttrPanel;
 }(RoleTemplateAttrPanel));

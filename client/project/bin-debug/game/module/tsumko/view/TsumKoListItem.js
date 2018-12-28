@@ -51,12 +51,6 @@ var TsumKoListItem = (function (_super) {
             this.notAdoptLabel.visible = true;
             this.goBtn.visible = false;
         }
-        UIHelper.ShowRedPoint(this.goBtn, false);
-        var dic = GameGlobal.TsumKoBaseModel.mRedPoint.mRedPointMap;
-        for (var key in dic) {
-            if (data.chapterid == Number(key))
-                UIHelper.ShowRedPoint(this.goBtn, dic[key]);
-        }
     };
     return TsumKoListItem;
 }(eui.ItemRenderer));

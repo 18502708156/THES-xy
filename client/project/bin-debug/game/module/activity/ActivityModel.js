@@ -80,10 +80,10 @@ var ActivityModel = (function (_super) {
     ActivityModel.TYPE_CROSS_BATTLE = 5;
     /**帮会战 */
     ActivityModel.TYPE_GANG_BATTLE = 6;
+    /**武林争霸 */
+    ActivityModel.TYPE_WULIN_ZHENGBA = 8;
     /**九重天 */
     ActivityModel.TYPE_CLOUD_NINE = 7;
-    /**探险 */
-    ActivityModel.TYPE_EXPEDITION = 8;
     ActivityModel.ICONSOURCE_MAP = (_a = {},
         _a[ActivityModel.TYPE_ANSWER] = "ui_dt_bt_keju",
         _a[ActivityModel.TYPE_QUJING] = "ui_qj_bm_husongshangdian",
@@ -91,6 +91,7 @@ var ActivityModel = (function (_super) {
         _a[ActivityModel.TYPE_GANGMINE] = "",
         _a[ActivityModel.TYPE_CROSS_BATTLE] = "ui_hddt_bt_pmjl",
         _a[ActivityModel.TYPE_GANG_BATTLE] = "ui_hddt_bt_pmjl",
+        _a[ActivityModel.TYPE_WULIN_ZHENGBA] = "",
         _a[ActivityModel.TYPE_CLOUD_NINE] = "ui_hddt_bt_paihang",
         _a);
     return ActivityModel;

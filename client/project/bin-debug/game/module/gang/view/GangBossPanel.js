@@ -47,7 +47,6 @@ var GangBossPanel = (function (_super) {
         this.showPanel.SetBodyId(MonstersConfig.GetAppId(this.oConfig.bossid));
         this.AddLoopTimer(1000, this.upTime);
         this.UpdateContent();
-        this.upTime();
     };
     GangBossPanel.prototype.UpdateContent = function () {
         this.setData();

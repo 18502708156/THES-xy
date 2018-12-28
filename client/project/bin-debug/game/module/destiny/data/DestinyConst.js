@@ -5,23 +5,23 @@ var DestinyConst = (function () {
     function DestinyConst() {
     }
     DestinyConst.GetLockLevel = function (index) {
-        // if (!this.LOCK) {
-        // 	let lock = this.LOCK = {}
-        // 	let config = GameGlobal.Config.DestinyBaseConfig.openlevel1
-        // 	for (let key in config) {
-        // 		let level = Number(key)
-        // 		let equipIndex = config[level]
-        // 		if (!lock[equipIndex]) {
-        // 			lock[equipIndex] = level
-        // 		} else {
-        // 			if (level < lock[equipIndex]) {
-        // 				lock[equipIndex] = level
-        // 			}
-        // 		}
-        // 	}
-        // }
-        // return this.LOCK[index + 1] + 1
-        return 0;
+        if (!this.LOCK) {
+            var lock = this.LOCK = {};
+            var config = GameGlobal.Config.DestinyBaseConfig.openlevel1;
+            for (var key in config) {
+                var level = Number(key);
+                var equipIndex = config[level];
+                if (!lock[equipIndex]) {
+                    lock[equipIndex] = level;
+                }
+                else {
+                    if (level < lock[equipIndex]) {
+                        lock[equipIndex] = level;
+                    }
+                }
+            }
+        }
+        return this.LOCK[index + 1] + 1;
     };
     return DestinyConst;
 }());

@@ -20,7 +20,6 @@ var MiniChatPanel = (function (_super) {
     }
     MiniChatPanel.prototype.childrenCreated = function () {
         var _this = this;
-        GameGlobal.Chat.sendInitChat();
         GameGlobal.MessageCenter.addListener(MessageDef.PLAYER_NEWMSG_SHOW_RED_POINT, this.newMsg, this);
         GameGlobal.MessageCenter.addListener(MessageDef.PLAYER_COPY_NAME, this.setInputTxt, this);
         this.input.SetCallback(function (msg) {
@@ -169,9 +168,6 @@ var MiniChatPanel = (function (_super) {
         }
         else if (this.btnGp.selectedIndex == 2) {
             dataProvider = GameGlobal.Chat.guildchatList;
-        }
-        else if (this.btnGp.selectedIndex == 3) {
-            dataProvider = GameGlobal.Chat.crosschatList;
         }
         else {
             dataProvider = GameGlobal.Chat.minichatList;

@@ -261,12 +261,6 @@ var ShopController = (function (_super) {
             case ShopController.EN_SHOP_INTEGRAL:
                 tShopData = GlobalConfig.ins().ScoreShop;
                 break; //神秘商店            
-            case ShopController.EN_SHOP_MIJING:
-                tShopData = GlobalConfig.ins().MythStoreConfig;
-                break;
-            case ShopController.EN_SHOP_MIJING_SCORE:
-                tShopData = GlobalConfig.ins().MythPointStoreConfig;
-                break;
         }
         // this.limitShopItem(tShopData)
         return tShopData;
@@ -500,8 +494,6 @@ var ShopController = (function (_super) {
     ShopController.EN_SHOP_MYSTERY = 19; //神秘商店
     ShopController.EN_SHOP_INTEGRAL = 20; //积分商店
     ShopController.EN_SHOP_TREASURE_HUNT = 21; //寻宝商店
-    ShopController.EN_SHOP_MIJING = 22; // 秘境商店
-    ShopController.EN_SHOP_MIJING_SCORE = 23; // 秘境积分商店
     return ShopController;
 }(BaseClass));
 __reflect(ShopController.prototype, "ShopController");

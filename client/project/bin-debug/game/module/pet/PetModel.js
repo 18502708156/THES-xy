@@ -342,6 +342,6 @@ var PetModel = (function (_super) {
     };
     PetModel.SKILL_COUNT = 6;
     return PetModel;
-}(BaseSystem2));
+}(BaseSystem));
 __reflect(PetModel.prototype, "PetModel");
 //# sourceMappingURL=PetModel.js.map

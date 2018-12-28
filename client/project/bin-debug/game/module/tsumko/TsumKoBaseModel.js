@@ -28,7 +28,6 @@ var TsumKoBaseModel = (function (_super) {
         _this.isCurBuy = false;
         //是否當前清理關卡
         _this.isCurClear = false;
-        _this.mRedPoint = new TsumKoBaseRedPoint(_this);
         _this.regNetMsg(S2cProtocol.sc_fuben_eightyOneHard_info, _this._DoInitInfo);
         _this.regNetMsg(S2cProtocol.sc_fuben_eightyOneHard_info_update, _this._DoUpdate);
         return _this;
@@ -50,7 +49,6 @@ var TsumKoBaseModel = (function (_super) {
             var info = _c[_b];
             this.info_todayClearlist[info["key1"]] = info;
         }
-        MessageCenter.ins().dispatch(MessageDef.TSUMKO_INFO);
     };
     TsumKoBaseModel.prototype._DoUpdate = function (rsp) {
         if (rsp.clear != undefined)
@@ -144,15 +142,11 @@ var TsumKoBaseRedPoint = (function (_super) {
     __extends(TsumKoBaseRedPoint, _super);
     function TsumKoBaseRedPoint(model) {
         var _this = _super.call(this) || this;
-        _this.mRedPointMap = {};
         _this.mModel = model;
         return _this;
     }
     TsumKoBaseRedPoint.prototype.GetMessageDef = function () {
-        return [
-            MessageDef.TSUMKO_INFO,
-            MessageDef.TSUMKO_UPDATE_LIST
-        ];
+        return [];
     };
     TsumKoBaseRedPoint.prototype.GetCheckFuncList = function () {
         return _a = {},
@@ -162,23 +156,20 @@ var TsumKoBaseRedPoint = (function (_super) {
     };
     TsumKoBaseRedPoint.prototype.showRedPoint = function () {
         var bool = false;
-        this.mRedPointMap = {};
-        var chaper = Math.ceil(this.mModel.info_clear / 9);
-        for (var i = 1; i <= chaper; i++) {
-            var max = i * 9;
-            if (max > this.mModel.info_clear)
-                max = this.mModel.info_clear;
-            for (var c = i * 9 - 9 + 1; c <= max; c++) {
-                if (this.mModel.IsClearance(i, GameGlobal.Config.DisasterFbConfig[c].sectionid) == false) {
-                    this.mRedPointMap[i] = true;
-                    bool = true;
-                }
-            }
+        // let id=0;
+        // if(this.mModel.IsAllClearance(id)==true) //是否全部通关
+        // {
+        // }
+        // if(this.mModel.IsClearance(1,1))//
+        // {
+        // }
+        var chapter = this.mModel.info_clear / 9;
+        for (var i = 0; i < 9; i++) {
         }
         return bool;
     };
     TsumKoBaseRedPoint.prototype.OnChange = function (index) {
-        GameGlobal.MessageCenter.dispatch(MessageDef.TSUMKOBASE_REDPOINT_NOTICE);
+        //GameGlobal.MessageCenter.dispatch(MessageDef.TsumKoBase_REDPOINT_NOTICE);
     };
     return TsumKoBaseRedPoint;
 }(IRedPoint));

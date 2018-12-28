@@ -37,17 +37,14 @@ var UserTemplateRedPoint = (function (_super) {
             GameGlobal.MessageCenter.dispatch(this.mModel.GetItemRpUpdateMsg());
         }
     };
-    UserTemplateRedPoint.prototype.CanCheck = function () {
-        return this.mModel.mLevel ? true : false;
-    };
     UserTemplateRedPoint.prototype.Get = function (index) {
-        if (!this.CanCheck()) {
+        if (!this.mModel.mLevel) {
             return false;
         }
         return _super.prototype.Get.call(this, index);
     };
     UserTemplateRedPoint.prototype.OnMessage = function (type) {
-        if (!this.CanCheck()) {
+        if (!this.mModel.mLevel) {
             return false;
         }
         var bool = false;
@@ -121,7 +118,7 @@ var UserTemplateRedPoint = (function (_super) {
     };
     // UserTemplateRedPoint.INDEX_RANK
     UserTemplateRedPoint.prototype.GetIndexRank = function () {
-        if (this.mModel.mLevel < this.mModel.mMaxLevel && this.mModel.LvproConfig) {
+        if (this.mModel.mLevel < this.mModel.mMaxLevel) {
             var config = this.mModel.LvproConfig[this.mModel.mLevel];
             if (config) {
                 // let upnum = Math.floor(config.proexp / config.exp)

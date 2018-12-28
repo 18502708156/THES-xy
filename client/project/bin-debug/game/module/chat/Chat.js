@@ -25,7 +25,6 @@ var Chat = (function (_super) {
         _this.worldchatList = new eui.ArrayCollection;
         // syschatList = new eui.ArrayCollection
         _this.guildchatList = new eui.ArrayCollection;
-        _this.crosschatList = new eui.ArrayCollection;
         _this.miniChatOpenStatus = false;
         _this.isNoShowTipsPanel = false;
         _this.publicCD = 0;
@@ -38,7 +37,6 @@ var Chat = (function (_super) {
         _this.RegNetMsgs(S2cProtocol.sc_show_other_pet, _this.pet);
         _this.RegNetMsgs(S2cProtocol.sc_other_equip, _this.item);
         _this.RegNetMsgs(S2cProtocol.sc_other_xianlv, _this.xianlv);
-        _this.RegNetMsgs(S2cProtocol.sc_other_baby, _this.baby);
         return _this;
     }
     Chat.prototype.speakState = function (type) {
@@ -130,12 +128,6 @@ var Chat = (function (_super) {
         req.id = id;
         this.Rpc(C2sProtocol.cs_get_other_actor_xianlv, req);
     };
-    Chat.prototype.sendOtherBaby = function (otherid, id) {
-        var req = new Sproto.cs_get_other_actor_baby_request;
-        req.otherid = otherid;
-        req.id = id;
-        this.Rpc(C2sProtocol.cs_get_other_actor_baby, req);
-    };
     // client_chat_param
     /**
      * 广播帮会聊天消息
@@ -164,10 +156,6 @@ var Chat = (function (_super) {
         this.guildchatList.addItemAt(chatInfo, 0);
         this.SetMinichatData(chatInfo);
     };
-    Chat.prototype.sendInitChat = function () {
-        var req = new Sproto.cs_chat_init_request;
-        this.Rpc(C2sProtocol.cs_chat_init, req);
-    };
     Chat.prototype._DoInitChatMsg = function (rsp) {
         if (!Chat.DeblockingShow()) {
             return;
@@ -180,10 +168,7 @@ var Chat = (function (_super) {
             if (data.type == ChatType.Public || data.type == ChatType.System) {
                 continue;
             }
-            if (data.type == ChatType.Normal)
-                this.worldchatList.addItemAt(msg, 0);
-            else if (data.type == ChatType.Cross)
-                this.crosschatList.addItemAt(msg, 0);
+            this.worldchatList.addItemAt(msg, 0);
         }
         this.SetMinichatDatas(list);
     };
@@ -199,14 +184,6 @@ var Chat = (function (_super) {
         if (type == ChatType.Public || type == ChatType.System) {
             var item = new ChatInfoData(bytes.chatData);
             this.DoSysChatMsg(item);
-        }
-        else if (type == ChatType.Cross) {
-            var message = new ChatInfoData(bytes.chatData);
-            if (this.crosschatList.length >= this.charMax) {
-                this.crosschatList.removeItemAt(this.crosschatList.length - 1);
-            }
-            this.crosschatList.addItemAt(message, 0);
-            this.SetMinichatData(message);
         }
         else {
             var message = new ChatInfoData(bytes.chatData);
@@ -262,15 +239,6 @@ var Chat = (function (_super) {
                 }
                 ViewManager.ins().open(PetInfoPanel, config, false);
             }
-        }
-    };
-    Chat.prototype.baby = function (req) {
-        if (req && req.baby) {
-            var petConfig = GameGlobal.Config.BabyProgressConfig[req.babyid];
-            if (!petConfig) {
-                return;
-            }
-            ViewManager.ins().open(ElfDetailsPanel, req.babyid, req.baby.lv, req.baby.buffs, req.baby.name);
         }
     };
     //打开装备展示界面
@@ -362,14 +330,6 @@ var Chat = (function (_super) {
                     else if (sId === 12) {
                         var shId = data.share.showInfo[0].value || 0;
                         var xianlvConfig = GameGlobal.Config.partnerBiographyConfig[shId];
-                        if (xianlvConfig) {
-                            itemStr = xianlvConfig.name || "";
-                            sColor = ItemBase.QUALITY_COLOR[xianlvConfig.quality] + "";
-                        }
-                    }
-                    else if (sId == 50) {
-                        var shId = data.share.showInfo[0].value || 0;
-                        var xianlvConfig = GameGlobal.Config.BabyActivationConfig[shId];
                         if (xianlvConfig) {
                             itemStr = xianlvConfig.name || "";
                             sColor = ItemBase.QUALITY_COLOR[xianlvConfig.quality] + "";
@@ -536,11 +496,6 @@ var Chat = (function (_super) {
                         this.sendOtherXianlv(chatData.id, data.value);
                     }
                 }
-                else if (itemData.type == 7) {
-                    if (itemData && itemData.value) {
-                        this.sendOtherBaby(chatData.id, itemData.value);
-                    }
-                }
             }
         }
         //配表对应跳转
@@ -612,9 +567,6 @@ var Chat = (function (_super) {
         if (this.guildchatList) {
             this.guildchatList.removeAll();
         }
-        if (this.crosschatList) {
-            this.crosschatList.removeAll();
-        }
     };
     Chat.DeblockingShow = function () {
         return Deblocking.Check(DeblockingType.TYPE_49, true) || GameServer.IsMerge();
@@ -645,10 +597,7 @@ var Chat = (function (_super) {
             else {
                 if (Chat.DeblockingSend()) {
                     if (GameGlobal.Chat.checkRepeatString(msg)) {
-                        if (Chat.WORLD_TYPE == channelType || Chat.ALL_TYPE == channelType)
-                            GameGlobal.Chat.sendChatInfo(1, msg); //世界聊天
-                        else if (Chat.CROSS_TYPE == channelType)
-                            GameGlobal.Chat.sendChatInfo(5, msg); //跨服聊天
+                        GameGlobal.Chat.sendChatInfo(1, msg); //目前只有世界
                     }
                     GameGlobal.Chat.UpSpeak = msg;
                     GameGlobal.Chat.startupSpeakTime(channelType);
@@ -686,7 +635,6 @@ var Chat = (function (_super) {
         this.RemoveChatByActor(this.minichatList, actorId);
         this.RemoveChatByActor(this.worldchatList, actorId);
         this.RemoveChatByActor(this.guildchatList, actorId);
-        this.RemoveChatByActor(this.crosschatList, actorId);
     };
     Chat.prototype.RemoveChatByActor = function (list, actorId) {
         var source = list.source;
@@ -709,7 +657,6 @@ var Chat = (function (_super) {
     Chat.ALL_TYPE = 0;
     Chat.WORLD_TYPE = 1;
     Chat.GUILD_TYPE = 2;
-    Chat.CROSS_TYPE = 3;
     return Chat;
 }(BaseSystem));
 __reflect(Chat.prototype, "Chat");
@@ -722,7 +669,6 @@ var ChatType;
     /**世界聊天 */
     ChatType[ChatType["Normal"] = 1] = "Normal";
     ChatType[ChatType["Guild"] = 4] = "Guild";
-    ChatType[ChatType["Cross"] = 5] = "Cross";
     /** 世界聊天 - 公告类型 */
     ChatType[ChatType["NormalPublic"] = 10] = "NormalPublic";
 })(ChatType || (ChatType = {}));

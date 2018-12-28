@@ -144,8 +144,6 @@ var RankingModel = (function (_super) {
     RankingModel.RANK_TYPE_TT = 19;
     /**灵童*/
     RankingModel.RANK_TYPE_LT = 20;
-    RankingModel.RANK_TYPE_LT_yuling = 21;
-    RankingModel.RANK_TYPE_LT_fate = 23;
     return RankingModel;
 }(BaseSystem));
 __reflect(RankingModel.prototype, "RankingModel");

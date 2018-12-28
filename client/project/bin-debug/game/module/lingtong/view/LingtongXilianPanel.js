@@ -22,18 +22,16 @@ var LingtongXilianPanel = (function (_super) {
         this.observe(MessageDef.LINGTONG_UPDATE_INFO, this.UpdateContent);
     };
     LingtongXilianPanel.prototype.GetBuffSkill = function () {
-        var info = GameGlobal.LingtongPetModel.GetInfo(this.mPetId);
-        return info.mBuffs;
+        return GameGlobal.LingtongAttrModel.mBuffSkill;
     };
     LingtongXilianPanel.prototype.GetXilianSkill = function (i) {
-        var info = GameGlobal.LingtongPetModel.GetInfo(this.mPetId);
-        return info.mXilianSkills[i];
+        return GameGlobal.LingtongAttrModel.mXilianSkill[i];
     };
     LingtongXilianPanel.prototype.SendSkillXilian = function () {
-        GameGlobal.LingtongAttrModel.SendSetSkill(this.mPetId);
+        GameGlobal.LingtongAttrModel.SendSetSkill();
     };
     LingtongXilianPanel.prototype.SendSendXilian = function (list, type) {
-        GameGlobal.LingtongAttrModel.SendRefreshSkill(this.mPetId, list, type, this.checkBox.selected);
+        GameGlobal.LingtongAttrModel.SendRefreshSkill(list, type, this.checkBox.selected);
     };
     LingtongXilianPanel.prototype.GetBaseConfig = function () {
         return GameGlobal.Config.BabyBasisConfig;

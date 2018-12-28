@@ -148,8 +148,8 @@ var DestinyPanel = (function (_super) {
     //选择变化
     DestinyPanel.prototype.onSelectChange = function () {
         var data = this.tBagList[this.nIndex];
-        if (data) {
-            if (data.item) {
+        if (data.item) {
+            if (data) {
                 if (data.id) {
                     this.gRect0.visible = false;
                     this.gRect1.visible = true;
@@ -172,13 +172,13 @@ var DestinyPanel = (function (_super) {
                     var tList = this.getArrInfoList(data);
                     this.info2.onUpdate(tList);
                 }
-                return;
             }
         }
-        //未装备
-        this.gRect0.visible = true;
-        this.gRect1.visible = false;
-        this.gRect2.visible = false;
+        else {
+            this.gRect0.visible = true;
+            this.gRect1.visible = false;
+            this.gRect2.visible = false;
+        }
     };
     //显示升级所需材料
     DestinyPanel.prototype.showUpMeatial = function (_count) {

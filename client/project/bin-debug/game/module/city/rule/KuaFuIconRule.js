@@ -15,7 +15,7 @@ var KuaFuIconRule = (function (_super) {
     __extends(KuaFuIconRule, _super);
     function KuaFuIconRule(t) {
         var _this = _super.call(this, t) || this;
-        _this.updateMessage = [MessageDef.KF_BOSS_UPDATE_INFO, MessageDef.TSUMKOBASE_REDPOINT_NOTICE];
+        _this.updateMessage = [MessageDef.KF_BOSS_UPDATE_INFO];
         _this.tar["redPoint"] = _this.tar.getChildByName("redPoint");
         _this.imgDouble = _this.tar.getChildByName("imgDouble");
         return _this;
@@ -29,10 +29,7 @@ var KuaFuIconRule = (function (_super) {
             return false;
         }
         this.imgDouble.visible = false;
-        var bool = GameGlobal.AcrossBossController.IsAcrossBossAct();
-        if (bool == false)
-            bool = GameGlobal.TsumKoBaseModel.mRedPoint.IsRedPoint();
-        return bool;
+        return GameGlobal.AcrossBossController.IsAcrossBossAct();
     };
     KuaFuIconRule.prototype.checkShowIcon = function () {
         return true;

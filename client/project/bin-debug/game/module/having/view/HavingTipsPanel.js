@@ -43,12 +43,7 @@ var HavingTipsPanel = (function (_super) {
     };
     HavingTipsPanel.prototype.tap = function () {
         if (this.btn.label == "提升VIP")
-            if (LocationProperty.IsOtherRecharge()) {
-                RechargeWin.Open();
-            }
-            else {
-                GameGlobal.RechargeModel.sendRecharge(6);
-            }
+            GameGlobal.RechargeModel.sendRecharge(6);
         else {
             UserVip.ins().sendXuanNvAwards(9);
             ViewManager.ins().close(HavingTipsPanel);

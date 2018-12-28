@@ -74,7 +74,7 @@ var QujingRevengeWin = (function (_super) {
                 ViewManager.ins().close(this);
                 break;
             case this.btnConfirm:
-                if (!UserFb.FinishAndCheckFighting())
+                if (!UserFb.CheckFighting())
                     return;
                 if (this.mType == QujingModel.ESCORT_FIGHT_TYPE_REVENGE)
                     GameGlobal.QujingModel.SendRevenge(this.mId);

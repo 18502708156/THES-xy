@@ -58,11 +58,6 @@ var PowerLabel = (function (_super) {
     PowerLabel.prototype._OnClick = function () {
         this.dispatchEventWith(egret.TouchEvent.TOUCH_TAP);
     };
-    PowerLabel.prototype.SetCheckAttrVisible = function (visible) {
-        if (this.checkAttr) {
-            this.checkAttr.visible = visible;
-        }
-    };
     return PowerLabel;
 }(eui.Component));
 __reflect(PowerLabel.prototype, "PowerLabel", ["eui.UIComponent", "egret.DisplayObject"]);

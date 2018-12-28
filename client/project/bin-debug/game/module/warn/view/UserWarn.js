@@ -44,8 +44,8 @@ var UserWarn = (function (_super) {
     UserWarn.prototype.setshowCheckBox = function (name, str, callBackFun, callBackFun2, statu, data) {
         if (statu === void 0) { statu = "checkBox"; }
         if (data === void 0) { data = null; }
-        if (WarnWinData.ins().checkerHintByName(name, callBackFun)) {
-            WarnWinData.ins().setRecord(name, true);
+        if (WarnWinDate.ins().checkerHintByName(name)) {
+            WarnWinDate.ins().setRecord(name, true, callBackFun);
             ViewManager.ins().open(WarnWin).setshowCheckBox(name, str, callBackFun, callBackFun2, statu, data);
         }
     };

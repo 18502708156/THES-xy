@@ -124,9 +124,6 @@ var Sproto;
         var t = -1;
         while (-1 != (t = d.rt())) {
             switch (t) {
-                case 0:
-                    o.baby = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -135,10 +132,7 @@ var Sproto;
         return o;
     }
     function _encode_cs_advanced_rank_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.baby != undefined) {
-            se.wi(self.baby, 0);
-        }
+        var se = Sproto.SprotoCore.GetSerialize(st, 0);
         return Sproto.SprotoCore.CloseSerialize(se);
     }
     Sproto.ALL_DICT["cs_advanced_rank_request"] = { en: _encode_cs_advanced_rank_request, de: _decode_cs_advanced_rank_request };

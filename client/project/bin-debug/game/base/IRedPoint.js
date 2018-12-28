@@ -80,17 +80,6 @@ var IRedPoint = (function () {
             this.Get(Number(k));
         }
     };
-    IRedPoint.prototype.CheckArrayData = function (lhs, rhs) {
-        if (!lhs || !rhs) {
-            return;
-        }
-        for (var key in lhs) {
-            if (lhs[key] != rhs[key]) {
-                return false;
-            }
-        }
-        return true;
-    };
     /**
      * 如果某个索引状态发生变化，会回调这个方法，子类重写这个用来广播事件
      */

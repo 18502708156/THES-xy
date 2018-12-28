@@ -51,7 +51,7 @@ var MiniChatItemRender = (function (_super) {
             if (data.IsTipType()) {
                 this.roleNameTxt.textFlow = TextFlowMaker.generateTextFlow(data.str + shardStr);
             }
-            else if (type == ChatType.Normal || type == ChatType.NormalPublic || type == ChatType.Guild || type == ChatType.Cross) {
+            else if (type == ChatType.Normal || type == ChatType.NormalPublic || type == ChatType.Guild) {
                 // var n = MiniChatItemRender.filterContentStr(this.data.str+shardStr);
                 var n = MiniChatItemRender.filterContentStr(this.data.str);
                 var name_1;

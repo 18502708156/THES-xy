@@ -62,7 +62,6 @@ var GangInfoPanel = (function (_super) {
         this.observe(MessageDef.GANGBOSS_UPDATE_INFO, this._UpdateList);
         this.observe(MessageDef.ACTIVITY_LIST_INFO, this._UpdateList);
         this.UpdateRedPoint();
-        this._UpdateList();
     };
     GangInfoPanel.prototype.OnClose = function () {
     };

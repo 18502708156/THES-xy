@@ -64,30 +64,6 @@ var Sproto;
         return Sproto.SprotoCore.CloseSerialize(se);
     }
     Sproto.ALL_DICT["cs_chat_check_online_response"] = { en: _encode_cs_chat_check_online_response, de: _decode_cs_chat_check_online_response };
-    var cs_chat_init_request = (function () {
-        function cs_chat_init_request() {
-        }
-        return cs_chat_init_request;
-    }());
-    Sproto.cs_chat_init_request = cs_chat_init_request;
-    __reflect(cs_chat_init_request.prototype, "Sproto.cs_chat_init_request");
-    function _decode_cs_chat_init_request(d) {
-        var o = new cs_chat_init_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_chat_init_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 0);
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_chat_init_request"] = { en: _encode_cs_chat_init_request, de: _decode_cs_chat_init_request };
     var cs_chat_private_send_init_request = (function () {
         function cs_chat_private_send_init_request() {
         }

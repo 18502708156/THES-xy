@@ -33,8 +33,6 @@ var CrossMainPanel = (function (_super) {
         }
         this.mCommonWindowBg.OnAdded(this, param[0] || 0, param[1]);
         this.observe(MessageDef.KF_BOSS_UPDATE_INFO, this.UpdateTabBtnRedPoint);
-        this.observe(MessageDef.TSUMKO_INFO, this.UpdateTabBtnRedPoint);
-        this.observe(MessageDef.TSUMKO_UPDATE_LIST, this.UpdateTabBtnRedPoint);
         this.UpdateTabBtnRedPoint();
     };
     CrossMainPanel.prototype.UpdateTabBtnRedPoint = function () {

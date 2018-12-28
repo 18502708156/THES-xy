@@ -426,9 +426,6 @@ var UserBag = (function (_super) {
         if (GameGlobal.FuliModel.FuliData.month > 0) {
             count = GameGlobal.Config.WelfareBaseConfig.moncardbag;
         }
-        if (GameGlobal.FuliModel.FuliData.foreverFlag) {
-            count += GameGlobal.Config.WelfareBaseConfig.forevercardbag;
-        }
         // return this.bagNum + GlobalConfig.ins().VipGridConfig[UserVip.ins().lv].grid + Recharge.ins().getAddBagGrid() + count;
         return this.bagNum + GlobalConfig.ins().VipGridConfig[UserVip.ins().lv].grid + count;
     };

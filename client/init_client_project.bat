@@ -1,14 +1,22 @@
-@echo off
+@echo on
 
-set CLIENT_ASSETS=project\resource\assets
+set cur=%cd%
+::´´½¨ÍâÁ´ÎÄ¼ş¼Ğ
+set CLIENT_ASSETS=%cur%\project\resource\assets
+cd..
+cd..
+cd..
+set raw=%cd%
+::Á´½ÓµØÖ·
+set SOURCE_ASSETS=%raw%\xiyouH5\project\assets\dev
 
 echo %CLIENT_ASSETS%
 
 if exist %CLIENT_ASSETS% (
-	echo "å·²ç»å­˜åœ¨æ–‡ä»¶å¤¹"
+	echo "ÒÑ¾­´æÔÚÎÄ¼ş¼Ğ"
 ) else (
-	echo "é“¾æ¥æ–‡ä»¶å¤¹" %CLIENT_ASSETS%
-	mklink /J %CLIENT_ASSETS% "..\assets\dev"
+	echo "Á´½ÓÎÄ¼ş¼Ğ" %CLIENT_ASSETS%
+	mklink /J %CLIENT_ASSETS% "%SOURCE_ASSETS%"
 )
 
 rem mklink /J "client\project\resource\assets" "resource\assets"

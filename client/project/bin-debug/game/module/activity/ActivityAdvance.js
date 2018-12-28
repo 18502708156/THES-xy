@@ -29,11 +29,8 @@ var ActivityAdvance = (function () {
                     var _key = config[key].actime;
                     var endtime = activityData[_key][Object.keys(activityData[_key])[1]];
                     var time = DateUtils.FormatTimeString(endtime);
-                    var add = true;
-                    if (config[key].closetime && config[key].closetime < GameServer.serverOpenDay)
-                        add = false;
                     for (var index in opendayData) {
-                        if (opendayData[index] == weekDay && date.getTime() <= time && add) {
+                        if (opendayData[index] == weekDay && date.getTime() <= time) {
                             var activityAdvanceBtn = new ActivityAdvanceBtn(activityData);
                             activityAdvanceBtn.type = config[key].type;
                             activityAdvanceBtn.name = "advanceBtn" + key;
@@ -42,8 +39,6 @@ var ActivityAdvance = (function () {
                         }
                     }
                 }
-                if (this.m_component.getChildByName("advanceBtn" + key) && config[key].closetime && config[key].closetime < GameServer.serverOpenDay)
-                    this.m_component.removeChild(this.m_component.getChildByName("advanceBtn" + key));
             }
         }
     };
@@ -60,7 +55,6 @@ var ActivityAdvanceBtn = (function (_super) {
         _this.m_bIsOpen = false;
         _this.m_bOpenTime = 0;
         _this.m_cTipsPanelDate = new TipsPanelDate;
-        _this.m_specialId = 0; //需要特殊处理的
         _this.m_BaseConfig = config;
         _this.skinName = "AcitivityAdvanceBtnSkin";
         return _this;
@@ -74,7 +68,6 @@ var ActivityAdvanceBtn = (function (_super) {
         var arr = opentime.split(":");
         this.m_bOpenTime = arr[0];
         this.tipsLabel.text = this.m_bOpenTime + "\u70B9\u5F00\u542F";
-        this.m_specialId = this.m_activityConfig[this.type].specialId;
     };
     ActivityAdvanceBtn.prototype.$onAddToStage = function (stage, nestLevel) {
         _super.prototype.$onAddToStage.call(this, stage, nestLevel);
@@ -146,24 +139,6 @@ var ActivityAdvanceBtn = (function (_super) {
             this.m_bIsOpen = true;
             TimerManager.ins().remove(this.timer, this);
             DisplayUtils.removeFromParent(this);
-        }
-        this.special();
-    };
-    ActivityAdvanceBtn.prototype.special = function () {
-        switch (this.m_specialId) {
-            case 1:
-                if (GameGlobal.GangBossModel.status == 4) {
-                    this.tipsLabel.text = DateUtils.getFormatBySecond(GameGlobal.GangBossModel.getBossRebornTime()) + '';
-                    this.timeGroup.visible = true;
-                    this.runImg.visible = false;
-                }
-                else if (GameGlobal.GangBossModel.status == 2) {
-                    this.timeGroup.visible = false;
-                    this.runImg.visible = true;
-                }
-                break;
-            default:
-                break;
         }
     };
     return ActivityAdvanceBtn;

@@ -106,21 +106,6 @@ var Sproto;
                 case 15:
                     o.totemsround = d.ri();
                     break;
-                case 16:
-                    o.babycounts = d.ria();
-                    break;
-                case 17:
-                    o.babyrecords = d.roa("luck_record");
-                    break;
-                case 18:
-                    o.babydaylist = d.ria();
-                    break;
-                case 19:
-                    o.babylucky = d.ri();
-                    break;
-                case 20:
-                    o.babyround = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -129,7 +114,7 @@ var Sproto;
         return o;
     }
     function _encode_sc_luck_info_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 21);
+        var se = Sproto.SprotoCore.GetSerialize(st, 16);
         if (self.counts != undefined) {
             se.wia(self.counts, 0);
         }
@@ -177,21 +162,6 @@ var Sproto;
         }
         if (self.totemsround != undefined) {
             se.wi(self.totemsround, 15);
-        }
-        if (self.babycounts != undefined) {
-            se.wia(self.babycounts, 16);
-        }
-        if (self.babyrecords != undefined) {
-            se.woa("luck_record", self.babyrecords, 17);
-        }
-        if (self.babydaylist != undefined) {
-            se.wia(self.babydaylist, 18);
-        }
-        if (self.babylucky != undefined) {
-            se.wi(self.babylucky, 19);
-        }
-        if (self.babyround != undefined) {
-            se.wi(self.babyround, 20);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }

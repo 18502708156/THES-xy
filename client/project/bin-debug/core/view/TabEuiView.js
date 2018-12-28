@@ -50,7 +50,6 @@ var TabEuiView = (function (_super) {
         var view = this.getElementAt(this.selectedIndex);
         if (view && view["DoClose"]) {
             view["DoClose"]();
-            view.visible = false;
         }
         this.m_TmpIndex = null;
         this.m_TmpData = null;

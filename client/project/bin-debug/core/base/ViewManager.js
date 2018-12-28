@@ -616,15 +616,6 @@ var ViewManager = (function (_super) {
             case ViewIndexDef.TYPE_1093://図騰转盘
                 ViewManager.ins().open(TotemsGoodLuckMainWin, 1);
                 break;
-            case ViewIndexDef.TYPE_1094://逆命
-                ViewManager.ins().open(DestinyUpWin, 1);
-                break;
-            case ViewIndexDef.TYPE_1095:
-                ViewManager.ins().open(ElfCallPanel);
-                break;
-            case ViewIndexDef.TYPE_1096:
-                ViewManager.ins().open(PetExpeditionView);
-                break;
             default:
                 console.warn("not def goto index => " + index);
                 return false;
@@ -764,8 +755,5 @@ var ViewIndexDef;
     ViewIndexDef[ViewIndexDef["TYPE_1090"] = 1090] = "TYPE_1090";
     ViewIndexDef[ViewIndexDef["TYPE_1092"] = 1092] = "TYPE_1092";
     ViewIndexDef[ViewIndexDef["TYPE_1093"] = 1093] = "TYPE_1093";
-    ViewIndexDef[ViewIndexDef["TYPE_1094"] = 1094] = "TYPE_1094";
-    ViewIndexDef[ViewIndexDef["TYPE_1095"] = 1095] = "TYPE_1095";
-    ViewIndexDef[ViewIndexDef["TYPE_1096"] = 1096] = "TYPE_1096";
 })(ViewIndexDef || (ViewIndexDef = {}));
 //# sourceMappingURL=ViewManager.js.map

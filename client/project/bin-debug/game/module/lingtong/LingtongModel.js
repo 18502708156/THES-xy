@@ -24,10 +24,6 @@ var LingtongModel = (function (_super) {
         _this.mRedPoint = new LingtongModelRedPoint(_this);
         return _this;
     }
-    // 装备物品更新红点消息
-    LingtongModel.prototype.GetItemEquipRpUpdateMsg = function () {
-        return MessageDef.RP_USER_TEMPLATE_EQUIP_UPDATE_ + "lingtong";
-    };
     LingtongModel.prototype.Init = function () {
         this.BaseConfig = GameGlobal.Config.BabyBasisConfig;
         this.LvproConfig = GameGlobal.Config.BabyLvproConfig;
@@ -35,22 +31,12 @@ var LingtongModel = (function (_super) {
         this.ProgressConfig = GameGlobal.Config.BabyProgressConfig;
         this.SkinConfig = GameGlobal.Config.BabySkinConfig;
         _super.prototype.Init.call(this);
-        for (var key in GameGlobal.Config.BabyLvproConfig) {
-            var cost = GameGlobal.Config.BabyLvproConfig[key].cost;
-            if (!cost) {
-                continue;
-            }
-            GameGlobal.UserBag.AddListenerItem(cost[0].id, this.GetItemRankItemUpdateMsg());
-            break;
-        }
     };
     LingtongModel.prototype.GetDescPower = function () {
-        return 0;
+        var power = _super.prototype.GetDescPower.call(this);
+        power += ItemConfig.CalcAttrScoreValue(GameGlobal.LingtongAttrModel.getTianFuAllAttr());
+        return power;
     };
-    // 	let power = super.GetDescPower()
-    // 	power += ItemConfig.CalcAttrScoreValue(GameGlobal.LingtongAttrModel.getTianFuAllAttr())
-    // 	return power
-    // }
     // 装备属性为空
     LingtongModel.prototype.GetCurEquipAttr = function () {
         return [];
@@ -63,14 +49,6 @@ var LingtongModelRedPoint = (function (_super) {
     function LingtongModelRedPoint() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    LingtongModelRedPoint.prototype.CanCheck = function () {
-        return true;
-    };
-    // 灵童只更新属性丹
-    LingtongModelRedPoint.prototype.OnMessage = function (type) {
-        this.ClearFlag(UserTemplateRedPoint.INDEX_ATTR_ITEM);
-        return true;
-    };
     return LingtongModelRedPoint;
 }(UserTemplateRedPoint));
 __reflect(LingtongModelRedPoint.prototype, "LingtongModelRedPoint");

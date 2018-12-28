@@ -125,7 +125,7 @@ var NormalBattleRaid = (function (_super) {
             monid: id,
             ownerid: GameGlobal.actorModel.actorID,
             // attrs: NormalBattleRaid.CopyAttr(petInfo.GetAttrs()),
-            attrs: CommonUtils.copyDataHandler(GameGlobal.SubRoles.GetRoleData().attributeData),
+            attrs: CommonUtils.copyDataHandler(SubRoles.ins().GetRoleData().attributeData),
             shows: {
                 id: id,
                 shows: [GameGlobal.PetTonglModel.mDressId, GameGlobal.PetShouhModel.mDressId]
@@ -161,7 +161,7 @@ var NormalBattleRaid = (function (_super) {
             monid: xianlvId,
             ownerid: GameGlobal.actorModel.actorID,
             // attrs: NormalBattleRaid.CopyAttr(info.GetAttrs()),
-            attrs: CommonUtils.copyDataHandler(GameGlobal.SubRoles.GetRoleData().attributeData),
+            attrs: CommonUtils.copyDataHandler(SubRoles.ins().GetRoleData().attributeData),
             shows: {
                 id: xianlvId,
                 shows: [GameGlobal.XianlvFzModel.mDressId, GameGlobal.XianlvXwModel.mDressId]
@@ -184,7 +184,7 @@ var NormalBattleRaid = (function (_super) {
             handler: handle,
             monid: 0,
             ownerid: GameGlobal.actorModel.actorID,
-            attrs: CommonUtils.copyDataHandler(GameGlobal.SubRoles.GetRoleData().attributeData),
+            attrs: CommonUtils.copyDataHandler(SubRoles.ins().GetRoleData().attributeData),
             shows: {
                 shows: [GameGlobal.HavingModel.mDressId, GameGlobal.HavingLingqModel.mDressId, GameGlobal.HavingHuanModel.mDressId]
             }
@@ -209,7 +209,7 @@ var NormalBattleRaid = (function (_super) {
             monid: battleId,
             ownerid: GameGlobal.actorModel.actorID,
             // attrs: this.CopyAttr(info.GetAttrs()),
-            attrs: CommonUtils.copyDataHandler(GameGlobal.SubRoles.GetRoleData().attributeData),
+            attrs: CommonUtils.copyDataHandler(SubRoles.ins().GetRoleData().attributeData),
             shows: {
                 id: battleId
             }
@@ -217,8 +217,7 @@ var NormalBattleRaid = (function (_super) {
         return entity;
     };
     NormalBattleRaid.CreateLingtong = function () {
-        var id = GameGlobal.LingtongPetModel.GetShowId();
-        if (!id) {
+        if (!GameGlobal.LingtongAttrModel.IsActive()) {
             return null;
         }
         var entity = new EntityLingtong;
@@ -228,16 +227,17 @@ var NormalBattleRaid = (function (_super) {
             handler: handle,
             monid: 0,
             ownerid: GameGlobal.actorModel.actorID,
-            attrs: CommonUtils.copyDataHandler(GameGlobal.SubRoles.GetRoleData().attributeData),
+            // attrs: NormalBattleRaid.CopyAttr(GameGlobal.LingtongModel.GetCurAttr()),
+            attrs: CommonUtils.copyDataHandler(SubRoles.ins().GetRoleData().attributeData),
             shows: {
-                id: id,
+                id: GameGlobal.LingtongAttrModel.mSex,
             },
         });
-        entity.skillsData = CommonUtils.copyDataHandler(GameGlobal.LingtongAttrModel.GetCurSkill(id));
+        entity.skillsData = CommonUtils.copyDataHandler(GameGlobal.LingtongAttrModel.GetCurSkill());
         return entity;
     };
     NormalBattleRaid.GetMyRole = function () {
-        var role = GameGlobal.SubRoles.GetRoleData();
+        var role = SubRoles.ins().GetRoleData();
         if (!role) {
             return null;
         }

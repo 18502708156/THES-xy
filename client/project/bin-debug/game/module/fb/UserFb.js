@@ -43,7 +43,6 @@ var UserFb = (function (_super) {
         _this.bCbtCanSwap = true; //藏宝图副本是否可以扫荡
         _this.bCbtAutoFight = false; //藏宝图副本是否可以自动战斗
         _this.bCbtAcross = false; //藏宝图副本当前关卡是否已经通关
-        _this.bLingLongTaAuto = false;
         _this.bTianTingAutoFight = false; //勇闯天庭副本是否可以自动战斗
         _this.m_KillMonsterCount = 0;
         /** 获取当前波的掉落物（列表最后一个开始） */

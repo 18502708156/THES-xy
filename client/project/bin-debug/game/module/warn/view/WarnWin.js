@@ -108,7 +108,7 @@ var WarnWin = (function (_super) {
         var tempCb2 = this.calback2;
         switch (e.currentTarget) {
             case this.sureBtn:
-                WarnWinData.ins().changeHint(this.name, !this.checkBox.selected);
+                WarnWinDate.ins().changeHint(this.name, !this.checkBox.selected);
                 if (tempCb1 && tempCb1.func != null)
                     tempCb1.func.call(tempCb1.thisObj);
                 break;

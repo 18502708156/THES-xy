@@ -341,12 +341,6 @@ var RaidMgr = (function (_super) {
         // 	this.mCityRaid.UpdateRole()
         // }
     };
-    // public UpdateRoleLingtong(ligntongid: number) {
-    // 	let raid = this.GetNormalMapRaid()
-    // 	if (raid) {
-    // 		raid.UpdateRoleLingtong(ligntongid)
-    // 	}
-    // }
     RaidMgr.prototype.UpdateRolePet = function (petId) {
         var raid = this.GetNormalMapRaid();
         if (raid) {

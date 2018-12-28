@@ -31,21 +31,17 @@ var MonthIconRule = (function (_super) {
     };
     MonthIconRule.prototype.tapExecute = function () {
         // this.firstTap = false
-        // let config = GameGlobal.Config.LvRewardConfig;
-        // let showLvPanel = true;
-        // for (let key in config) {
-        // 	showLvPanel = (GameGlobal.FuliModel.FuliData.lvMark & 1 << config[key].id) < 1
-        // 	if (showLvPanel) break
-        // }
-        // if(showLvPanel==false)
-        // 	ViewManager.ins().open(FuliWin,4);
-        // else
-        // 	ViewManager.ins().open(FuliWin,4);
-        for (var i = 0; i < FuliWin.WelfareIcon.length; i++) {
-            if (FuliWin.WelfareIcon[i].type == 4) {
-                ViewManager.ins().open(FuliWin, i);
-            }
+        var config = GameGlobal.Config.LvRewardConfig;
+        var showLvPanel = true;
+        for (var key in config) {
+            showLvPanel = (GameGlobal.FuliModel.FuliData.lvMark & 1 << config[key].id) < 1;
+            if (showLvPanel)
+                break;
         }
+        if (showLvPanel == false)
+            ViewManager.ins().open(FuliWin, 3);
+        else
+            ViewManager.ins().open(FuliWin, 4);
     };
     return MonthIconRule;
 }(RuleIconBase));

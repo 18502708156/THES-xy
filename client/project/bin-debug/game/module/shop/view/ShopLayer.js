@@ -117,12 +117,6 @@ var ShopLayer = (function (_super) {
                 case ShopController.EN_SHOP_TREASURE_HUNT:
                     list.push(TabView.CreateTabViewData(ShopTreasureHuntPnael));
                     break;
-                case ShopController.EN_SHOP_MIJING:
-                    list.push(TabView.CreateTabViewData(ShopMijingPnael));
-                    break;
-                case ShopController.EN_SHOP_MIJING_SCORE:
-                    list.push(TabView.CreateTabViewData(ShopMijingScorePnael));
-                    break;
             }
         }
         return list;

@@ -23,55 +23,27 @@ var KaiFuJiJieRankPanel = (function (_super) {
         this.list0.itemRenderer = ItemBaseNotName;
     };
     KaiFuJiJieRankPanel.prototype.OnOpen = function () {
-        if (this.jijieType != 12)
-            GameGlobal.ActivityKaiFuModel.Send_advanced_rank();
-        else
-            GameGlobal.ActivityKaiFuModel.Send_advanced_rank(1);
+        GameGlobal.ActivityKaiFuModel.Send_advanced_rank();
         this.AddClick(this.getwayLabel, this._OnClick);
         this.observe(MessageDef.ACTIVITY_ADVANCED_INFO, this.UpdateContent);
         this.observe(MessageDef.ACTIVITY_ADVANCED_RANK, this.UpdateContent);
         this.AddTimer(1000, 0, this.updateTime);
         this.UpdateContent();
         this.updateTime();
-        if (this.jijieType != 13 && this.jijieType != 14)
-            this.getwayLabel.text = "前往升阶";
-        else
-            this.getwayLabel.text = "前往" + ActivityConst.JiJieTypeName2(this.jijieType);
     };
-    KaiFuJiJieRankPanel.GetUpdateTime = function (jijieType, isShowAllTime) {
-        if (jijieType == ActivityKaiFuJiJieType.lingtong && isShowAllTime == true) {
+    KaiFuJiJieRankPanel.GetUpdateTime = function (jijieType) {
+        if (jijieType == ActivityKaiFuJiJieType.lingtong) {
             var endTime = void 0;
-            var needDay = GameGlobal.Config.ProgressCrazyBaseConfig.initialorder.length - GameServer.serverOpenDay;
-            var date = new Date(GameServer.serverTimeMilli);
-            date.setDate(date.getDate() + needDay);
-            date.setHours(23);
-            date.setMinutes(59);
-            date.setSeconds(59);
-            endTime = date.getTime();
-            var t = endTime - GameServer.serverTimeMilli;
-            if (t > DateUtils.MS_PER_DAY) {
-                var time = DateUtils.format_12(t, 4);
+            if (GameServer.serverOpenDay == 9) {
+                endTime = GameServer._dayEnd3Time;
             }
-            else {
-                var time = DateUtils.format_5(t, 3);
-            }
-            return time;
-        }
-        else if (jijieType == ActivityKaiFuJiJieType.lingtong_yuling || jijieType == ActivityKaiFuJiJieType.lingtong_fate) {
-            var endTime = void 0;
-            if (GameServer.serverOpenDay == 10 || GameServer.serverOpenDay == 12) {
+            else if (GameServer.serverOpenDay == 10) {
                 endTime = GameServer._dayEnd2Time;
             }
-            else if (GameServer.serverOpenDay == 11 || GameServer.serverOpenDay == 13) {
+            else if (GameServer.serverOpenDay == 11) {
                 endTime = GameServer.dayEndTime;
             }
-            var t = endTime - GameServer.serverTimeMilli; // DateUtils.format_1(endTime - GameServer.serverTimeMilli);
-            if (t > DateUtils.MS_PER_DAY) {
-                var time = DateUtils.format_12(t, 4);
-            }
-            else {
-                var time = DateUtils.format_5(t, 3);
-            }
+            var time = DateUtils.format_1(endTime - GameServer.serverTimeMilli);
             return time;
         }
         else {
@@ -80,7 +52,7 @@ var KaiFuJiJieRankPanel = (function (_super) {
         }
     };
     KaiFuJiJieRankPanel.prototype.updateTime = function () {
-        var time = KaiFuJiJieRankPanel.GetUpdateTime(this.jijieType, true);
+        var time = KaiFuJiJieRankPanel.GetUpdateTime(this.jijieType);
         this.time_txt.textFlow = TextFlowMaker.generateTextFlow("\u6D3B\u52A8\u5012\u8BA1\u65F6\uFF1A|C:0x019704&T:" + time + "|");
     };
     KaiFuJiJieRankPanel.prototype.getReward = function () {
@@ -118,16 +90,8 @@ var KaiFuJiJieRankPanel = (function (_super) {
         this.item.data = firstData.cfg.showitem;
         this.ranktips_txt.text = firstData.cfg.des;
         this.rankAward_txt.text = firstData.cfg.des2;
-        var stageStr = "";
-        if (type == ActivityKaiFuJiJieType.lingtong_yuling || type == ActivityKaiFuJiJieType.lingtong_fate) {
-            //  stageStr= `|C:${Color.GetStr(Color.l_green_1)}&T:${GameGlobal.ActivityKaiFuModel.GetMyAdvancedLevel(type)} 个|`
-            //  this.lv_txt.textFlow = TextFlowMaker.generateTextFlow("当前" + ActivityConst.JiJieTypeName(type) + "个数：" + stageStr)
-            this.lv_txt.text = "";
-        }
-        else {
-            stageStr = "|C:" + Color.GetStr(Color.l_green_1) + "&T:" + GameGlobal.ActivityKaiFuModel.GetMyAdvancedLevel(type) + " \u9636|";
-            this.lv_txt.textFlow = TextFlowMaker.generateTextFlow("当前" + ActivityConst.JiJieTypeName(type) + "阶数：" + stageStr);
-        }
+        var stageStr = "|C:" + Color.GetStr(Color.l_green_1) + "&T:" + GameGlobal.ActivityKaiFuModel.GetMyAdvancedLevel(type) + " \u9636|";
+        this.lv_txt.textFlow = TextFlowMaker.generateTextFlow("当前" + ActivityConst.JiJieTypeName(type) + "阶数：" + stageStr);
         var rankObj = GameGlobal.ActivityKaiFuModel.advancedRank[0];
         this.roleShowPanel.hideAllPanel();
         if (rankObj) {

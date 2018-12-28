@@ -7,6 +7,7 @@ var GameSocket = (function () {
         this.m_IsUpdate = false;
         this.m_ReLoginTimer = 0;
         this.m_ServerTimeCounter = 5;
+        this.mIsLogin = false;
         this.socket_ = Socket.ins();
         this.socket_.proxy = this;
     }
@@ -111,7 +112,7 @@ var GameSocket = (function () {
         }
     };
     GameSocket.prototype.sendCheckAccount = function () {
-        if (!GameApp.mInit) {
+        if (!this.mIsLogin) {
             console.warn("not login not check account !!!");
             return;
         }
@@ -135,6 +136,7 @@ var GameSocket = (function () {
         }
     };
     GameSocket.prototype.login = function (ip) {
+        this.mIsLogin = true;
         var arr = ip.split(":");
         var host = arr[0];
         var port = arr[1];

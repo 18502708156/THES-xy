@@ -27,7 +27,7 @@ var FuliWin = (function (_super) {
             if (showLvPanel)
                 break;
         }
-        var wlist = FuliWin.WelfareIcon.slice();
+        var wlist = _this.mWList = FuliWin.WelfareIcon.slice();
         if (!showLvPanel) {
             for (var i = 0; i < wlist.length; i++) {
                 if (wlist[i].cls == FuliLvGiftBagPanel) {
@@ -45,15 +45,6 @@ var FuliWin = (function (_super) {
                 }
             }
         }
-        //搖錢樹 開啟等級
-        if (!Deblocking.Check(DeblockingType.TYPE_145, true)) {
-            for (var i = 0; i < wlist.length; i++) {
-                if (wlist[i].cls == FuliGoldTreePanel) {
-                    wlist.splice(i, 1);
-                    break;
-                }
-            }
-        }
         var list = [];
         for (var _i = 0, wlist_1 = wlist; _i < wlist_1.length; _i++) {
             var data = wlist_1[_i];
@@ -61,7 +52,6 @@ var FuliWin = (function (_super) {
         }
         _this.tabEuiView.tabChildren = list;
         _this.list.itemRenderer = FuliBtnItem;
-        _this.mWList = wlist;
         _this.list.dataProvider = new eui.ArrayCollection(wlist);
         _this._AddItemClick(_this.list, _this.OnClickMenu);
         return _this;
@@ -90,7 +80,7 @@ var FuliWin = (function (_super) {
         var index = 0;
         if (this.selectBtnType) {
             var i = 0;
-            for (var _a = 0, _b = this.mWList; _a < _b.length; _a++) {
+            for (var _a = 0, _b = FuliWin.WelfareIcon; _a < _b.length; _a++) {
                 var data = _b[_a];
                 if (data.type == this.selectBtnType) {
                     index = i;

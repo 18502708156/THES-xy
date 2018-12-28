@@ -27,10 +27,9 @@ var RoleTemplateAttrPanel = (function (_super) {
         this.commonDialog.OnAdded(this);
         this.commonDialog.title = param[1];
         var pid = param[2];
-        this.mPid = pid;
         var art = param[3];
         if (!art) {
-            var attr1 = this.GetAttr();
+            var attr1 = this.mModel.GetCurAttr();
             // this.levelAttr.textFlow = AttributeData.GetAttrTabString(attr1)
             this.changeLaber(attr1);
             var attr2 = this.mModel.GetCurEquipAttr();
@@ -42,7 +41,7 @@ var RoleTemplateAttrPanel = (function (_super) {
             }
             this.equipAttr.textFlow = AttributeData.GetAttrTabString(attr2);
             var attr3 = this.UpdateSkinLabel();
-            var attr4 = this.UpdateDrugLabel();
+            var attr4 = this.mModel.GetCurDrugAttr();
             this.drugAttr.textFlow = AttributeData.GetAttrTabString(attr4);
             var attr5 = this.UpdateSkillLabel();
             var power = 0;
@@ -59,9 +58,6 @@ var RoleTemplateAttrPanel = (function (_super) {
             this.powerLabel.text = ItemConfig.CalcAttrScoreValue(art);
         }
         this.ShowModel(pid);
-    };
-    RoleTemplateAttrPanel.prototype.GetAttr = function () {
-        return this.mModel.GetCurAttr();
     };
     //更改文本描述
     RoleTemplateAttrPanel.prototype.changeLaber = function (attr1) {
@@ -85,10 +81,6 @@ var RoleTemplateAttrPanel = (function (_super) {
             UIHelper.SetVisible(this.skillAttr.parent, false);
         }
         return attr5;
-    };
-    RoleTemplateAttrPanel.prototype.UpdateDrugLabel = function () {
-        var attr4 = this.mModel.GetCurDrugAttr();
-        return attr4;
     };
     RoleTemplateAttrPanel.prototype.UpdateSkinLabel = function () {
         var attr3 = this.mModel.GetCurDressAttr();

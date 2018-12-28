@@ -15,129 +15,123 @@ var LingtongAttrModel = (function (_super) {
     __extends(LingtongAttrModel, _super);
     function LingtongAttrModel() {
         var _this = _super.call(this) || this;
+        _this.mName = "";
+        _this.mBuffSkill = [];
+        _this.giftexp = 0;
+        _this.giftlv = 0;
+        _this.mXilian = 0;
+        _this.mXilianSkill = [];
+        _this.mSex = 0;
+        _this.MAX_GIFT_LEVEL = 5;
         _this.mRedPoint = new LingtongAttrRedPoint;
+        _this.regNetMsg(S2cProtocol.sc_baby_init, _this._DoInit);
         return _this;
     }
     LingtongAttrModel.prototype.Init = function () {
         _super.prototype.Init.call(this);
-        for (var key in GameGlobal.Config.BabyActivationConfig) {
-            var configData = GameGlobal.Config.BabyActivationConfig[key];
-            var data = configData.material;
-            GameGlobal.UserBag.AddListenerItem(data.id, MessageDef.LINGTONG_ACT_ITEM);
-            GameGlobal.UserBag.AddListenerItem(configData.compose.id, MessageDef.LINGTONG_ACT_ITEM);
-        }
-        for (var key in GameGlobal.Config.BabyLvproConfig) {
-            var data = GameGlobal.Config.BabyLvproConfig[key].cost[0];
-            GameGlobal.UserBag.AddListenerItem(data.id, MessageDef.LINGTONG_LEVEL_ITEM);
-            break;
-        }
-        var dict = {};
-        for (var key in GameGlobal.Config.BabyHunActConfig) {
-            for (var key2 in GameGlobal.Config.BabyHunActConfig[key]) {
-                var id = GameGlobal.Config.BabyHunActConfig[key][key2].hunAct.id;
-                if (!dict[id]) {
-                    dict[id] = true;
-                    GameGlobal.UserBag.AddListenerItem(id, MessageDef.LINGTONG_YU_HUN_ITEM);
-                }
-            }
-            break;
-        }
-        for (var key in GameGlobal.Config.BabyHunLvConfig) {
-            GameGlobal.UserBag.AddListenerItem(GameGlobal.Config.BabyHunLvConfig[key][0].promotepiece.id, MessageDef.LINGTONG_YU_HUN_ITEM);
-        }
-        for (var key in GameGlobal.Config.BabyTalentConfig) {
-            var data = GameGlobal.Config.BabyTalentConfig[key][0];
-            GameGlobal.UserBag.AddListenerItem(data.cost[0].id, MessageDef.LINGTONG_RANK_ITEM);
-        }
+        this.MAX_GIFT_LEVEL = CommonUtils.getObjectLength(GameGlobal.Config.BabyTalentConfig[1]);
+        GameGlobal.UserBag.AddListenerItem(GameGlobal.Config.BabyTalentConfig[1][0].cost[0].id, MessageDef.LINGTONG_RANK_ITEM);
         for (var _i = 0, _a = GameGlobal.Config.BabyBasisConfig.freshitemid; _i < _a.length; _i++) {
             var data = _a[_i];
             GameGlobal.UserBag.AddListenerItem(data.itemId, MessageDef.LINGTONG_SKILL_ITEM);
         }
     };
-    LingtongAttrModel.prototype.SendAddGift = function (id) {
-        var req = new Sproto.cs_baby_addgift_request;
-        req.id = id;
-        this.Rpc(C2sProtocol.cs_baby_addgift, req, function (rsp) {
+    LingtongAttrModel.prototype._DoInit = function (rsp) {
+        this.mName = rsp.name || "";
+        this.mBuffSkill = rsp.buffs || [];
+        this.giftexp = rsp.giftexp || 0;
+        this.giftlv = rsp.giftlv || 0;
+        this.mXilian = rsp.xilian || 0;
+        this.mXilianSkill = rsp.xilianSkills || [];
+        this.mSex = rsp.sex || 1;
+        GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
+    };
+    LingtongAttrModel.prototype.SendActive = function (sex) {
+        var _this = this;
+        var req = new Sproto.cs_baby_active_request;
+        req.sex = sex;
+        this.Rpc(C2sProtocol.cs_baby_active, req, function (rsp) {
             if (rsp.ret) {
+                _this.mSex = sex;
+                GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
+                UserTips.InfoTip("激活成功");
+            }
+        });
+    };
+    LingtongAttrModel.prototype.SendAddGift = function () {
+        var _this = this;
+        this.Rpc(C2sProtocol.cs_baby_addgift, null, function (rsp) {
+            if (rsp.ret) {
+                _this.giftexp = rsp.exp;
+                _this.giftlv = rsp.level;
                 GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_GIFT_INFO);
             }
         });
     };
-    LingtongAttrModel.prototype.SendRename = function (id, name) {
+    LingtongAttrModel.prototype.SendRename = function (name) {
+        var _this = this;
         var req = new Sproto.cs_baby_rename_request;
-        req.id = id;
         req.name = name;
         this.Rpc(C2sProtocol.cs_baby_rename, req, function (rsp) {
             if (rsp.ret) {
-                var info = GameGlobal.LingtongPetModel.GetInfo(rsp.id);
-                if (info) {
-                    info.mName = rsp.name;
-                    GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
-                }
+                _this.mName = rsp.name;
+                GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
             }
             else
                 GameGlobal.UserTips.showTips("输入的名称含有敏感字");
         });
     };
-    LingtongAttrModel.prototype.SendRefreshSkill = function (id, lockList, type, autoBuy) {
+    LingtongAttrModel.prototype.SendRefreshSkill = function (lockList, type, autoBuy) {
+        var _this = this;
         var req = new Sproto.cs_baby_refreshskill_request;
-        req.id = id;
         req.locklist = lockList;
         req.type = type;
         req.autoBuy = autoBuy ? 2 : 0;
         this.Rpc(C2sProtocol.cs_baby_refreshskill, req, function (rsp) {
             if (rsp.ret) {
-                var info = GameGlobal.LingtongPetModel.GetInfo(rsp.id);
-                if (info) {
-                    info.mXilian = rsp.xilian;
-                    info.mXilianSkills = rsp.xilianSkills;
-                    GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
-                }
+                _this.mXilian = rsp.xilian;
+                _this.mXilianSkill = rsp.xilianSkills;
+                GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
             }
         }, this);
     };
-    LingtongAttrModel.prototype.SendSetSkill = function (id) {
+    LingtongAttrModel.prototype.SendSetSkill = function () {
+        var _this = this;
         var req = new Sproto.cs_baby_setskillin_request;
-        req.id = id;
         this.Rpc(C2sProtocol.cs_baby_setskillin, req, function (rsp) {
             if (rsp.ret) {
-                var info = GameGlobal.LingtongPetModel.GetInfo(rsp.id);
-                if (info) {
-                    info.mBuffs = rsp.buffs;
-                    info.mXilianSkills = [];
-                    GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
-                }
+                _this.mBuffSkill = rsp.buffs;
+                _this.mXilianSkill = [];
+                GameGlobal.MessageCenter.dispatch(MessageDef.LINGTONG_UPDATE_INFO);
             }
         }, this);
     };
-    LingtongAttrModel.prototype.GetSkillId = function (id, giftlv) {
-        if (giftlv) {
-            var config_1 = GameGlobal.Config.BabyTalentConfig[id][giftlv - 1];
+    LingtongAttrModel.prototype.GetSkillId = function () {
+        if (this.giftlv) {
+            var config_1 = GameGlobal.Config.BabyTalentConfig[this.mSex][this.giftlv - 1];
             if (config_1) {
                 return config_1.skill;
             }
         }
-        var config = GameGlobal.Config.BabyActivationConfig[id];
-        if (config) {
-            return config.skill[0];
-        }
-        return 0;
+        var config = GameGlobal.Config.BabyActivationConfig[this.mSex || 1];
+        return config.skill[0];
     };
-    LingtongAttrModel.prototype.GetNextSkillId = function (id, giftlv) {
-        if (giftlv) {
-            var config_2 = GameGlobal.Config.BabyTalentConfig[id][giftlv];
+    LingtongAttrModel.prototype.GetNextSkillId = function () {
+        if (this.giftlv) {
+            var config_2 = GameGlobal.Config.BabyTalentConfig[this.mSex][this.giftlv];
             if (config_2) {
                 return config_2.skill;
             }
         }
-        var config = GameGlobal.Config.BabyActivationConfig[id];
-        if (config) {
-            return config.skill[0];
-        }
-        return 0;
+        var config = GameGlobal.Config.BabyActivationConfig[this.mSex || 1];
+        return config.skill[0];
     };
-    LingtongAttrModel.prototype.GetCurSkill = function (id) {
-        var config = GameGlobal.Config.BabyActivationConfig[id];
+    LingtongAttrModel.prototype.IsActive = function () {
+        // return this.giftlv ? true : false
+        return this.mSex == 1 || this.mSex == 2;
+    };
+    LingtongAttrModel.prototype.GetCurSkill = function () {
+        var config = GameGlobal.Config.BabyActivationConfig[this.mSex];
         if (config) {
             return config.skill;
         }
@@ -149,13 +143,10 @@ var LingtongAttrModel = (function (_super) {
         }
         return GameGlobal.LingtongModel.mRedPoint.IsRedPoint() || this.mRedPoint.IsRedPoint();
     };
-    LingtongAttrModel.prototype.getTianFuAllAttr = function (id, giftlv, giftExp) {
-        var exp = giftExp;
-        var lv = giftlv;
-        if (!lv) {
-            return [];
-        }
-        var cfgArr = GameGlobal.Config.BabyTalentConfig[id];
+    LingtongAttrModel.prototype.getTianFuAllAttr = function () {
+        var exp = this.giftexp;
+        var lv = this.giftlv;
+        var cfgArr = GameGlobal.Config.BabyTalentConfig[this.mSex];
         if (!cfgArr) {
             return [];
         }

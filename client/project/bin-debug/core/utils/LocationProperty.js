@@ -90,9 +90,6 @@ var LocationProperty = (function () {
     LocationProperty.GetRechargeId = function () {
         return window["__CONFIG__"]["__RECHARGE_ID__"] || 1;
     };
-    LocationProperty.IsOtherRecharge = function () {
-        return this.GetRechargeId() == 3;
-    };
     // 不显示首充推荐提示
     LocationProperty.NotRechargeGood = function () {
         try {

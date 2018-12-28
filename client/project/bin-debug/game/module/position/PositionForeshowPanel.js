@@ -65,7 +65,7 @@ var PositionForeshowPanel = (function (_super) {
             this.roleShowpanel.SetAll(roledate);
         }
         else {
-            // LingtongViewHelper.SetRole(this.roleShowpanel, this.m_nSex)
+            LingtongViewHelper.SetRole(this.roleShowpanel, this.m_nSex);
         }
         this.tipsImg.source = config.itemid;
         this.skillList.dataProvider = new eui.ArrayCollection(this.m_gSkill);
@@ -108,16 +108,11 @@ var PositionForeshowPanel = (function (_super) {
                 case 0:
                     break;
                 case 1:
-                    ViewManager.ins().open(GrowUpWin, 0);
+                    ViewManager.ins().open(GrowUpWin, 1);
                     this.CloseSelf();
                     break;
                 case 2:
-                    if (LocationProperty.IsOtherRecharge()) {
-                        RechargeWin.Open();
-                    }
-                    else {
-                        GameGlobal.RechargeModel.sendRecharge(6);
-                    }
+                    GameGlobal.RechargeModel.sendRecharge(6);
                     break;
                 case 3:
                     if (Deblocking.Check(DeblockingType.TYPE_116)) {

@@ -53,43 +53,4 @@ var BaseSystem = (function (_super) {
     return BaseSystem;
 }(BaseClass));
 __reflect(BaseSystem.prototype, "BaseSystem");
-var BaseSystem2 = (function () {
-    function BaseSystem2() {
-        this.m_Init = false;
-        GameGlobal.AllModule.push(this);
-    }
-    BaseSystem2.prototype.InitConfig = function () {
-        if (this.m_Init) {
-            return;
-        }
-        this.m_Init = true;
-        this.Init();
-    };
-    BaseSystem2.prototype.Init = function () {
-    };
-    /**
-     * 注册协议，不能重复注册，新注册的会覆盖旧的
-     */
-    BaseSystem2.prototype.regNetMsg = function (msgId, fun) {
-        Sproto.SprotoReceiver.AddHandler(msgId, fun, this);
-    };
-    /**
-     * 可重复注册协议方法
-     */
-    BaseSystem2.prototype.RegNetMsgs = function (msgId, fun) {
-        Sproto.SprotoReceiver.AddHandlers(msgId, fun, this);
-    };
-    BaseSystem2.prototype.Rpc = function (tag, rpcReq, rpcRspHandler, thisObj) {
-        if (rpcReq === void 0) { rpcReq = null; }
-        if (rpcRspHandler === void 0) { rpcRspHandler = null; }
-        if (thisObj === void 0) { thisObj = null; }
-        GameSocket.ins().Rpc(tag, rpcReq, rpcRspHandler, this);
-    };
-    BaseSystem2.prototype.OnDayTimer = function () {
-    };
-    BaseSystem2.prototype.OnSocketClose = function () {
-    };
-    return BaseSystem2;
-}());
-__reflect(BaseSystem2.prototype, "BaseSystem2");
 //# sourceMappingURL=BaseSystem.js.map

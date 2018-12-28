@@ -24,7 +24,7 @@ var ChatPanel = (function (_super) {
         layout.gap = 7;
         _this.list.layout = layout;
         _this.list.itemRenderer = ChatItem;
-        _this.bar.dataProvider = new eui.ArrayCollection(["全 部", "世 界", "帮 会", "跨服"]);
+        _this.bar.dataProvider = new eui.ArrayCollection(["全 部", "世 界", "帮 会"]);
         _this.input.SetCallback(function (msg) {
             _this.OnSend(msg);
         });
@@ -69,9 +69,6 @@ var ChatPanel = (function (_super) {
         else if (index == 2) {
             source = GameGlobal.Chat.guildchatList;
         }
-        else if (index == 3) {
-            source = GameGlobal.Chat.crosschatList;
-        }
         else {
             source = GameGlobal.Chat.minichatList;
         }
@@ -115,7 +112,6 @@ var ChatItem = (function (_super) {
                 case ChatType.Normal:
                 case ChatType.Guild:
                 case ChatType.NormalPublic:
-                case ChatType.Cross:
                     if (data.type2 == 0) {
                         this.SetContent(3);
                     }

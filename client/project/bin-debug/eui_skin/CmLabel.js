@@ -25,15 +25,6 @@ var CmLabel = (function (_super) {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(CmLabel.prototype, "textColor", {
-        set: function (color) {
-            if (this.label) {
-                this.label.textColor = color;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
     CmLabel.prototype.childrenCreated = function () {
         this.UpdateLabel();
     };

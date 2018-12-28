@@ -15,47 +15,32 @@ var LingtongMainPanel = (function (_super) {
     __extends(LingtongMainPanel, _super);
     function LingtongMainPanel() {
         var _this = _super.call(this) || this;
-        /////////////////////////////////////////////////////////////////////////////
-        _this.mSelectIndex = 0;
-        _this.mPetList = [];
-        _this.skinName = "LingtongMainSkin";
+        _this.skinName = UIHelper.PANEL;
         _this.mCommonWindowBg.title = "灵童";
-        _this.mListLRBtnCtrl = new ListLRBtnCtrl(_this.list, _this.leftBtn, _this.rightBtn, 112);
         return _this;
     }
     LingtongMainPanel.prototype.childrenCreated = function () {
         var list = [
-            TabView.CreateTabViewData(LingtongUpLevelPanel, { mContext: this }),
-            TabView.CreateTabViewData(LingtongYuMainPanel, { mContext: this }),
-            TabView.CreateTabViewData(DestinyPanel),
-            TabView.CreateTabViewData(LingtongCompositionPanel),
+            TabView.CreateTabViewData(LingtongUpLevelPanel),
+            TabView.CreateTabViewData(LingtongSkillPanel),
+            TabView.CreateTabViewData(LingtongRankPanel),
         ];
-        this.viewStack.tabChildren = list;
-        this.mCommonWindowBg.SetViewStack(this.viewStack);
-        // if (Deblocking.IsDeblocking(DeblockingType.TYPE_120)) {
-        // 	list.push(TabView.CreateTabViewData(DestinyPanel))
-        // }
-        this.list.itemRenderer = LingtongHeadItem;
-        this.list.dataProvider = new eui.ArrayCollection();
-        this.ResortList();
-        this.list.selectedIndex = this.mSelectIndex;
-        this._AddItemClick(this.list, this._OnItemTap);
+        if (Deblocking.IsDeblocking(DeblockingType.TYPE_120)) {
+            list.push(TabView.CreateTabViewData(DestinyPanel));
+            // list.push(TabView.CreateTabViewData(DestinyNiPanel))
+        }
+        this.mCommonWindowBg.SetTabView(list);
     };
     LingtongMainPanel.prototype.OnOpen = function () {
         var param = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             param[_i] = arguments[_i];
         }
-        var openIndex = param[0] || 0;
-        this.showGroup.visible = openIndex != 2 && openIndex != 3;
-        this.mCommonWindowBg.OnAdded(this, openIndex);
+        this.mCommonWindowBg.OnAdded(this, param[0] || 0);
         this.observe(MessageDef.LINGTONG_UPDATE_INFO, this.UpdateContent);
-        this.observe(GameGlobal.LingtongModel.GetItemRpUpdateMsg(), this.ResortList);
-        this.observe(GameGlobal.LingtongModel.GetItemEquipRpUpdateMsg(), this.ResortList);
+        this.observe(GameGlobal.LingtongModel.GetItemRpUpdateMsg(), this.UpdateRedPoint);
+        this.observe(GameGlobal.LingtongModel.GetItemEquipRpUpdateMsg(), this.UpdateRedPoint);
         this.observe(MessageDef.RP_LINGTONG, this.UpdateRedPoint);
-        this.observe(MessageDef.DESTINY_RP, this.UpdateRedPoint);
-        this.observe(MessageDef.LINGTONG_BATTLE, this.ResortList);
-        this.observe(MessageDef.LINGTONG_ACTIVE, this.ResortList);
         this.UpdateContent();
         this.UpdateRedPoint();
     };
@@ -63,95 +48,59 @@ var LingtongMainPanel = (function (_super) {
         this.mCommonWindowBg.OnRemoved();
     };
     LingtongMainPanel.prototype.UpdateRedPoint = function () {
-        this.ResortList();
-        var redPoint = GameGlobal.LingtongAttrModel.mRedPoint;
-        this.mCommonWindowBg.ShowTalRedPoint(0, redPoint.Get(LingtongAttrRedPoint.INDEX_LEVEL) || redPoint.Get(LingtongAttrRedPoint.INDEX_SKILL) || redPoint.Get(LingtongAttrRedPoint.INDEX_ACTIVE));
-        this.mCommonWindowBg.ShowTalRedPoint(1, redPoint.Get(LingtongAttrRedPoint.INDEX_YUL) || redPoint.Get(LingtongAttrRedPoint.INDEX_YUH) || redPoint.Get(LingtongAttrRedPoint.INDEX_SUIT) || redPoint.Get(LingtongAttrRedPoint.INDEX_RANK));
-        this.mCommonWindowBg.ShowTalRedPoint(3, redPoint.Get(LingtongAttrRedPoint.INDEX_COMPOSITION));
-        if (Deblocking.IsDeblocking(DeblockingType.TYPE_120)) {
-            this.mCommonWindowBg.ShowTalRedPoint(2, GameGlobal.DestinyController.mRedPoint.IsRedPoint());
-        }
-    };
-    LingtongMainPanel.prototype.ResortList = function () {
-        this.mPetList = CommonUtils.GetArray(GameGlobal.Config.BabyActivationConfig, "type");
-        var model = GameGlobal.LingtongPetModel;
-        var getWeight = function (config) {
-            var confId = config.type;
-            if (model.HasBattle(confId)) {
-                return model.GetBattlePos(confId) - 10000000;
-            }
-            if (model.IsActive(confId)) {
-                var quality = GameGlobal.Config.BabyActivationConfig[confId].quality;
-                return confId - 1000000 - quality * 10000;
-            }
-            else {
-                if (GameGlobal.LingtongAttrModel.mRedPoint.IsAct(confId)) {
-                    return confId - 100000;
-                }
-            }
-            return confId;
-        };
-        this.mPetList.sort(function (lhs, rhs) {
-            return getWeight(lhs) - getWeight(rhs);
-        });
-        var selId = null;
-        if (this.list.selectedItem) {
-            selId = this.list.selectedItem.type;
-        }
-        this.list.dataProvider.replaceAll(this.mPetList);
-        if (selId) {
-            var index = 0;
-            for (var _i = 0, _a = this.mPetList; _i < _a.length; _i++) {
-                var data = _a[_i];
-                if (data.type == selId) {
-                    this.list.selectedIndex = index;
-                    this.mSelectIndex = index;
-                    break;
-                }
-                ++index;
-            }
-        }
-        var list = [];
-        for (var _b = 0, _c = this.mPetList; _b < _c.length; _b++) {
-            var data = _c[_b];
-            list.push(LingtongHeadItem.RedPoint(data.id));
-        }
-        this.mListLRBtnCtrl.SetRedPointList(list);
-        this.mListLRBtnCtrl.OnRefresh();
-    };
-    LingtongMainPanel.prototype._OnItemTap = function (e) {
-        var index = e.itemIndex;
-        this.mSelectIndex = index;
-        if (!GameGlobal.LingtongPetModel.IsActive(this.mPetList[index].type)) {
-            var selectedIndex = this.commonWindowBg.viewStack.selectedIndex;
-            if (selectedIndex == 1 || selectedIndex == 2) {
-                this.commonWindowBg.SetTabIndex(0);
-            }
-        }
-        var data = this.commonWindowBg.GetCurViewStackElement();
-        if (data.UpdateSelect) {
-            data.UpdateSelect();
-        }
+        this.mCommonWindowBg.CheckTalRedPoint(0);
+        this.mCommonWindowBg.CheckTalRedPoint(1);
+        this.mCommonWindowBg.CheckTalRedPoint(2);
     };
     LingtongMainPanel.prototype.UpdateContent = function () {
+        if (GameGlobal.LingtongAttrModel.IsActive()) {
+            this.mCommonWindowBg.GetCurViewStackElement().UpdateContent();
+        }
+        this._UpdatePetView();
+    };
+    LingtongMainPanel.prototype._UpdatePetView = function (index) {
+        if (index === void 0) { index = null; }
+        if (index == null) {
+            index = this.mCommonWindowBg.viewStack.selectedIndex;
+        }
+        if (index == 3) {
+            if (this.mPetInactiveView) {
+                this.mPetInactiveView.visible = false;
+            }
+            this.mCommonWindowBg.viewStack.visible = true;
+        }
+        else {
+            if (!GameGlobal.LingtongAttrModel.IsActive()) {
+                if (!this.mPetInactiveView) {
+                    this.mPetInactiveView = new LingtongInactiveView;
+                }
+                this.mPetInactiveView.visible = true;
+                if (!this.mPetInactiveView.parent) {
+                    this.addChild(this.mPetInactiveView);
+                    this.mPetInactiveView.DoOpen([]);
+                }
+                this.mPetInactiveView.UpdateContent();
+                this.mCommonWindowBg.viewStack.visible = false;
+            }
+            else {
+                this.mCommonWindowBg.viewStack.visible = true;
+                this._ClosePetView();
+            }
+        }
+    };
+    LingtongMainPanel.prototype._ClosePetView = function () {
+        if (this.mPetInactiveView && this.mPetInactiveView.parent) {
+            this.mPetInactiveView.DoClose();
+            DisplayUtils.removeFromParent(this.mPetInactiveView);
+        }
     };
     LingtongMainPanel.prototype.OnOpenIndex = function (openIndex) {
-        if (openIndex == 1) {
-            if (!GameGlobal.LingtongPetModel.IsActive(this.mPetList[this.mSelectIndex].type)) {
-                UserTips.InfoTip("请先激活");
-                return false;
+        if (!GameGlobal.LingtongAttrModel.IsActive() && openIndex != 3) {
+            if (openIndex != 0) {
+                UserTips.InfoTip("请先激活灵童");
             }
         }
-        else if (openIndex == 2) {
-            if (!GameGlobal.LingtongPetModel.HasActive()) {
-                UserTips.InfoTip("请先激活");
-                return false;
-            }
-            if (!Deblocking.Check(DeblockingType.TYPE_120)) {
-                return false;
-            }
-        }
-        this.showGroup.visible = openIndex != 2 && openIndex != 3;
+        this._UpdatePetView(openIndex);
         return true;
     };
     LingtongMainPanel.openCheck = function () {
@@ -159,62 +108,11 @@ var LingtongMainPanel = (function (_super) {
         for (var _i = 0; _i < arguments.length; _i++) {
             param[_i] = arguments[_i];
         }
-        var index = param[0] || 0;
-        if (index == 1) {
-            if (!GameGlobal.LingtongPetModel.HasActive()) {
-                UserTips.InfoTip("请先激活");
-                return false;
-            }
-        }
-        if (index == 2) {
-            if (!GameGlobal.LingtongPetModel.HasActive()) {
-                UserTips.InfoTip("请先激活");
-                return false;
-            }
-            if (!Deblocking.Check(DeblockingType.TYPE_120)) {
-                return false;
-            }
-        }
         return Deblocking.Check(DeblockingType.TYPE_116);
+        // return true
     };
     LingtongMainPanel.LAYER_LEVEL = LayerManager.UI_Main;
     return LingtongMainPanel;
 }(BaseEuiView));
 __reflect(LingtongMainPanel.prototype, "LingtongMainPanel", ["ICommonWindow"]);
-var LingtongHeadItem = (function (_super) {
-    __extends(LingtongHeadItem, _super);
-    function LingtongHeadItem() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    /////////////////////////////////////////////////////////////////////////////
-    LingtongHeadItem.prototype.dataChanged = function () {
-        var config = this.data;
-        var id = config.type;
-        var index = GameGlobal.LingtongPetModel.mBattleList.indexOf(id);
-        if (index == 0) {
-            this.imgBattle.source = "ui_bm_chuzhan";
-        }
-        else if (index == -1) {
-            this.imgBattle.source = "";
-        }
-        else {
-            this.imgBattle.source = "ui_bm_beizhan";
-        }
-        this.item.SetQuality(LingtongInfo.GetQuality(id));
-        this.item.setItemImg(LingtongConst.GetHeadIcon(id));
-        this.item.setGray(!GameGlobal.LingtongPetModel.IsActive(id));
-        this.UpdateRedPoint();
-    };
-    LingtongHeadItem.prototype.UpdateRedPoint = function () {
-        this.redPoint.visible = LingtongHeadItem.RedPoint(this.data.type);
-    };
-    LingtongHeadItem.RedPoint = function (petId) {
-        if (GameGlobal.LingtongAttrModel.mRedPoint.IsRedLingtong(petId)) {
-            return true;
-        }
-        return false;
-    };
-    return LingtongHeadItem;
-}(eui.ItemRenderer));
-__reflect(LingtongHeadItem.prototype, "LingtongHeadItem");
 //# sourceMappingURL=LingtongMainPanel.js.map

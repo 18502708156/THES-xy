@@ -37,12 +37,8 @@ var FirstChargePanel = (function (_super) {
     FirstChargePanel.prototype.onClick = function (e) {
         var config = FirstChargePanel.lists[this.tabList.selectedIndex];
         if (this.chargeBtn.label == '立即充值') {
-            if (LocationProperty.IsOtherRecharge()) {
-                RechargeWin.Open();
-            }
-            else {
-                GameGlobal.RechargeModel.sendRecharge(config.buyid);
-            }
+            // RechargeWin.Open()
+            GameGlobal.RechargeModel.sendRecharge(config.buyid);
         }
         else {
             GameGlobal.RechargeModel.sendRechargeFirstReward(config.id);

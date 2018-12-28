@@ -89,7 +89,7 @@ var Sproto;
         while (-1 != (t = d.rt())) {
             switch (t) {
                 case 0:
-                    o.id = d.ri();
+                    o.sex = d.ri();
                     break;
                 default:
                     d.nod();
@@ -100,8 +100,8 @@ var Sproto;
     }
     function _encode_cs_baby_active_request(self, st) {
         var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
+        if (self.sex != undefined) {
+            se.wi(self.sex, 0);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
@@ -121,9 +121,6 @@ var Sproto;
                 case 0:
                     o.ret = d.rb();
                     break;
-                case 1:
-                    o.id = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -132,82 +129,13 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_active_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.ret != undefined) {
-            se.wb(self.ret, 0);
-        }
-        if (self.id != undefined) {
-            se.wi(self.id, 1);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_active_response"] = { en: _encode_cs_baby_active_response, de: _decode_cs_baby_active_response };
-    var cs_baby_addexp_request = (function () {
-        function cs_baby_addexp_request() {
-        }
-        return cs_baby_addexp_request;
-    }());
-    Sproto.cs_baby_addexp_request = cs_baby_addexp_request;
-    __reflect(cs_baby_addexp_request.prototype, "Sproto.cs_baby_addexp_request");
-    function _decode_cs_baby_addexp_request(d) {
-        var o = new cs_baby_addexp_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.id = d.ri();
-                    break;
-                case 1:
-                    o.autobuy = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_addexp_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
-        }
-        if (self.autobuy != undefined) {
-            se.wi(self.autobuy, 1);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_addexp_request"] = { en: _encode_cs_baby_addexp_request, de: _decode_cs_baby_addexp_request };
-    var cs_baby_addexp_response = (function () {
-        function cs_baby_addexp_response() {
-        }
-        return cs_baby_addexp_response;
-    }());
-    Sproto.cs_baby_addexp_response = cs_baby_addexp_response;
-    __reflect(cs_baby_addexp_response.prototype, "Sproto.cs_baby_addexp_response");
-    function _decode_cs_baby_addexp_response(d) {
-        var o = new cs_baby_addexp_response;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.ret = d.rb();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_addexp_response(self, st) {
         var se = Sproto.SprotoCore.GetSerialize(st, 1);
         if (self.ret != undefined) {
             se.wb(self.ret, 0);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
-    Sproto.ALL_DICT["cs_baby_addexp_response"] = { en: _encode_cs_baby_addexp_response, de: _decode_cs_baby_addexp_response };
+    Sproto.ALL_DICT["cs_baby_active_response"] = { en: _encode_cs_baby_active_response, de: _decode_cs_baby_active_response };
     var cs_baby_addgift_request = (function () {
         function cs_baby_addgift_request() {
         }
@@ -220,9 +148,6 @@ var Sproto;
         var t = -1;
         while (-1 != (t = d.rt())) {
             switch (t) {
-                case 0:
-                    o.id = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -231,10 +156,7 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_addgift_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
-        }
+        var se = Sproto.SprotoCore.GetSerialize(st, 0);
         return Sproto.SprotoCore.CloseSerialize(se);
     }
     Sproto.ALL_DICT["cs_baby_addgift_request"] = { en: _encode_cs_baby_addgift_request, de: _decode_cs_baby_addgift_request };
@@ -259,9 +181,6 @@ var Sproto;
                 case 2:
                     o.level = d.ri();
                     break;
-                case 3:
-                    o.id = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -270,7 +189,7 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_addgift_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 4);
+        var se = Sproto.SprotoCore.GetSerialize(st, 3);
         if (self.ret != undefined) {
             se.wb(self.ret, 0);
         }
@@ -280,348 +199,9 @@ var Sproto;
         if (self.level != undefined) {
             se.wi(self.level, 2);
         }
-        if (self.id != undefined) {
-            se.wi(self.id, 3);
-        }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
     Sproto.ALL_DICT["cs_baby_addgift_response"] = { en: _encode_cs_baby_addgift_response, de: _decode_cs_baby_addgift_response };
-    var cs_baby_explore_buy_request = (function () {
-        function cs_baby_explore_buy_request() {
-        }
-        return cs_baby_explore_buy_request;
-    }());
-    Sproto.cs_baby_explore_buy_request = cs_baby_explore_buy_request;
-    __reflect(cs_baby_explore_buy_request.prototype, "Sproto.cs_baby_explore_buy_request");
-    function _decode_cs_baby_explore_buy_request(d) {
-        var o = new cs_baby_explore_buy_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_explore_buy_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 0);
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_explore_buy_request"] = { en: _encode_cs_baby_explore_buy_request, de: _decode_cs_baby_explore_buy_request };
-    var cs_baby_explore_finish_request = (function () {
-        function cs_baby_explore_finish_request() {
-        }
-        return cs_baby_explore_finish_request;
-    }());
-    Sproto.cs_baby_explore_finish_request = cs_baby_explore_finish_request;
-    __reflect(cs_baby_explore_finish_request.prototype, "Sproto.cs_baby_explore_finish_request");
-    function _decode_cs_baby_explore_finish_request(d) {
-        var o = new cs_baby_explore_finish_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.taskId = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_explore_finish_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.taskId != undefined) {
-            se.wi(self.taskId, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_explore_finish_request"] = { en: _encode_cs_baby_explore_finish_request, de: _decode_cs_baby_explore_finish_request };
-    var cs_baby_explore_info_request = (function () {
-        function cs_baby_explore_info_request() {
-        }
-        return cs_baby_explore_info_request;
-    }());
-    Sproto.cs_baby_explore_info_request = cs_baby_explore_info_request;
-    __reflect(cs_baby_explore_info_request.prototype, "Sproto.cs_baby_explore_info_request");
-    function _decode_cs_baby_explore_info_request(d) {
-        var o = new cs_baby_explore_info_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_explore_info_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 0);
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_explore_info_request"] = { en: _encode_cs_baby_explore_info_request, de: _decode_cs_baby_explore_info_request };
-    var cs_baby_explore_quick_request = (function () {
-        function cs_baby_explore_quick_request() {
-        }
-        return cs_baby_explore_quick_request;
-    }());
-    Sproto.cs_baby_explore_quick_request = cs_baby_explore_quick_request;
-    __reflect(cs_baby_explore_quick_request.prototype, "Sproto.cs_baby_explore_quick_request");
-    function _decode_cs_baby_explore_quick_request(d) {
-        var o = new cs_baby_explore_quick_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.taskId = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_explore_quick_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.taskId != undefined) {
-            se.wi(self.taskId, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_explore_quick_request"] = { en: _encode_cs_baby_explore_quick_request, de: _decode_cs_baby_explore_quick_request };
-    var cs_baby_explore_refresh_request = (function () {
-        function cs_baby_explore_refresh_request() {
-        }
-        return cs_baby_explore_refresh_request;
-    }());
-    Sproto.cs_baby_explore_refresh_request = cs_baby_explore_refresh_request;
-    __reflect(cs_baby_explore_refresh_request.prototype, "Sproto.cs_baby_explore_refresh_request");
-    function _decode_cs_baby_explore_refresh_request(d) {
-        var o = new cs_baby_explore_refresh_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_explore_refresh_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 0);
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_explore_refresh_request"] = { en: _encode_cs_baby_explore_refresh_request, de: _decode_cs_baby_explore_refresh_request };
-    var cs_baby_explore_start_request = (function () {
-        function cs_baby_explore_start_request() {
-        }
-        return cs_baby_explore_start_request;
-    }());
-    Sproto.cs_baby_explore_start_request = cs_baby_explore_start_request;
-    __reflect(cs_baby_explore_start_request.prototype, "Sproto.cs_baby_explore_start_request");
-    function _decode_cs_baby_explore_start_request(d) {
-        var o = new cs_baby_explore_start_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.taskId = d.ri();
-                    break;
-                case 1:
-                    o.petIds = d.ria();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_explore_start_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.taskId != undefined) {
-            se.wi(self.taskId, 0);
-        }
-        if (self.petIds != undefined) {
-            se.wia(self.petIds, 1);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_explore_start_request"] = { en: _encode_cs_baby_explore_start_request, de: _decode_cs_baby_explore_start_request };
-    var cs_baby_hunsuit_up_request = (function () {
-        function cs_baby_hunsuit_up_request() {
-        }
-        return cs_baby_hunsuit_up_request;
-    }());
-    Sproto.cs_baby_hunsuit_up_request = cs_baby_hunsuit_up_request;
-    __reflect(cs_baby_hunsuit_up_request.prototype, "Sproto.cs_baby_hunsuit_up_request");
-    function _decode_cs_baby_hunsuit_up_request(d) {
-        var o = new cs_baby_hunsuit_up_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.id = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_hunsuit_up_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_hunsuit_up_request"] = { en: _encode_cs_baby_hunsuit_up_request, de: _decode_cs_baby_hunsuit_up_request };
-    var cs_baby_hunsuit_up_response = (function () {
-        function cs_baby_hunsuit_up_response() {
-        }
-        return cs_baby_hunsuit_up_response;
-    }());
-    Sproto.cs_baby_hunsuit_up_response = cs_baby_hunsuit_up_response;
-    __reflect(cs_baby_hunsuit_up_response.prototype, "Sproto.cs_baby_hunsuit_up_response");
-    function _decode_cs_baby_hunsuit_up_response(d) {
-        var o = new cs_baby_hunsuit_up_response;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.ret = d.rb();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_hunsuit_up_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.ret != undefined) {
-            se.wb(self.ret, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_hunsuit_up_response"] = { en: _encode_cs_baby_hunsuit_up_response, de: _decode_cs_baby_hunsuit_up_response };
-    var cs_baby_merge_request = (function () {
-        function cs_baby_merge_request() {
-        }
-        return cs_baby_merge_request;
-    }());
-    Sproto.cs_baby_merge_request = cs_baby_merge_request;
-    __reflect(cs_baby_merge_request.prototype, "Sproto.cs_baby_merge_request");
-    function _decode_cs_baby_merge_request(d) {
-        var o = new cs_baby_merge_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.id = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_merge_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_merge_request"] = { en: _encode_cs_baby_merge_request, de: _decode_cs_baby_merge_request };
-    var cs_baby_merge_response = (function () {
-        function cs_baby_merge_response() {
-        }
-        return cs_baby_merge_response;
-    }());
-    Sproto.cs_baby_merge_response = cs_baby_merge_response;
-    __reflect(cs_baby_merge_response.prototype, "Sproto.cs_baby_merge_response");
-    function _decode_cs_baby_merge_response(d) {
-        var o = new cs_baby_merge_response;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.ret = d.rb();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_merge_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.ret != undefined) {
-            se.wb(self.ret, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_merge_response"] = { en: _encode_cs_baby_merge_response, de: _decode_cs_baby_merge_response };
-    var cs_baby_outbound_request = (function () {
-        function cs_baby_outbound_request() {
-        }
-        return cs_baby_outbound_request;
-    }());
-    Sproto.cs_baby_outbound_request = cs_baby_outbound_request;
-    __reflect(cs_baby_outbound_request.prototype, "Sproto.cs_baby_outbound_request");
-    function _decode_cs_baby_outbound_request(d) {
-        var o = new cs_baby_outbound_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.first = d.ri();
-                    break;
-                case 1:
-                    o.second = d.ri();
-                    break;
-                case 2:
-                    o.third = d.ri();
-                    break;
-                case 3:
-                    o.four = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_outbound_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 4);
-        if (self.first != undefined) {
-            se.wi(self.first, 0);
-        }
-        if (self.second != undefined) {
-            se.wi(self.second, 1);
-        }
-        if (self.third != undefined) {
-            se.wi(self.third, 2);
-        }
-        if (self.four != undefined) {
-            se.wi(self.four, 3);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_outbound_request"] = { en: _encode_cs_baby_outbound_request, de: _decode_cs_baby_outbound_request };
     var cs_baby_refreshskill_request = (function () {
         function cs_baby_refreshskill_request() {
         }
@@ -635,15 +215,12 @@ var Sproto;
         while (-1 != (t = d.rt())) {
             switch (t) {
                 case 1:
-                    o.id = d.ri();
-                    break;
-                case 2:
                     o.locklist = d.ria();
                     break;
-                case 3:
+                case 2:
                     o.type = d.ri();
                     break;
-                case 4:
+                case 3:
                     o.autoBuy = d.ri();
                     break;
                 default:
@@ -654,18 +231,15 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_refreshskill_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 5);
-        if (self.id != undefined) {
-            se.wi(self.id, 1);
-        }
+        var se = Sproto.SprotoCore.GetSerialize(st, 4);
         if (self.locklist != undefined) {
-            se.wia(self.locklist, 2);
+            se.wia(self.locklist, 1);
         }
         if (self.type != undefined) {
-            se.wi(self.type, 3);
+            se.wi(self.type, 2);
         }
         if (self.autoBuy != undefined) {
-            se.wi(self.autoBuy, 4);
+            se.wi(self.autoBuy, 3);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
@@ -691,9 +265,6 @@ var Sproto;
                 case 2:
                     o.xilianSkills = d.ria();
                     break;
-                case 3:
-                    o.id = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -702,7 +273,7 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_refreshskill_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 4);
+        var se = Sproto.SprotoCore.GetSerialize(st, 3);
         if (self.ret != undefined) {
             se.wb(self.ret, 0);
         }
@@ -711,9 +282,6 @@ var Sproto;
         }
         if (self.xilianSkills != undefined) {
             se.wia(self.xilianSkills, 2);
-        }
-        if (self.id != undefined) {
-            se.wi(self.id, 3);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
@@ -730,9 +298,6 @@ var Sproto;
         var t = -1;
         while (-1 != (t = d.rt())) {
             switch (t) {
-                case 0:
-                    o.id = d.ri();
-                    break;
                 case 1:
                     o.name = d.rs();
                     break;
@@ -745,9 +310,6 @@ var Sproto;
     }
     function _encode_cs_baby_rename_request(self, st) {
         var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
-        }
         if (self.name != undefined) {
             se.ws(self.name, 1);
         }
@@ -772,9 +334,6 @@ var Sproto;
                 case 1:
                     o.name = d.rs();
                     break;
-                case 2:
-                    o.id = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -783,15 +342,12 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_rename_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 3);
+        var se = Sproto.SprotoCore.GetSerialize(st, 2);
         if (self.ret != undefined) {
             se.wb(self.ret, 0);
         }
         if (self.name != undefined) {
             se.ws(self.name, 1);
-        }
-        if (self.id != undefined) {
-            se.wi(self.id, 2);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
@@ -844,9 +400,6 @@ var Sproto;
                 case 1:
                     o.buffs = d.ria();
                     break;
-                case 2:
-                    o.id = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -855,15 +408,12 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_setskillin_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 3);
+        var se = Sproto.SprotoCore.GetSerialize(st, 2);
         if (self.ret != undefined) {
             se.wb(self.ret, 0);
         }
         if (self.buffs != undefined) {
             se.wia(self.buffs, 1);
-        }
-        if (self.id != undefined) {
-            se.wi(self.id, 2);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
@@ -1084,9 +634,6 @@ var Sproto;
         var t = -1;
         while (-1 != (t = d.rt())) {
             switch (t) {
-                case 0:
-                    o.babyid = d.ri();
-                    break;
                 case 1:
                     o.pos = d.ri();
                     break;
@@ -1099,9 +646,6 @@ var Sproto;
     }
     function _encode_cs_baby_start_up_lv_request(self, st) {
         var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.babyid != undefined) {
-            se.wi(self.babyid, 0);
-        }
         if (self.pos != undefined) {
             se.wi(self.pos, 1);
         }
@@ -1129,9 +673,6 @@ var Sproto;
                 case 2:
                     o.no = d.ri();
                     break;
-                case 3:
-                    o.babyid = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -1140,7 +681,7 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_start_up_lv_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 4);
+        var se = Sproto.SprotoCore.GetSerialize(st, 3);
         if (self.ret != undefined) {
             se.wb(self.ret, 0);
         }
@@ -1149,9 +690,6 @@ var Sproto;
         }
         if (self.no != undefined) {
             se.wi(self.no, 2);
-        }
-        if (self.babyid != undefined) {
-            se.wi(self.babyid, 3);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
@@ -1169,12 +707,9 @@ var Sproto;
         while (-1 != (t = d.rt())) {
             switch (t) {
                 case 0:
-                    o.babyid = d.ri();
-                    break;
-                case 1:
                     o.id = d.ri();
                     break;
-                case 2:
+                case 1:
                     o.pos = d.ri();
                     break;
                 default:
@@ -1185,15 +720,12 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_start_use_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 3);
-        if (self.babyid != undefined) {
-            se.wi(self.babyid, 0);
-        }
+        var se = Sproto.SprotoCore.GetSerialize(st, 2);
         if (self.id != undefined) {
-            se.wi(self.id, 1);
+            se.wi(self.id, 0);
         }
         if (self.pos != undefined) {
-            se.wi(self.pos, 2);
+            se.wi(self.pos, 1);
         }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
@@ -1219,9 +751,6 @@ var Sproto;
                 case 2:
                     o.no = d.ri();
                     break;
-                case 3:
-                    o.babyid = d.ri();
-                    break;
                 default:
                     d.nod();
                     break;
@@ -1230,7 +759,7 @@ var Sproto;
         return o;
     }
     function _encode_cs_baby_start_use_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 4);
+        var se = Sproto.SprotoCore.GetSerialize(st, 3);
         if (self.ret != undefined) {
             se.wb(self.ret, 0);
         }
@@ -1240,143 +769,8 @@ var Sproto;
         if (self.no != undefined) {
             se.wi(self.no, 2);
         }
-        if (self.babyid != undefined) {
-            se.wi(self.babyid, 3);
-        }
         return Sproto.SprotoCore.CloseSerialize(se);
     }
     Sproto.ALL_DICT["cs_baby_start_use_response"] = { en: _encode_cs_baby_start_use_response, de: _decode_cs_baby_start_use_response };
-    var cs_baby_up_hun_request = (function () {
-        function cs_baby_up_hun_request() {
-        }
-        return cs_baby_up_hun_request;
-    }());
-    Sproto.cs_baby_up_hun_request = cs_baby_up_hun_request;
-    __reflect(cs_baby_up_hun_request.prototype, "Sproto.cs_baby_up_hun_request");
-    function _decode_cs_baby_up_hun_request(d) {
-        var o = new cs_baby_up_hun_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.id = d.ri();
-                    break;
-                case 1:
-                    o.hunid = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_up_hun_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
-        }
-        if (self.hunid != undefined) {
-            se.wi(self.hunid, 1);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_up_hun_request"] = { en: _encode_cs_baby_up_hun_request, de: _decode_cs_baby_up_hun_request };
-    var cs_baby_up_hun_response = (function () {
-        function cs_baby_up_hun_response() {
-        }
-        return cs_baby_up_hun_response;
-    }());
-    Sproto.cs_baby_up_hun_response = cs_baby_up_hun_response;
-    __reflect(cs_baby_up_hun_response.prototype, "Sproto.cs_baby_up_hun_response");
-    function _decode_cs_baby_up_hun_response(d) {
-        var o = new cs_baby_up_hun_response;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.ret = d.rb();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_up_hun_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.ret != undefined) {
-            se.wb(self.ret, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_up_hun_response"] = { en: _encode_cs_baby_up_hun_response, de: _decode_cs_baby_up_hun_response };
-    var cs_baby_up_ling_request = (function () {
-        function cs_baby_up_ling_request() {
-        }
-        return cs_baby_up_ling_request;
-    }());
-    Sproto.cs_baby_up_ling_request = cs_baby_up_ling_request;
-    __reflect(cs_baby_up_ling_request.prototype, "Sproto.cs_baby_up_ling_request");
-    function _decode_cs_baby_up_ling_request(d) {
-        var o = new cs_baby_up_ling_request;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.id = d.ri();
-                    break;
-                case 1:
-                    o.lingid = d.ri();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_up_ling_request(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 2);
-        if (self.id != undefined) {
-            se.wi(self.id, 0);
-        }
-        if (self.lingid != undefined) {
-            se.wi(self.lingid, 1);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_up_ling_request"] = { en: _encode_cs_baby_up_ling_request, de: _decode_cs_baby_up_ling_request };
-    var cs_baby_up_ling_response = (function () {
-        function cs_baby_up_ling_response() {
-        }
-        return cs_baby_up_ling_response;
-    }());
-    Sproto.cs_baby_up_ling_response = cs_baby_up_ling_response;
-    __reflect(cs_baby_up_ling_response.prototype, "Sproto.cs_baby_up_ling_response");
-    function _decode_cs_baby_up_ling_response(d) {
-        var o = new cs_baby_up_ling_response;
-        var t = -1;
-        while (-1 != (t = d.rt())) {
-            switch (t) {
-                case 0:
-                    o.ret = d.rb();
-                    break;
-                default:
-                    d.nod();
-                    break;
-            }
-        }
-        return o;
-    }
-    function _encode_cs_baby_up_ling_response(self, st) {
-        var se = Sproto.SprotoCore.GetSerialize(st, 1);
-        if (self.ret != undefined) {
-            se.wb(self.ret, 0);
-        }
-        return Sproto.SprotoCore.CloseSerialize(se);
-    }
-    Sproto.ALL_DICT["cs_baby_up_ling_response"] = { en: _encode_cs_baby_up_ling_response, de: _decode_cs_baby_up_ling_response };
 })(Sproto || (Sproto = {}));
 //# sourceMappingURL=baby_c2s.js.map

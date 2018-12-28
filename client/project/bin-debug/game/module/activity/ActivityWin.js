@@ -79,8 +79,7 @@ var ActivityItem = (function (_super) {
         }
         var isopen = GameGlobal.ActivityModel.activityList[this.type];
         //帮会战和帮会BOSS无论开启与否。都可以点击进入里面的界面
-        if (!isopen && this.type != ActivityModel.TYPE_GANG_BATTLE
-            && this.type != ActivityModel.TYPE_GANG_BOSS && this.type != ActivityModel.TYPE_EXPEDITION) {
+        if (!isopen && this.type != ActivityModel.TYPE_GANG_BATTLE && this.type != ActivityModel.TYPE_GANG_BOSS) {
             GameGlobal.UserTips.showTips('活动未开启');
             return;
         }
@@ -125,11 +124,10 @@ var ActivityItem = (function (_super) {
                 }
                 GameGlobal.GangBattleModel.SendEnterBattle();
                 break;
+            case ActivityModel.TYPE_WULIN_ZHENGBA:
+                break;
             case ActivityModel.TYPE_CLOUD_NINE:
                 GameGlobal.CloudNineModel.sendLeaveTime();
-                break;
-            case ActivityModel.TYPE_EXPEDITION:
-                ViewManager.ins().open(PetExpeditionView);
                 break;
         }
     };
@@ -151,6 +149,8 @@ var ActivityItem = (function (_super) {
             case ActivityModel.TYPE_GANG_BATTLE:
             case ActivityModel.TYPE_CROSS_BATTLE:
                 ActivityRewardShowWin.Open(this.type);
+                break;
+            case ActivityModel.TYPE_WULIN_ZHENGBA:
                 break;
         }
     };
@@ -189,6 +189,8 @@ var ActivityItem = (function (_super) {
             case ActivityModel.TYPE_CROSS_BATTLE:
                 break;
             case ActivityModel.TYPE_GANG_BATTLE:
+                break;
+            case ActivityModel.TYPE_WULIN_ZHENGBA:
                 break;
             case ActivityModel.TYPE_CLOUD_NINE:
                 break;

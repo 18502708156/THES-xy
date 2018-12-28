@@ -18,8 +18,6 @@ var ActivityConst = (function () {
             case ActivityKaiFuJiJieType.tiannv_nimbus: return "玄女灵气";
             case ActivityKaiFuJiJieType.tiannv_flower: return "玄女花辇";
             case ActivityKaiFuJiJieType.lingtong: return "灵童";
-            case ActivityKaiFuJiJieType.lingtong_yuling: return "灵童御灵";
-            case ActivityKaiFuJiJieType.lingtong_fate: return "灵童逆命";
             case 100: return "VIP";
         }
     };
@@ -37,8 +35,6 @@ var ActivityConst = (function () {
             case ActivityKaiFuJiJieType.tiannv_nimbus: return "灵气";
             case ActivityKaiFuJiJieType.tiannv_flower: return "花辇";
             case ActivityKaiFuJiJieType.lingtong: return "灵童";
-            case ActivityKaiFuJiJieType.lingtong_yuling: return "御灵";
-            case ActivityKaiFuJiJieType.lingtong_fate: return "命格";
         }
     };
     ActivityConst.GetQiTianActivityIds = function (day, index) {
@@ -58,8 +54,7 @@ var ActivityConst = (function () {
             return obj[valuedata.value];
         }
     };
-    //排行榜類型
-    ActivityConst.ActivityKaiFuJiJieRankType = [0, 5, 6, 7, 8, 14, 13, 12, 11, 9, 16, 15, 20, 21, 23];
+    ActivityConst.ActivityKaiFuJiJieRankType = [0, 5, 6, 7, 8, 14, 13, 12, 11, 9, 16, 15, 20];
     return ActivityConst;
 }());
 __reflect(ActivityConst.prototype, "ActivityConst");
@@ -159,8 +154,6 @@ var ActivityKaiFuJiJieType;
     ActivityKaiFuJiJieType[ActivityKaiFuJiJieType["tiannv_nimbus"] = 10] = "tiannv_nimbus";
     ActivityKaiFuJiJieType[ActivityKaiFuJiJieType["tiannv_flower"] = 11] = "tiannv_flower";
     ActivityKaiFuJiJieType[ActivityKaiFuJiJieType["lingtong"] = 12] = "lingtong";
-    ActivityKaiFuJiJieType[ActivityKaiFuJiJieType["lingtong_yuling"] = 13] = "lingtong_yuling";
-    ActivityKaiFuJiJieType[ActivityKaiFuJiJieType["lingtong_fate"] = 14] = "lingtong_fate";
 })(ActivityKaiFuJiJieType || (ActivityKaiFuJiJieType = {}));
 var ActivityKaiFuTargetId;
 (function (ActivityKaiFuTargetId) {

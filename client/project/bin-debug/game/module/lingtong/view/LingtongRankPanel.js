@@ -16,6 +16,7 @@ var LingtongRankPanel = (function (_super) {
     function LingtongRankPanel() {
         var _this = _super.call(this) || this;
         _this.skinName = "LingtongRankSkin";
+        _this.GainWay();
         _this._AddClick(_this.skillIcon, _this._OnItemClick);
         _this._AddClick(_this.btnAuto, _this._OnItemClick);
         _this._AddClick(_this.btnCulture, _this._OnItemClick);
@@ -28,19 +29,17 @@ var LingtongRankPanel = (function (_super) {
                 _this.btnAuto.label = "停止";
             }
             else {
-                _this.btnAuto.label = "一键升级";
+                _this.btnAuto.label = "自动进阶";
             }
         }, 200);
         _this.mRoleSendCheckData = new RoleSendCheckData(function (type) {
-            GameGlobal.LingtongAttrModel.SendAddGift(_this.m_petId);
+            GameGlobal.LingtongAttrModel.SendAddGift();
         }, function () {
-            // let model = GameGlobal.LingtongAttrModel
-            var petModel = GameGlobal.LingtongPetModel;
-            var petInfo = petModel.GetInfo(_this.m_petId);
-            if (petInfo.mGiftLevel >= GameGlobal.LingtongPetModel.MAX_GIFT_LEVEL) {
+            var model = GameGlobal.LingtongAttrModel;
+            if (model.giftlv >= model.MAX_GIFT_LEVEL) {
                 return [null];
             }
-            var config = GameGlobal.Config.BabyTalentConfig[petInfo.mId][petInfo.mGiftLevel - 1];
+            var config = GameGlobal.Config.BabyTalentConfig[model.mSex][model.giftlv - 1];
             if (!config) {
                 return;
             }
@@ -58,80 +57,60 @@ var LingtongRankPanel = (function (_super) {
     LingtongRankPanel.prototype.childrenCreated = function () {
     };
     LingtongRankPanel.prototype.OnOpen = function () {
-        this.observe(MessageDef.LINGTONG_YU_UPDATE_INFO, this.UpdateContent);
         this.observe(MessageDef.LINGTONG_UPDATE_INFO, this.UpdateContent);
         this.observe(MessageDef.LINGTONG_UPDATE_GIFT_INFO, this.UpdateRank);
+        this.UpdateContent();
         this.observe(MessageDef.RP_LINGTONG, this.UpdateRedPoint);
         this.UpdateRedPoint();
+        this.lbName.text = GameGlobal.LingtongAttrModel.mName;
+        LingtongViewHelper.SetRole(this.petShowPanel0);
     };
     LingtongRankPanel.prototype.OnClose = function () {
         this.mRoleAutoSendData.Stop();
     };
-    LingtongRankPanel.prototype.UpdateSelId = function (selId) {
-        this.m_petId = selId;
-        this.UpdateContent();
-    };
     LingtongRankPanel.prototype.UpdateRedPoint = function () {
         UIHelper.ShowRedPoint(this.btnAuto, GameGlobal.LingtongAttrModel.mRedPoint.Get(LingtongAttrRedPoint.INDEX_RANK));
         UIHelper.ShowRedPoint(this.btnCulture, GameGlobal.LingtongAttrModel.mRedPoint.Get(LingtongAttrRedPoint.INDEX_RANK));
-        var petInfo = GameGlobal.LingtongPetModel.GetInfo(this.m_petId);
-        if (!petInfo) {
-            return;
-        }
-        var config = GameGlobal.Config.BabyTalentConfig[petInfo.mId][petInfo.mGiftLevel - 1];
-        if (!config) {
-            return;
-        }
-        this.consumeLabel.SetItem(config.cost[0].id, config.cost[0].count, GameGlobal.UserBag.GetCount(config.cost[0].id));
     };
     LingtongRankPanel.prototype.UpdateRank = function () {
         this.mRoleAutoSendData.Continue();
         this.UpdateContent();
     };
     LingtongRankPanel.prototype.UpdateContent = function () {
-        var petModel = GameGlobal.LingtongPetModel;
-        var petInfo = petModel.GetInfo(this.m_petId);
-        if (!petInfo) {
+        var model = GameGlobal.LingtongAttrModel;
+        if (!model.IsActive()) {
             return;
         }
-        this.GainWay();
-        var config = GameGlobal.Config.BabyTalentConfig[petInfo.mId][petInfo.mGiftLevel - 1];
+        var config = GameGlobal.Config.BabyTalentConfig[model.mSex][model.giftlv - 1];
         if (!config) {
             return;
         }
-        this.SetSkillDes(this.leftComp, GameGlobal.LingtongAttrModel.GetSkillId(petInfo.mId, petInfo.mGiftLevel));
-        PetSkillIconItem.SetContent(this.skillIcon, GameGlobal.LingtongAttrModel.GetSkillId(petInfo.mId, petInfo.mGiftLevel), 0);
-        var attrs = GameGlobal.LingtongAttrModel.getTianFuAllAttr(petInfo.mId, petInfo.mGiftLevel, petInfo.mGiftExp);
+        this.SetSkillDes(this.leftComp, GameGlobal.LingtongAttrModel.GetSkillId());
+        PetSkillIconItem.SetContent(this.skillIcon, GameGlobal.LingtongAttrModel.GetSkillId(), 0);
+        var attrs = GameGlobal.LingtongAttrModel.getTianFuAllAttr();
         this.skinAttr.textFlow = AttributeData.GetAttrTabString(attrs);
         this.powerLabel.text = UserBag.getAttrPower(attrs);
-        this.lbLev.text = PetZizhiPanel.TYPE[petInfo.mGiftLevel];
-        if (petInfo.mGiftLevel >= GameGlobal.LingtongPetModel.MAX_GIFT_LEVEL) {
+        this.lbLev.text = PetZizhiPanel.TYPE[model.giftlv];
+        if (model.giftlv >= model.MAX_GIFT_LEVEL) {
             this.infoGroup.visible = false;
             this.lbFull.visible = true;
-            this.leftComp.x = 189;
+            this.leftComp.x = 229;
             this.arrImg.visible = false;
             this.rightComp.visible = false;
             return;
         }
-        this.infoGroup.visible = true;
-        this.lbFull.visible = false;
         this.leftComp.x = 34;
         this.arrImg.visible = true;
         this.rightComp.visible = true;
-        this.SetSkillDes(this.rightComp, GameGlobal.LingtongAttrModel.GetNextSkillId(petInfo.mId, petInfo.mGiftLevel));
+        this.SetSkillDes(this.rightComp, GameGlobal.LingtongAttrModel.GetNextSkillId());
         this.bar.maximum = config.proexp;
-        this.bar.value = petInfo.mGiftExp * config.exp;
-        // this.needItemView.SetItemId(config.cost[0].id, config.cost[0].count)
-        this.consumeLabel.SetItem(config.cost[0].id, config.cost[0].count, GameGlobal.UserBag.GetCount(config.cost[0].id));
+        this.bar.value = model.giftexp * config.exp;
+        this.needItemView.SetItemId(config.cost[0].id, config.cost[0].count);
     };
     LingtongRankPanel.prototype._OnItemClick = function (e) {
         switch (e.currentTarget) {
             case this.skillIcon:
-                var petInfo = GameGlobal.LingtongPetModel.GetInfo(this.m_petId);
-                if (!petInfo) {
-                    return;
-                }
-                ViewManager.ins().open(PetSkillTipPanel, 0, GameGlobal.LingtongAttrModel.GetSkillId(petInfo.mId, petInfo.mGiftLevel));
+                ViewManager.ins().open(PetSkillTipPanel, 0, GameGlobal.LingtongAttrModel.GetSkillId());
                 break;
             case this.btnCulture:
                 this.SendUp();
@@ -142,11 +121,11 @@ var LingtongRankPanel = (function (_super) {
         }
     };
     LingtongRankPanel.prototype.GainWay = function () {
-        var petInfo = GameGlobal.LingtongPetModel.GetInfo(this.m_petId);
-        if (!petInfo) {
+        var model = GameGlobal.LingtongAttrModel;
+        if (!model.IsActive()) {
             return;
         }
-        var config = GameGlobal.Config.BabyTalentConfig[petInfo.mId][petInfo.mGiftLevel - 1];
+        var config = GameGlobal.Config.BabyTalentConfig[GameGlobal.LingtongAttrModel.mSex][model.giftlv - 1];
         if (!config) {
             return;
         }

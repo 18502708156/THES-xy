@@ -59,18 +59,14 @@ var ItemIcon = (function (_super) {
         this.imgIcon.source = imgName;
     };
     ItemIcon.prototype.setGray = function (isGray) {
-        if (isGray) {
-            if (this.imgIcon.filters) {
-                return;
-            }
-            this.imgIcon.filters = Color.GetFilter();
-        }
-        else {
-            if (!this.imgIcon.filters) {
-                return;
-            }
-            this.imgIcon.filters = null;
-        }
+        var isGrayType = function (filters) {
+            if (!filters)
+                return false;
+            return true;
+        };
+        if (isGray && isGrayType(this.imgIcon.filters))
+            return;
+        this.imgIcon.filters = isGray ? Color.GetFilter() : null;
     };
     ItemIcon.prototype.setItemBg = function (imgName) {
         this.imgBg.source = imgName;

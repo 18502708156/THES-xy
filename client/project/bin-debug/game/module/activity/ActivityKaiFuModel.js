@@ -110,13 +110,7 @@ var ActivityKaiFuModel = (function (_super) {
                 stage = GameGlobal.HavingHuanModel.mLevel;
                 break;
             case ActivityKaiFuJiJieType.lingtong:
-                stage = GameGlobal.LingtongPetModel.GetMaxPetLevel();
-                break;
-            case ActivityKaiFuJiJieType.lingtong_yuling:
-                stage = GameGlobal.LingtongPetModel.GetYulCount();
-                break;
-            case ActivityKaiFuJiJieType.lingtong_fate:
-                stage = GameGlobal.DestinyController.GetCount();
+                stage = GameGlobal.LingtongModel.mLevel;
                 break;
             case 100:
                 stage = GameGlobal.actorModel.vipLv;
@@ -173,12 +167,6 @@ var ActivityKaiFuModel = (function (_super) {
                 break;
             case ActivityKaiFuJiJieType.lingtong:
                 ViewManager.ins().open(LingtongMainPanel);
-                break;
-            case ActivityKaiFuJiJieType.lingtong_yuling:
-                ViewManager.ins().open(LingtongMainPanel, 1);
-                break;
-            case ActivityKaiFuJiJieType.lingtong_fate:
-                ViewManager.ins().open(LingtongMainPanel, 2);
                 break;
         }
         return 0;
@@ -238,14 +226,8 @@ var ActivityKaiFuModel = (function (_super) {
         req.id = id;
         this.Rpc(C2sProtocol.cs_advanced_lv_reward, req);
     };
-    ActivityKaiFuModel.prototype.Send_advanced_rank = function (id) {
-        var req = new Sproto.cs_advanced_rank_request;
-        if (id != undefined) {
-            req.baby = id;
-            this.Rpc(C2sProtocol.cs_advanced_rank, req);
-        }
-        else
-            this.Rpc(C2sProtocol.cs_advanced_rank);
+    ActivityKaiFuModel.prototype.Send_advanced_rank = function () {
+        this.Rpc(C2sProtocol.cs_advanced_rank);
     };
     ActivityKaiFuModel.prototype.Send_advanced_buy = function (id, num, type) {
         var req = new Sproto.cs_advanced_buy_request;

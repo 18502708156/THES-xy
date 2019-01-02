@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="MainPlayerInfoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" width="450" height="183.03">
+<e:Skin class="MainPlayerInfoSkin" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" width="450" height="217.03">
 	<w:Config id="162615fe13c"/>
 	<e:Group x="0" y="55" touchEnabled="false">
 		<e:Image id="face" x="8" y="6" anchorOffsetX="0" anchorOffsetY="0" source=""/>
 		<e:Image source="ui_bm_text_bg1" x="1" y="0" touchEnabled="false"/>
 		<e:Label id="lbLev" text="Lv.1" y="94" size="22" textColor="0xffffff" width="89" textAlign="center" x="2"/>
-		<ns1:PowerLabel id="powerLabel" text="战 0" y="8"  x="99" />
-		<e:Button id="rechargeBtn" label="Button" x="208" y="75" skinName="Btn0Skin" icon="ui_zjm_bt_chongzhi"/>
-		<e:Button id="rankBtn" label="Button" x="96" y="75" icon="ui_zjm_bt_paihangbang" skinName="Btn0Tip2"/>
-		<e:Label id="lbName" text="" y="46" size="22" x="100" textColor="0xffffff" touchEnabled="false"/>
+		<ns1:PowerLabel id="powerLabel" text="战 0" y="19"  x="133" />
+		<e:Button id="rechargeBtn" label="Button" x="224" y="112" skinName="Btn0Skin" icon="ui_zjm_bt_chongzhi"/>
+		<e:Button id="rankBtn" label="Button" x="112" y="112" icon="ui_zjm_bt_paihangbang" skinName="Btn0Tip2"/>
+		<e:Label id="lbName" text="" y="70" size="22" x="140" textColor="0xffffff" touchEnabled="false"/>
 	</e:Group>
 
 	<e:Group x="340" y="77">

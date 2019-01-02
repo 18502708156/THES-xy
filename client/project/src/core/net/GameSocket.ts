@@ -31,6 +31,7 @@ class GameSocket {
 	public send(message: egret.ByteArray): boolean {
 		if (this.socket_.GetSocketState() == Socket.STATUS_COMMUNICATION) {
 			this.socket_.sendPack(message);
+			console.log("服务器地址：" + this.socket_._host, "服务器端口：" + this.socket_._port);
 			this._SendGetServerTime()
 			return true;
 		} else {

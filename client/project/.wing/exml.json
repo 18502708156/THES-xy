@@ -1,6 +1,6 @@
 {
   "global": {
-    "globalAutoLayerMarkEnable": true,
+    "globalAutoLayerMarkEnable": false,
     "globalAdsorbEnable": false,
     "globalRulerEnable": true,
     "globalBindingDataTestObj": [],

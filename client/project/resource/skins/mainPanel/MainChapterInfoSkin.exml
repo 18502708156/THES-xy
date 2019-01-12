@@ -6,7 +6,7 @@
 		<e:Image source="ui_bm_text_bg2" x="0" y="0"/>
 		<e:Image id="imgMap" source="ui_bm_text_icom1" x="146" y="9" width="90" height="90"/>
 		<e:Image id="imgRed" source="ui_bm_reddot" x="217.02" y="0"/>
-		<e:Label id="lbMap" text="九幽峡谷" y="18" size="22" textColor="0x59462e" textAlign="center" horizontalCenter="-37"/>
+		<e:Label id="lbMap" text="九幽峡谷" y="18" size="22" textAlign="center" horizontalCenter="-37" textColor="0xfffffe"/>
 		<e:Label id="lbSeat" text="(168,188)" y="56" size="22" textColor="0xfffffe" textAlign="center" horizontalCenter="-32.5"/>
 		<e:Group id="groupLine" x="15" y="53" width="120" visible="false">
 			<e:Label id="labLinerNo" text="5线" x="53" y="0" style="l_white"/>

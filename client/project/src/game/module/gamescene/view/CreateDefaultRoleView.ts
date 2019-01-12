@@ -31,7 +31,7 @@ class CreateDefaultRoleView extends BaseEuiView {
 	    ["ui_cjjs_mozhu_nan", "ui_cjjs_mozhu_nv"],
 	]
 
-	private m_CurImgIndex: number = 1
+	private m_CurImgIndex: number = 0
 
 	private m_Index: number = -1
 	private m_Job: number = 1
